@@ -1,44 +1,5 @@
-
-> apvmechanics.com.au1@0.1.0 dev
-> next dev
-
 ▲ Next.js 16.2.12 (Turbopack)
-- Local:         http://localhost:3000
-- Network:       http://172.25.224.1:3000
-✓ Ready in 2.5s
-
- GET / 200 in 1864ms (next.js: 402ms, application-code: 1462ms)
- GET / 200 in 2.4s (next.js: 38ms, application-code: 2.4s)
- GET / 200 in 1477ms (next.js: 185ms, application-code: 1292ms)
- GET / 200 in 898ms (next.js: 10ms, application-code: 889ms)
- GET / 200 in 833ms (next.js: 11ms, application-code: 822ms)
-✓ Compiled in 6.5s
- GET / 200 in 1054ms (next.js: 412ms, application-code: 642ms)
- GET / 200 in 2.0s (next.js: 224ms, application-code: 1805ms)
- GET / 200 in 1428ms (next.js: 50ms, application-code: 1378ms)
- GET / 200 in 1068ms (next.js: 535ms, application-code: 533ms)
- GET / 200 in 1073ms (next.js: 21ms, application-code: 1052ms)
- GET / 200 in 1073ms (next.js: 752ms, application-code: 321ms)
-✓ Compiled in 4.9s
- GET / 500 in 1761ms (next.js: 219ms, application-code: 1542ms)
- GET / 200 in 1364ms (next.js: 525ms, application-code: 839ms)
- GET / 200 in 1369ms (next.js: 274ms, application-code: 1095ms)
- GET / 200 in 4.0s (next.js: 1568ms, application-code: 2.4s)
- GET / 200 in 2.6s (next.js: 66ms, application-code: 2.6s)
- GET / 200 in 2.9s (next.js: 24ms, application-code: 2.9s)
- GET / 200 in 1246ms (next.js: 46ms, application-code: 1201ms)
- GET / 200 in 1253ms (next.js: 513ms, application-code: 740ms)
- GET / 500 in 3.6s (next.js: 9ms, application-code: 3.6s)
- GET / 500 in 1336ms (next.js: 289ms, application-code: 1047ms)
- GET /favicon.ico 500 in 6.4s (next.js: 5.5s, generate-params: 5.2s, application-code: 953ms)
-✓ Compiled in 1522ms
- GET /favicon.ico 404 in 2.5s (next.js: 1492ms, generate-params: 12ms, application-code: 1013ms)
- GET / 200 in 3.2s (next.js: 518ms, application-code: 2.7s)
- GET / 200 in 1233ms (next.js: 36ms, application-code: 1197ms)
-✓ Compiled in 1895ms
- GET / 200 in 1251ms (next.js: 413ms, application-code: 838ms)
- GET / 200 in 354ms (next.js: 45ms, application-code: 308ms)
-✓ Compiled in 2.4s
- GET / 200 in 1281ms (next.js: 11ms, application-code: 1270ms)
-✓ Compiled in 1998ms
-✓ Compiled in 3.1s
+- Local:         http://localhost:3001
+- Network:       http://172.27.192.1:3001
+✓ Ready in 2.4s
+[?25h

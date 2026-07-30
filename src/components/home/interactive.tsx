@@ -21,6 +21,7 @@ export function FaqList() {
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
   const [submenu, setSubmenu] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
   const links = [
     {label:"Home",href:"/"},
     {label:"About",href:"/about"},
@@ -31,7 +32,52 @@ export function MobileMenu() {
     {label:"Contact",href:"/contact"},
   ];
   const close = () => { setOpen(false); setSubmenu(null); };
-  return <><button className="mobile-toggle" onClick={()=>setOpen(true)} aria-label="Open navigation"><Menu/></button><div className={`mobile-panel-backdrop ${open?"open":""}`} onClick={close}/><aside className={`mobile-panel ${open?"open":""}`} aria-hidden={!open}><button className="mobile-close" onClick={close} aria-label="Close navigation"><X/></button>{links.map(item=><div className="mobile-nav-item" key={item.label}>{item.items?<><button onClick={()=>setSubmenu(submenu===item.label?null:item.label)} aria-expanded={submenu===item.label}><span>{item.label}</span><ChevronDown/></button><div className={`mobile-submenu ${submenu===item.label?"open":""}`}>{item.items.map(([label,href])=><Link key={label} href={href} onClick={close}>{label}</Link>)}</div></>:<Link href={item.href!} onClick={close}>{item.label}</Link>}</div>)}</aside></>;
+  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") close();
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
+  const panel = (
+    <>
+      <div className={`mobile-panel-backdrop ${open ? "open" : ""}`} onClick={close} />
+      <aside className={`mobile-panel ${open ? "open" : ""}`} aria-hidden={!open}>
+        <button className="mobile-close" onClick={close} aria-label="Close navigation"><X /></button>
+        {links.map((item) => (
+          <div className="mobile-nav-item" key={item.label}>
+            {item.items ? (
+              <>
+                <button onClick={() => setSubmenu(submenu === item.label ? null : item.label)} aria-expanded={submenu === item.label}>
+                  <span>{item.label}</span><ChevronDown />
+                </button>
+                <div className={`mobile-submenu ${submenu === item.label ? "open" : ""}`}>
+                  {item.items.map(([label, href]) => <Link key={label} href={href} onClick={close}>{label}</Link>)}
+                </div>
+              </>
+            ) : (
+              <Link href={item.href!} onClick={close}>{item.label}</Link>
+            )}
+          </div>
+        ))}
+      </aside>
+    </>
+  );
+
+  return (
+    <>
+      <button className="mobile-toggle" onClick={() => setOpen(true)} aria-label="Open navigation"><Menu /></button>
+      {mounted && createPortal(panel, document.body)}
+    </>
+  );
 }
 
 export function SiteEffects() {
@@ -69,9 +115,9 @@ export function SiteEffects() {
     register("[data-reveal='left']", "left");
     register("[data-reveal='right']", "right");
     register("[data-reveal='zoom']", "zoom");
-    register(".about-clone-grid>div:first-child,.about__images,.faq .split>div:first-child,.choose__content,.contact__info,.team-detail-image,.project-detail__hero,.service-detail__image,.product-detail-image,.video-one-clone__titles", "left");
-    register(".about-clone-grid>div:last-child,.about__content,.faq .split>div:last-child,.choose__visual,.contact__form,.contact-page-grid>form,.team-detail-grid>div:last-child,.service-detail__copy,.product-detail-copy,.video-one-clone__play", "right");
-    register("main section .service-row", (index) => index % 2 === 0 ? "right" : "left");
+    register(".about-clone-grid>div:first-child,.about__images,.faq .split>div:first-child,.choose__content,.contact__info,.team-detail-image,.project-detail__hero,.service-detail__image,.product-detail-image", "left");
+    register(".about-clone-grid>div:last-child,.about__content,.faq .split>div:last-child,.choose__visual,.contact__form,.contact-page-grid>form,.team-detail-grid>div:last-child,.service-detail__copy,.product-detail-copy", "right");
+    register("main section .service-row", "up");
     register("main section .process-grid article,main section .testimonial-grid article,main section .location-grid article,main section .blog-grid article,main section .contact-info-grid article,main section .shop-product-card,main section .clone-product,main section .clone-team-card,main section .service-card-grid article,main section .gallery-grid>button", "up");
     register("main section .section-heading,[data-reveal]:not([data-reveal='left']):not([data-reveal='right']):not([data-reveal='zoom'])", "up");
 

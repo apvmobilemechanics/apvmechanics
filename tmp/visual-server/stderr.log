@@ -1,69 +1,9 @@
-[browser] Image with src "/assets/images/resources/main-slider-title-img.jpg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[browser] Image with src "/assets/images/resources/main-slider-title-img.jpg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[browser] Image with src "/assets/images/resources/main-slider-title-img.jpg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-⨯ ReferenceError: MessageCircle is not defined
-    at SiteFooter (src\components\layout\site-footer.tsx:166:18)
-  164 |             <div className="footer-bottom-left">
-  165 |               <div className="footer-chat-badge">
-> 166 |                 <MessageCircle size={16} />
-      |                  ^
-  167 |               </div>
-  168 |               <p className="copyright-text">
-  169 |                 © 2026 Automart , All Rights Reserved. {
-  digest: '2549987267'
-}
-⨯ ReferenceError: MessageCircle is not defined
-    at SiteFooter (src\components\layout\site-footer.tsx:166:18)
-  164 |             <div className="footer-bottom-left">
-  165 |               <div className="footer-chat-badge">
-> 166 |                 <MessageCircle size={16} />
-      |                  ^
-  167 |               </div>
-  168 |               <p className="copyright-text">
-  169 |                 © 2026 Automart , All Rights Reserved. {
-  digest: '2549987267'
-}
-⨯ ReferenceError: MessageCircle is not defined
-    at SiteFooter (src\components\layout\site-footer.tsx:166:18)
-  164 |             <div className="footer-bottom-left">
-  165 |               <div className="footer-chat-badge">
-> 166 |                 <MessageCircle size={16} />
-      |                  ^
-  167 |               </div>
-  168 |               <p className="copyright-text">
-  169 |                 © 2026 Automart , All Rights Reserved. {
-  digest: '2549987267'
-}
-[browser] Uncaught ReferenceError: MessageCircle is not defined
-    at SiteFooter (src/components/layout/site-footer.tsx:166:18)
-    at RootLayout (src\app\layout.tsx:27:124)
-  164 |             <div className="footer-bottom-left">
-  165 |               <div className="footer-chat-badge">
-> 166 |                 <MessageCircle size={16} />
-      |                  ^
-  167 |               </div>
-  168 |               <p className="copyright-text">
-  169 |                 © 2026 Automart , All Rights Reserved.
-[browser] Uncaught ReferenceError: MessageCircle is not defined
-    at SiteFooter (src/components/layout/site-footer.tsx:166:18)
-    at RootLayout (src\app\layout.tsx:27:124)
-  164 |             <div className="footer-bottom-left">
-  165 |               <div className="footer-chat-badge">
-> 166 |                 <MessageCircle size={16} />
-      |                  ^
-  167 |               </div>
-  168 |               <p className="copyright-text">
-  169 |                 © 2026 Automart , All Rights Reserved.
-⨯ ReferenceError: MessageCircle is not defined
-    at SiteFooter (src\components\layout\site-footer.tsx:166:18)
-  164 |             <div className="footer-bottom-left">
-  165 |               <div className="footer-chat-badge">
-> 166 |                 <MessageCircle size={16} />
-      |                  ^
-  167 |               </div>
-  168 |               <p className="copyright-text">
-  169 |                 © 2026 Automart , All Rights Reserved. {
-  digest: '2549987267'
-}
-⚠ Fast Refresh had to perform a full reload due to a runtime error.
-⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Port 3000 is in use by process 15192, using available port 3001 instead.
+⨯ Another next dev server is already running.
+
+- Local:        http://localhost:3000
+- PID:          15192
+- Dir:          D:\apvmechanics.com.au1
+- Log:          .next\dev\logs\next-development.log
+
+Run taskkill /PID 15192 /F to stop it.

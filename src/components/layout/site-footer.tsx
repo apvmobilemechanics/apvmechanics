@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail } from "lucide-react";
-import { ThemeButton } from "@/components/common/button";
+import { PremiumFooterCta } from "@/components/motion/premium-media-sections";
 
 const A = "/assets/images";
 
@@ -42,17 +42,7 @@ function InstagramIcon() {
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <section className="footer-cta" aria-label="Get our service">
-        <div className="footer-cta__background" aria-hidden="true" />
-        <div className="footer-cta__overlay" aria-hidden="true" />
-        <div className="container footer-cta__inner">
-          <div className="footer-cta__copy">
-            <span>GET OUR SERVICE</span>
-            <h2>Trusted Car Repair Experts<br />Get in Touch Today!</h2>
-          </div>
-          <ThemeButton href="/contact">Get Details</ThemeButton>
-        </div>
-      </section>
+      <PremiumFooterCta />
 
       <div className="footer-main">
         {/* Gear/Cog watermark pattern */}

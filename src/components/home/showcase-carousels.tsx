@@ -39,7 +39,7 @@ export function HomeShop() {
   return (
     <section className="shop-one-clone" id="shop">
       <div className="container">
-        <SectionHeading eyebrow="THIS IS THE OFFICIAL SHOP" title={<>Trusted Car Repair Shop</>} center />
+        <SectionHeading eyebrow="THIS IS THE OFFICIAL SHOP" title={<>Trusted Car Repair Shop</>} animatedText="Trusted Car Repair Shop" center />
         <div className="clone-carousel product-carousel" ref={track}>
           {products.map(([id,name,image,price,oldPrice],index) => (
             <article className="clone-product" key={`${name}-${index}`} data-reveal>
@@ -73,7 +73,7 @@ export function HomeTeam({ inner = false }: { inner?: boolean }) {
   return (
     <section className={`team-one-clone ${inner ? "team-one-clone--inner" : ""}`} id="team">
       <div className="container">
-        <div className="heading-row team-clone-heading"><SectionHeading eyebrow="OUR TRUSTED TEAM" title={<>Latest Expert Team Members</>} /><ThemeButton href="/about#team">All Team Members</ThemeButton></div>
+        <div className="heading-row team-clone-heading"><SectionHeading eyebrow="OUR TRUSTED TEAM" title={<>Latest Expert Team Members</>} animatedText="Latest Expert Team Members" /><ThemeButton href="/about#team">All Team Members</ThemeButton></div>
         <div className="clone-carousel team-carousel" ref={track}>
           {people.map(([name,role,n],index) => (
             <article className="clone-team-card" key={`${name}-${index}`} data-reveal>

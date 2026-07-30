@@ -4,7 +4,7 @@ import Link from "next/link";
 import { SectionHeading } from "@/components/common/section-heading";
 import { ThemeButton } from "@/components/common/button";
 import { HomeTeam } from "@/components/home/showcase-carousels";
-import { VideoModalButton } from "@/components/home/interactive";
+import { PremiumVideoGallery } from "@/components/motion/premium-media-sections";
 
 const A = "/assets/images";
 
@@ -19,8 +19,22 @@ export function AboutCompanySection() {
       <div className="container about-clone-grid">
         <div className="about-clone-images" data-reveal>
           <span className="about-clone-vertical">ABOUT<br/>COMPANY</span>
-          <div className="about-clone-main"><Image src={`${A}/resources/about-v1__img1.jpg`} alt="Mechanic repairing a vehicle" fill sizes="488px"/></div>
-          <div className="about-clone-small"><Image src={`${A}/resources/about-v1__img2.jpg`} alt="Professional mechanic" fill sizes="250px"/></div>
+          <div className="about-clone-main">
+            <Image
+              src={`${A}/generated/apv-about-workshop.webp`}
+              alt="APV mobile mechanic repairing a vehicle"
+              fill
+              sizes="(max-width: 768px) 80vw, 488px"
+            />
+          </div>
+          <div className="about-clone-small">
+            <Image
+              src={`${A}/generated/apv-about-mechanic.webp`}
+              alt="Professional APV mobile mechanic"
+              fill
+              sizes="(max-width: 768px) 48vw, 250px"
+            />
+          </div>
           <div className="about-clone-experience"><strong><span data-counter="50">50</span>+</strong><b>Years of experience</b></div>
         </div>
         <div className="about-clone-content" data-reveal>
@@ -55,28 +69,7 @@ export function ProcessSection() {
 }
 
 export function InnerVideo() {
-  return (
-    <section className="video-one-clone">
-      <div className="video-one-clone__background" aria-hidden="true" />
-      <div className="video-one-clone__overlay" />
-      <Image className="video-one-clone__shape" src={`${A}/shapes/cta-one-shape-1.png`} alt="" width={500} height={490} />
-      <div className="container video-one-clone__content">
-        <div className="video-one-clone__titles" data-reveal>
-          <span>Car Repair</span>
-          <div>
-            <strong>Video</strong>
-            <Image src={`${A}/resources/cta-v1-1.jpg`} alt="" width={132} height={62} />
-          </div>
-          <small>Expert Videos on<br />Vehicle Repairs</small>
-          <em>Gallery</em>
-        </div>
-        <div className="video-one-clone__play">
-          <VideoModalButton />
-          <b>Watch Video</b>
-        </div>
-      </div>
-    </section>
-  );
+  return <PremiumVideoGallery />;
 }
 
 export function TeamSection() {

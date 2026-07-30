@@ -2,10 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Check,
+  ChevronsRight,
+  CircleGauge,
+  Droplets,
+  Fan,
+  Gauge,
+  Headphones,
   Mail,
   MapPin,
   Phone,
+  SearchCheck,
   Star,
   Wrench,
 } from "lucide-react";
@@ -21,26 +27,60 @@ import { LocalContactForm } from "@/components/inner/local-form";
 const A = "/assets/images";
 
 const services = [
-  ["Tire Care & Balance", "services-1-1.jpg"],
-  ["Brake Inspection & Repair", "services-1-2.jpg"],
-  ["Quick Oil Change Service", "services-1-3.jpg"],
-  ["Suspension & Steering Care", "services-1-4.jpg"],
-  ["Brake Experts Care", "services-1-5.jpg"],
+  {
+    title: "Engine Diagnostics & Fault Finding",
+    description: "Accurate fault finding with modern diagnostic tools.",
+    image: "services-1-4.jpg",
+    icon: Gauge,
+  },
+  {
+    title: "Oil Change & Lubrication",
+    description: "Premium oil and lubrication for smoother performance.",
+    image: "services-1-3.jpg",
+    icon: Droplets,
+  },
+  {
+    title: "General Repairs & Servicing",
+    description: "Dependable repairs and scheduled vehicle servicing.",
+    image: "services-1-2.jpg",
+    icon: Wrench,
+  },
+  {
+    title: "Cooling System Repairs",
+    description: "Cooling-system checks, leak repairs and maintenance.",
+    image: "services-1-5.jpg",
+    icon: Fan,
+  },
+  {
+    title: "24/7 Mobile Service",
+    description: "Fast mechanical support delivered to your location.",
+    image: "services-1-1.jpg",
+    icon: Headphones,
+  },
 ];
 
 function Services() {
   return (
-    <section className="section services" id="services">
+    <section className="section services services-reference" id="services">
       <div className="container">
-        <SectionHeading eyebrow="WHAT WE DO" title={<>Comprehensive Car <em>Solutions</em></>} center />
+        <SectionHeading eyebrow="WHAT WE OFFER" title={<>Comprehensive Car Solutions</>} animatedText="Comprehensive Car Solutions" center />
         <div className="service-list">
-          {services.map(([title, image], i) => (
-            <article className="service-row" key={title}>
-              <span className="service-row__number">{String(i + 1).padStart(2, "0")}</span>
-              <div className="service-row__image"><Image src={`${A}/services/${image}`} alt={title} fill sizes="260px" /></div>
-              <h3>{title}</h3>
-              <p>We provide dependable automotive care with skilled technicians, modern tools and honest service.</p>
-              <Link href="/services" aria-label={`Learn more about ${title}`}><ArrowRight /></Link>
+          {services.map(({ title, description, image, icon: Icon }, i) => (
+            <article className="service-row" key={title} data-reveal-delay={i * 110}>
+              <div className={`service-row__main ${title.length > 25 ? "service-row__main--compact" : ""}`}>
+                <i className="service-row__icon"><Icon /></i>
+                <div className={`service-row__title ${title.length > 25 ? "service-row__title--compact" : ""}`}>
+                  <span className="service-row__number">{String(i + 1).padStart(2, "0")} /</span>
+                  <h3>{title}</h3>
+                </div>
+              </div>
+              <p>{description}</p>
+              <Link href="/services" aria-label={`View details for ${title}`}>
+                <span>View Details</span><ChevronsRight />
+              </Link>
+              <div className="service-row__image">
+                <Image src={`${A}/services/${image}`} alt="" fill sizes="240px" />
+              </div>
             </article>
           ))}
         </div>
@@ -51,21 +91,40 @@ function Services() {
 
 function WhyChoose() {
   return (
-    <section className="section choose">
-      <div className="container split">
-        <div className="choose__content">
-          <SectionHeading light eyebrow="WHY CHOOSE US" title={<>The Smarter Choice for <em>Car Care</em></>} />
-          <p>Quality repairs, clear communication and customer-first service—every time you visit.</p>
-          <div className="choose__features">
-            <div><i><Check /></i><span><b>Innovative Car Solutions</b><small>Advanced tools and proven methods.</small></span></div>
-            <div><i><Phone /></i><span><b>24/7 Hour Support</b><small>Help whenever your vehicle needs it.</small></span></div>
+    <section className="section choose choose-reference">
+      <div className="choose-reference__shape choose-reference__shape--one" aria-hidden="true" />
+      <div className="choose-reference__shape choose-reference__shape--two" aria-hidden="true" />
+      <div className="container choose-reference__grid">
+        <div className="choose__content" data-reveal="left">
+          <SectionHeading light eyebrow="WHY CHOOSE US" title={<>The Smarter Choice for Car Care</>} animatedText="The Smarter Choice for Car Care" />
+          <p>We&apos;ve built our reputation on honesty, expertise, &amp; consistent quality service. Every repair is handled with care.</p>
+          <div className="choose-reference__middle">
+            <div className="choose-reference__solution">
+              <i><SearchCheck /></i>
+              <b>Innovative Car<br />Solutions</b>
+            </div>
+            <p>At Brake Experts Care, your safety comes first. Our skilled team is ready to help.</p>
           </div>
-          <ThemeButton href="/contact">Contact Us</ThemeButton>
+          <div className="choose-reference__bottom">
+            <ThemeButton href="/about">Read More</ThemeButton>
+            <div className="choose-reference__author">
+              <Image src={`${A}/resources/choose-v1-1.jpg`} alt="Robert Wilson" width={60} height={60} />
+              <span><b>Robert Wilson</b><small>Electrical Technician</small></span>
+            </div>
+          </div>
         </div>
-        <div className="choose__visual">
-          <div className="choose__ring" />
-          <Image src={`${A}/resources/choose-v1-2.png`} alt="Professional car mechanic" width={482} height={604} />
-          <div className="choose__quote"><Image src={`${A}/resources/choose-v1-1.jpg`} alt="" width={60} height={60}/><p>“Fast service, expert work and a team we trust.”</p></div>
+        <div className="choose__visual" data-reveal="right">
+          <Image
+            src={`${A}/resources/choose-v1-2.png`}
+            alt="Professional car mechanic"
+            width={482}
+            height={604}
+            style={{ width: "auto" }}
+          />
+          <div className="choose-reference__support">
+            <i><Headphones /></i>
+            <span><b>24/7 Hour Support</b><small>Offering premium service</small></span>
+          </div>
         </div>
       </div>
     </section>
@@ -78,17 +137,26 @@ function Marquee() {
 
 function Process() {
   const items = [
-    ["01", "Quick & Trusted Repairs"],
-    ["02", "Performance Perfected"],
-    ["03", "Premium Care Experience"],
-    ["04", "Luxury Auto Care"],
+    { num: "01", title: "Quick & Trusted Repairs", icon: SearchCheck },
+    { num: "02", title: "Performance Perfected", icon: Gauge },
+    { num: "03", title: "Premium Care Experience", icon: Wrench },
+    { num: "04", title: "Luxury Auto Care", icon: CircleGauge },
   ];
   return (
-    <section className="section process" id="pages">
+    <section className="section process process-reference" id="pages">
       <div className="container">
-        <SectionHeading eyebrow="WORK PROCESS" title={<>Step-by-Step Car <em>Repair Process</em></>} center />
+        <SectionHeading eyebrow="OUR WORK PROCESS" title={<>Step-by-Step Car Repair Process</>} animatedText="Step-by-Step Car Repair Process" center />
         <div className="process-grid">
-          {items.map(([num,title])=><article key={num}><strong>{num}</strong><i><Wrench /></i><h3>{title}</h3><p>We inspect, explain and repair with precision, keeping you informed at every step.</p></article>)}
+          {items.map(({ num, title, icon: Icon }, index) => (
+            <article className={`process-step ${index % 2 ? "process-step--reverse" : ""}`} key={num} data-reveal data-reveal-delay={index * 130}>
+              <strong>Step - {num}</strong>
+              <div className="process-step__copy">
+                <h3>{title}</h3>
+                <p>We deliver quick, dependable repairs<br />to keep you moving safely.</p>
+              </div>
+              <i><Icon /></i>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -116,7 +184,15 @@ function Faq() {
   return (
     <section className="section faq">
       <div className="container split">
-        <div className="faq__image"><Image src={`${A}/resources/faq-one-img-1.jpg`} alt="Car maintenance service" fill sizes="560px"/><div><Phone/><span>Call for emergency service<b>+ 88 (9800) 6802</b></span></div></div>
+        <div className="faq__image">
+          <Image
+            src={`${A}/generated/apv-emergency-mechanic.webp`}
+            alt="APV emergency mobile mechanic"
+            fill
+            sizes="(max-width: 768px) 100vw, 560px"
+          />
+          <div><Phone/><span>Call for emergency service<b>+ 88 (9800) 6802</b></span></div>
+        </div>
         <div><SectionHeading eyebrow="FAQ" title={<>Common Car Repair <em>Asked Questions!</em></>} /><FaqList /></div>
       </div>
     </section>
