@@ -7,22 +7,33 @@ import { ThemeButton } from "@/components/common/button";
 import { VideoModalButton } from "@/components/home/interactive";
 
 const A = "/assets/images";
-const premiumEase = [0.16, 1, 0.3, 1] as const;
-const galleryReveal = {
+const ease = [0.22, 1, 0.36, 1] as const;
+
+/* ─── shared stagger parent ─── */
+const stagger = {
   hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.05,
-    },
-  },
+  show: { transition: { staggerChildren: 0.13, delayChildren: 0.08 } },
 };
-const galleryRevealItem = {
-  hidden: { opacity: 0, y: 42 },
-  visible: {
+
+/* ─── fade-up child (matches WhatsApp video reference timing) ─── */
+const fadeUp = {
+  hidden: { opacity: 0, y: 48, filter: "blur(3px)" },
+  show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: premiumEase },
+    filter: "blur(0px)",
+    transition: { duration: 0.72, ease },
+  },
+};
+
+/* ─── fade-right child (for play button side) ─── */
+const fadeRight = {
+  hidden: { opacity: 0, x: 40, filter: "blur(2px)" },
+  show: {
+    opacity: 1,
+    x: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.72, ease },
   },
 };
 
@@ -33,11 +44,8 @@ export function PremiumVideoGallery() {
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["-3%", "3%"]);
-  const backgroundScale = useTransform(scrollYProgress, [0, 1], [1.035, 1.085]);
-
-  const revealInitial = reduceMotion ? false : { opacity: 0, y: 38 };
-  const revealTransition = { duration: 0.8, ease: premiumEase };
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-4%", "4%"]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.04, 1.09]);
 
   return (
     <motion.section
@@ -46,17 +54,14 @@ export function PremiumVideoGallery() {
       aria-labelledby="video-gallery-title"
       initial={reduceMotion ? false : { opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={revealTransition}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.55, ease }}
     >
+      {/* Parallax background */}
       <motion.div
         className="video-one-clone__background"
         aria-hidden="true"
-        style={
-          reduceMotion
-            ? { scale: 1.035 }
-            : { y: backgroundY, scale: backgroundScale }
-        }
+        style={reduceMotion ? { scale: 1.04 } : { y: bgY, scale: bgScale }}
       />
       <div className="video-one-clone__overlay" aria-hidden="true" />
       <Image
@@ -68,26 +73,27 @@ export function PremiumVideoGallery() {
       />
 
       <div className="container video-one-clone__content">
+        {/* LEFT: Staggered text reveal (fade-up, stagger) */}
         <motion.div
           className="video-one-clone__titles"
-          variants={galleryReveal}
+          variants={stagger}
           initial={reduceMotion ? false : "hidden"}
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.35 }}
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
         >
-          <motion.span variants={galleryRevealItem} aria-hidden="true">
+          {/* "Car Repair" ghost eyebrow — slides up first */}
+          <motion.span variants={fadeUp} aria-hidden="true">
             Car Repair
           </motion.span>
+
+          {/* Heading — "Video [thumbnail] Gallery" */}
           <h2 id="video-gallery-title">
-            <motion.span
-              className="video-one-clone__title-line"
-              variants={galleryRevealItem}
-            >
+            <motion.span className="video-one-clone__title-line" variants={fadeUp}>
               <strong>Video</strong>
               <motion.span
                 className="video-one-clone__thumbnail"
-                whileHover={reduceMotion ? undefined : { scale: 1.05 }}
-                transition={{ duration: 0.3, ease: premiumEase }}
+                whileHover={reduceMotion ? undefined : { scale: 1.06, rotate: 2 }}
+                transition={{ duration: 0.3, ease }}
               >
                 <Image
                   src={`${A}/generated/apv-about-workshop.webp`}
@@ -97,31 +103,31 @@ export function PremiumVideoGallery() {
                 />
               </motion.span>
             </motion.span>
-            <motion.em variants={galleryRevealItem}>Gallery</motion.em>
+            <motion.em variants={fadeUp}>Gallery</motion.em>
           </h2>
-          <motion.small variants={galleryRevealItem}>
+
+          {/* Subtitle */}
+          <motion.small variants={fadeUp}>
             Expert Videos on
             <br />
             Vehicle Repairs
           </motion.small>
         </motion.div>
 
+        {/* RIGHT: Play button — fades in from right after text stagger */}
         <motion.div
           className="video-one-clone__play"
-          initial={revealInitial}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ ...revealTransition, delay: reduceMotion ? 0 : 0.14 }}
+          variants={fadeRight}
+          initial={reduceMotion ? false : "hidden"}
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.72, ease, delay: reduceMotion ? 0 : 0.32 }}
         >
           <motion.div
             className="video-one-clone__play-pulse"
-            animate={
-              reduceMotion
-                ? undefined
-                : { scale: [1, 1.035, 1] }
-            }
+            animate={reduceMotion ? undefined : { scale: [1, 1.04, 1] }}
             transition={{
-              duration: 2.2,
+              duration: 2.4,
               repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
             }}
@@ -142,9 +148,8 @@ export function PremiumFooterCta() {
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["-2.5%", "2.5%"]);
-  const backgroundScale = useTransform(scrollYProgress, [0, 1], [1.035, 1.075]);
-  const revealInitial = reduceMotion ? false : { opacity: 0, y: 34 };
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-3%", "3%"]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.04, 1.08]);
 
   return (
     <motion.section
@@ -153,43 +158,42 @@ export function PremiumFooterCta() {
       aria-label="Get our service"
       initial={reduceMotion ? false : { opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.8, ease: premiumEase }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.55, ease }}
     >
       <motion.div
         className="footer-cta__background"
         aria-hidden="true"
-        style={
-          reduceMotion
-            ? { scale: 1.035 }
-            : { y: backgroundY, scale: backgroundScale }
-        }
+        style={reduceMotion ? { scale: 1.04 } : { y: bgY, scale: bgScale }}
       />
       <div className="footer-cta__overlay" aria-hidden="true" />
 
       <div className="container footer-cta__inner">
+        {/* Left copy — staggered fade-up */}
         <motion.div
           className="footer-cta__copy"
-          initial={revealInitial}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.8, ease: premiumEase }}
+          variants={stagger}
+          initial={reduceMotion ? false : "hidden"}
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
         >
-          <span>GET OUR SERVICE</span>
-          <h2>
+          <motion.span variants={fadeUp}>GET OUR SERVICE</motion.span>
+          <motion.h2 variants={fadeUp}>
             Trusted Car Repair Experts
             <br />
             Get in Touch Today!
-          </h2>
+          </motion.h2>
         </motion.div>
 
+        {/* Right button — fade-right with slight delay */}
         <motion.div
           className="footer-cta__action"
-          initial={revealInitial}
-          whileInView={{ opacity: 1, y: 0 }}
-          whileHover={reduceMotion ? undefined : { scale: 1.025 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.8, ease: premiumEase, delay: reduceMotion ? 0 : 0.12 }}
+          variants={fadeRight}
+          initial={reduceMotion ? false : "hidden"}
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.72, ease, delay: reduceMotion ? 0 : 0.28 }}
+          whileHover={reduceMotion ? undefined : { scale: 1.03 }}
         >
           <ThemeButton href="/contact">Get Details</ThemeButton>
         </motion.div>

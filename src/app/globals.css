@@ -1849,3 +1849,149 @@ textarea{max-width:100%}
   .video-one-clone--motion *,
   .footer-cta--motion *{will-change:auto!important}
 }
+
+/* ═══════════════════════════════════════════════════
+   STAGGERED SCROLL REVEAL — Reference-video accurate
+   Matching WhatsApp video timing:
+   - duration: 0.72s  ease: cubic-bezier(0.22,1,0.36,1)
+   - blur: 3px → 0  |  y: 48px → 0  |  stagger: 0.13s
+   ═══════════════════════════════════════════════════ */
+.reveal-ready{
+  opacity:0;
+  transform:translateY(48px);
+  filter:blur(3px);
+  transition:
+    opacity .72s cubic-bezier(.22,1,.36,1) var(--reveal-delay,0ms),
+    transform .72s cubic-bezier(.22,1,.36,1) var(--reveal-delay,0ms),
+    filter .55s cubic-bezier(.22,1,.36,1) var(--reveal-delay,0ms);
+  will-change:opacity,transform,filter;
+}
+.reveal-ready.reveal-left{transform:translateX(-52px)}
+.reveal-ready.reveal-right{transform:translateX(52px)}
+.reveal-ready.reveal-zoom{transform:scale(.92)}
+.reveal-ready.is-visible{
+  opacity:1;
+  transform:none;
+  filter:blur(0);
+}
+
+/* ═══════════════════════════════════════════════════
+   MOBILE HERO  — Matches user's screenshot:
+   Dark navy, marquee eyebrow repeated, pill button row,
+   red phone circle + "Call Anytime", floating red chat
+   ═══════════════════════════════════════════════════ */
+@media (max-width:480px){
+  /* Hero base */
+  .hero{
+    min-height:100svh;
+    background:#061554;
+  }
+  .hero__inner{
+    padding-top:100px;
+    padding-bottom:32px;
+    align-items:flex-start;
+  }
+  .hero__content{position:relative;z-index:3;width:100%}
+
+  /* Eyebrow — show as stacked marquee lines */
+  .hero__eyebrow{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2.5px;
+    color:rgba(255,255,255,.55);
+    margin-bottom:6px;
+    display:block;
+  }
+  .hero__eyebrow::after{
+    content:'CAR - REPAIR - CENTER';
+    display:block;
+    margin-top:4px;
+  }
+
+  /* Heading */
+  .hero h1{
+    font-size:30px;
+    line-height:1.28;
+    letter-spacing:-0.5px;
+    color:#fff;
+    margin-bottom:14px;
+  }
+  .hero__title-image{display:none}
+
+  /* Copy */
+  .hero__copy{
+    font-size:14px;
+    line-height:1.7;
+    color:rgba(255,255,255,.72);
+    margin-bottom:28px;
+  }
+  .hero__copy br{display:none}
+
+  /* Action row — column stack */
+  .hero__actions{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+  }
+
+  /* Phone row */
+  .hero__phone{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-left:0;
+  }
+  .hero__phone i{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:var(--red);
+    color:#fff;
+    display:grid;
+    place-items:center;
+    flex-shrink:0;
+  }
+  .hero__phone span{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    font-size:13px;
+    color:rgba(255,255,255,.8);
+  }
+  .hero__phone b{
+    font-size:16px;
+    font-weight:700;
+    color:#fff;
+  }
+
+  /* Hide right panel image on smallest mobile */
+  .hero__visual{display:none}
+  .hero__person{display:none}
+  .customer-badge{display:none}
+}
+
+/* ═══════════════════════════════════════════════════
+   FLOATING CHAT BADGE — Red rounded square bottom-left
+   ═══════════════════════════════════════════════════ */
+.floating-chat{
+  position:fixed;
+  left:18px;
+  bottom:24px;
+  z-index:999;
+  width:42px;
+  height:38px;
+  border-radius:8px;
+  background:var(--red);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  box-shadow:0 4px 18px rgba(240,4,18,.35);
+  transition:transform .2s,box-shadow .2s;
+}
+.floating-chat:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 24px rgba(240,4,18,.45);
+}
+.floating-chat svg{width:18px;height:18px}
+
