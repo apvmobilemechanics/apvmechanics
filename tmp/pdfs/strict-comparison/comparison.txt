@@ -1,0 +1,892 @@
+ENTER STRICT LOCALHOST VISUAL COMPARISON, REPAIR AND RETEST MODE.
+This prompt must be executed only after the initial Next.js website-building task has been completed.
+Do not create a new project.
+Do not provide only a report.
+Do not ask the user to manually compare screenshots.
+You must personally launch, inspect, compare, edit, rebuild and retest the existing local Next.js project.
+REFERENCE WEBSITE:
+https://scriptfusions.mnsithub.com/html/automart/index.html
+LOCAL WEBSITE:
+Automatically identify and open the current Next.js project running on localhost.
+The local URL may be:
+
+        · http://localhost:3000
+        · http://localhost:3001
+        · http://127.0.0.1:3000
+        · Another port shown by the development server
+Do not ask the user for the localhost URL before attempting to detect it yourself.
+================================================== PHASE 1 -- START AND DETECT THE
+LOCAL WEBSITE ==================================================
+First inspect:
+        · package.json
+        · Existing npm scripts
+        · Next.js configuration
+        · Project folder structure
+        · Existing running processes
+        · Existing development server output
+Then start the project using the correct existing command, such as:
+npm run dev
+If port 3000 is occupied, detect the actual port automatically from the terminal output.
+
+                                                                         1
+Check common ports if necessary:
+
+        · 3000
+        · 3001
+        · 3002
+        · 5173
+        · 8000
+        · 8080
+Verify that the correct local website loads successfully before starting comparison.
+
+Do not compare against an error page, blank page or outdated build.
+
+If the development server fails:
+
+      1. Read the complete terminal error.
+      2. Fix the error.
+      3. Restart the server.
+      4. Confirm that the website opens.
+      5. Continue the comparison process.
+================================================== PHASE 2 -- OPEN BOTH WEBSITES
+YOURSELF ==================================================
+
+Use Playwright, Chromium or the available browser automation tool to open:
+
+      1. The reference Automart website.
+      2. The locally running Next.js website.
+Keep both pages open during the complete task.
+
+Do not rely on memory or assumptions about the reference website.
+
+Inspect the live reference website directly.
+
+For every comparison:
+
+        · Use the same browser engine.
+        · Use the same viewport width.
+        · Use the same viewport height.
+        · Use the same device scale factor.
+        · Reset browser zoom to 100%.
+        · Wait for fonts to finish loading.
+        · Wait for images to finish loading.
+        · Wait for sliders and initial animations to initialize.
+        · Scroll both pages to matching positions.
+================================================== PHASE 3 -- CREATE A COMPLETE ROUTE
+MAP ==================================================
+
+Inspect the complete navigation of the reference website.
+
+                                                                         2
+Create a route map containing:
+
+Reference URL  Local Next.js URL
+
+Include every available page, such as:
+
+        · Home One
+        · Home Two
+        · Home Three
+        · One-page homepage variants
+        · About
+        · Team
+        · Team Details
+        · Projects
+        · Project Details
+        · Testimonials
+        · FAQ
+        · 404
+        · Services Version 1
+        · Services Version 2
+        · Services Version 3
+        · Rim and Wheel Repair
+        · Lights and Accessories
+        · Brake Repair
+        · Engine Diagnosis
+        · Battery Solution
+        · Emergency Service
+        · Products
+        · Product Details
+        · Cart
+        · Checkout
+        · Wishlist
+        · Sign Up
+        · Login
+        · Blog
+        · Blog Standard
+        · Blog Details
+        · Contact
+        · Any other page linked from the reference website
+
+Do not compare only the homepage.
+
+Every reference page must have a corresponding working local route.
+
+Open every local route directly by URL to verify that it works.
+
+================================================== PHASE 4 -- STRICT CONTINUOUS
+CORRECTION LOOP ==================================================
+
+                                                                         3
+For every route, execute this loop:
+
+      1. Open the reference page.
+      2. Open the corresponding localhost page.
+      3. Set identical viewport dimensions.
+      4. Scroll both pages to the top.
+      5. Capture full-page screenshots.
+      6. Capture section-by-section screenshots.
+      7. Compare both screenshots.
+      8. Identify every meaningful difference.
+      9. Find the exact React component, CSS rule, animation, image or JavaScript behavior responsible.
+     10. Edit the local project files.
+     11. Save the changes.
+     12. Allow Next.js to rebuild.
+     13. Reload the local page.
+     14. Capture new screenshots.
+     15. Compare again.
+     16. Repeat until the section closely matches.
+     17. Continue to the next section.
+     18. After completing the page, compare the complete page again.
+
+Required loop:
+
+INSPECT
+ CAPTURE
+ COMPARE
+ FIND DIFFERENCES
+ EDIT CODE
+ REBUILD
+ RELOAD
+ CAPTURE AGAIN
+ RETEST
+ COMPARE AGAIN
+
+Never stop after only one correction pass.
+
+Never mark a section complete merely because it looks "good enough."
+
+================================================== PHASE 5 -- SCREENSHOT DIFFERENCE
+SYSTEM ==================================================
+
+Create these folders:
+
+tests/visual/reference/
+
+tests/visual/local/
+
+tests/visual/diff/
+
+Store screenshots using names such as:
+
+                                                                         4
+home-reference-1440x900.png
+
+home-local-1440x900-iteration-01.png
+
+home-diff-1440x900-iteration-01.png
+
+footer-reference-1440x900.png
+
+footer-local-1440x900-iteration-01.png
+
+footer-diff-1440x900-iteration-01.png
+
+Use Playwright screenshots with identical settings.
+
+Where possible, use:
+
+        · pixelmatch
+        · sharp
+        · SSIM comparison
+        · Screenshot overlays
+        · Difference heatmaps
+For static sections, target a very high visual similarity.
+
+Do not use pixel comparison as the only decision method because animations, cursors and sliders may
+create dynamic differences.
+
+Also perform direct visual inspection.
+
+================================================== PHASE 6 -- FOOTER MUST BE CHECKED
+SEPARATELY ==================================================
+
+The footer currently requires special attention.
+
+Do not treat the footer as one general section.
+
+Compare and correct each footer part separately.
+
+A. PRE-FOOTER CALL-TO-ACTION SECTION
+
+Compare:
+
+        · Full section width
+        · Section height
+        · Background workshop image
+        · Dark-blue overlay opacity
+        · Background image crop
+        · Background image focal point
+        · Decorative patterns
+        · Left content position
+
+                                                                         5
+        · "GET OUR SERVICE" text size
+        · Main heading size
+        · Main heading line breaks
+        · Main heading width
+        · Button position
+        · Button size
+        · Red button shape
+        · Circular arrow control
+        · Arrow icon size
+        · Hover animation
+        · Desktop alignment
+        · Mobile alignment
+
+Expected content structure:
+
+GET OUR SERVICE
+
+Trusted Car Repair Experts
+Get in Touch Today!
+
+Get Details button and circular arrow button.
+
+The CTA section must appear only once.
+
+Remove accidental duplicates.
+
+There must be no unexplained blank dark-blue area after the CTA.
+
+There must be no white line, body margin or unwanted gap above or below this section.
+
+B. MAIN FOOTER
+
+Desktop footer must use the same four-column visual structure as the reference:
+
+Column 1:
+
+        · Automart logo
+        · Description
+        · Newsletter heading
+        · Email field
+        · Send icon button
+        · Social media buttons
+
+Column 2:
+
+        · Our Services heading
+        · Decorative underline
+        · Car Detailing
+        · Paint Protection
+        · Engine Bay Clean
+        · Fleet Services
+
+                                                                         6
+        · Wax and Polish
+        · Collision Repair
+
+Column 3:
+
+        · Quick Links heading
+        · Decorative underline
+        · Home
+        · About Us
+        · Services
+        · Team
+        · Latest Blog
+        · Contact Us
+
+Column 4:
+
+        · Our Offices heading
+        · Decorative underline
+        · Headquarters -- USA
+        · Seattle office text
+        · Operations -- China
+        · Shanghai office text
+
+Compare and correct:
+
+        · Footer background color
+        · Gear background patterns
+        · Dot patterns
+        · Pattern opacity
+        · Pattern position
+        · Footer height
+        · Container width
+        · Column widths
+        · Grid gaps
+        · Logo size
+        · Logo alignment
+        · Text widths
+        · Line wrapping
+        · Heading sizes
+        · Link sizes
+        · Link line height
+        · Text colors
+        · Muted-text opacity
+        · Newsletter input dimensions
+        · Newsletter button dimensions
+        · Social icon dimensions
+        · Social icon borders
+        · Hover effects
+        · Vertical spacing
+        · Horizontal spacing
+
+Do not allow the office text to wrap differently because of an incorrect column width.
+
+                                                                         7
+Do not allow the footer to become taller or shorter because of random padding.
+
+C. FOOTER BOTTOM BAR
+
+Compare:
+
+        · Divider line position
+        · Divider opacity
+        · Copyright position
+        · Copyright font size
+        · Terms of Service position
+        · Privacy Policy position
+        · Horizontal spacing
+        · Bottom padding
+        · Mobile stacking behavior
+Expected structure:
+
+Left:
+
+© 2026 Automart, All Rights Reserved.
+
+Right:
+
+Terms of Service
+Privacy Policy
+
+The bottom bar must not overlap the main footer.
+
+There must be no extra empty strip beneath it.
+
+D. BACK-TO-TOP CONTROL
+
+The vertical "GO BACK TOP" control must be inspected separately.
+
+Correct:
+
+        · Right-side position
+        · Bottom offset
+        · Vertical text alignment
+        · Letter spacing
+        · Red color
+        · Small line or arrow decoration
+        · Clickable area
+        · Fixed or absolute positioning, matching the reference behavior
+        · Scroll visibility behavior
+        · Hover behavior
+        · Mobile behavior
+
+                                                                         8
+It must not:
+
+        · Be clipped
+        · Touch the browser edge incorrectly
+        · Overlap footer text
+        · Overlap the CTA button
+        · Show twice
+        · Leave a broken vertical line
+        · Disappear behind another section
+
+Clicking it must smoothly return the page to the top.
+
+E. FLOATING CHAT BUTTON
+
+Compare:
+
+        · Bottom-left position
+        · Width
+        · Height
+        · Border radius
+        · Outer dark border
+        · Red background
+        · White chat icon
+        · Shadow
+        · Hover state
+        · Fixed positioning
+        · Mobile offset
+        · Footer overlap
+
+The chat button must stay at a consistent fixed distance from the viewport edges.
+
+================================================== PHASE 7 -- VIDEO GALLERY SECTION
+==================================================
+
+The Video Gallery section visible before the testimonials must also be compared separately.
+
+Compare:
+
+        · Full section height
+        · Workshop background image
+        · Image crop and focal point
+        · Dark overlay opacity
+        · Left blue panel width
+        · Large "Video" heading position
+        · Large "Gallery" heading position
+        · Faded "Car Repair" background text
+        · Small rounded thumbnail between the headings
+        · Supporting text position
+        · Red circular play button size
+        · Play icon size
+        · "Watch Video" text position
+
+                                                                         9
+        · Grid and dot decorative patterns
+        · Left and right spacing
+        · Mobile layout
+        · Play-button animation
+        · Video-modal animation
+
+The large typography must not overlap incorrectly.
+
+The reference spelling and visible content should be matched unless the project intentionally corrects a
+typo consistently.
+
+Clicking the play button must open the working video modal.
+
+Closing the modal must restore scrolling correctly.
+
+================================================== PHASE 8 -- CHECK ALL VISUAL DETAILS
+==================================================
+
+For every section, compare:
+
+        · Exact section order
+        · Container width
+        · Section height
+        · Top padding
+        · Bottom padding
+        · Left and right margins
+        · Grid columns
+        · Grid gaps
+        · Heading position
+        · Heading line breaks
+        · Font family
+        · Font size
+        · Font weight
+        · Letter spacing
+        · Line height
+        · Text color
+        · Background color
+        · Background image
+        · Background position
+        · Background size
+        · Overlay opacity
+        · Decorative image position
+        · Card dimensions
+        · Border radius
+        · Border width
+        · Shadows
+        · Button dimensions
+        · Icon size
+        · Image crop
+        · Image object position
+        · Z-index
+
+                                                                        10
+        · Overflow behavior
+
+Do not redesign any section according to personal preference.
+
+The live reference website is the target.
+
+================================================== PHASE 9 -- RESPONSIVE COMPARISON
+LOOP ==================================================
+
+Run the complete comparison loop at all of these sizes:
+
+        · 1920 × 1080
+        · 1600 × 900
+        · 1440 × 900
+        · 1366 × 768
+        · 1280 × 800
+        · 1024 × 768
+        · 991 × 800
+        · 768 × 1024
+        · 576 × 900
+        · 430 × 932
+        · 390 × 844
+        · 360 × 800
+
+At each size verify:
+
+        · Header
+        · Navigation
+        · Hero
+        · Every homepage section
+        · CTA section
+        · Video Gallery
+        · Footer
+        · Back-to-top control
+        · Chat button
+        · Dropdown menus
+        · Mobile menu
+        · Forms
+        · Sliders
+        · Images
+        · Cards
+        · Footer columns
+        · Footer bottom bar
+
+Specifically detect and fix:
+
+        · Horizontal overflow
+        · Accidental white strips
+        · Body margins
+        · Cut-off content
+        · Clipped vertical text
+        · Overlapping elements
+
+                                                                        11
+        · Broken image cropping
+        · Incorrect line wrapping
+        · Unwanted empty space
+        · Incorrect section heights
+        · Footer columns not stacking correctly
+        · CTA button extending outside the viewport
+        · Back-to-top control overlapping content
+
+Programmatically check horizontal overflow using:
+
+document.documentElement.scrollWidth > document.documentElement.clientWidth
+
+Fix every route where this returns true.
+
+================================================== PHASE 10 -- ANIMATION COMPARISON
+==================================================
+
+Do not evaluate animations from static screenshots only.
+
+Personally interact with both websites.
+
+Compare every animation using matching actions.
+
+Test:
+
+        · Page loader
+        · Custom cursor
+        · Red cursor outline
+        · Cursor dot
+        · Cursor hover state
+        · Sticky header
+        · Navigation dropdown
+        · Mobile menu
+        · Off-canvas panel
+        · Hero slider
+        · Slider arrows
+        · Slider pagination
+        · Text entrance
+        · Image entrance
+        · Scroll reveal
+        · Counter animation
+        · Product slider
+        · Services slider
+        · Team slider
+        · Testimonials slider
+        · Project slider
+        · FAQ accordion
+        · Image hover
+        · Card hover
+        · Button arrow movement
+        · Video popup
+
+                                                                        12
+        · Search popup
+        · Back-to-top
+        · Smooth scrolling
+        · Newsletter button
+        · Social icons
+
+For every animation compare:
+
+        · Initial state
+        · Final state
+        · Trigger point
+        · Direction
+        · Movement distance
+        · Duration
+        · Delay
+        · Easing
+        · Opacity
+        · Scale
+        · Rotation
+        · Stagger
+        · Hover behavior
+        · Exit behavior
+
+Capture animation checkpoints where useful:
+
+        · Before interaction
+        · 100 ms
+        · 250 ms
+        · 500 ms
+        · 750 ms
+        · 1000 ms
+        · Final state
+
+If local animation differs, edit it and repeat the interaction.
+
+Do not simply add generic fade-up animations to everything.
+
+================================================== PHASE 11 -- CURSOR COMPARISON
+==================================================
+
+The reference website includes a custom cursor effect.
+
+Inspect it directly and recreate its behavior accurately.
+
+Compare:
+
+        · Small cursor point
+        · Outer cursor ring
+        · Ring size
+        · Ring border thickness
+        · Red color
+
+                                                                        13
+        · Movement delay
+        · Smoothing
+        · Hover expansion
+        · Link hover state
+        · Button hover state
+        · Image hover state
+        · Pointer behavior
+        · Visibility outside the browser
+        · Mobile disabling behavior
+
+Ensure the browser's normal pointer and custom cursor do not create an incorrect double-cursor
+experience.
+
+Do not display the custom cursor on touch devices.
+
+================================================== PHASE 12 -- AUTOMATED PAGE CRAWL
+==================================================
+
+Use Playwright to crawl every internal local route.
+
+For every route collect:
+
+        · HTTP status
+        · Page title
+        · Console errors
+        · Failed network requests
+        · Missing images
+        · Broken links
+        · Hydration warnings
+        · Horizontal overflow
+        · Runtime exceptions
+
+Click:
+
+        · Navigation links
+        · Dropdown links
+        · Footer links
+        · Buttons
+        · Product links
+        · Blog links
+        · Service links
+        · Team links
+        · Project links
+
+Do not leave links using "#" when a real route should exist.
+
+================================================== PHASE 13 -- DO NOT ONLY REPORT
+DIFFERENCES ==================================================
+
+When a difference is found:
+
+                                                                        14
+Incorrect behavior:
+
+"Footer spacing is different."
+
+Correct behavior:
+
+      1. Locate the footer component.
+      2. Locate the responsible CSS.
+      3. Measure the difference.
+      4. Edit the CSS.
+      5. Reload localhost.
+      6. Capture another screenshot.
+      7. Confirm the correction.
+      8. Continue checking.
+
+Do not finish with a list of unresolved differences that you were capable of fixing.
+
+Fix them first.
+
+================================================== PHASE 14 -- TRACK EVERY ISSUE
+==================================================
+
+Create a working comparison file such as:
+
+tests/visual/comparison-report.md
+
+For every issue record:
+
+        · Route
+        · Section
+        · Viewport
+        · Reference appearance
+        · Local appearance
+        · Difference
+        · Source file changed
+        · CSS or component changed
+        · Correction made
+        · Screenshot before
+        · Screenshot after
+        · Retest status
+
+Use these statuses:
+
+        · Not checked
+        · Difference found
+        · Fixing
+        · Retest required
+        · Passed
+
+A section may only be marked Passed after it has been visually retested.
+
+                                                                        15
+================================================== PHASE 15 -- BUILD AND TEST AFTER FIXES
+==================================================
+
+After each major group of fixes, run:
+
+npm run lint
+
+npm run typecheck
+
+npm run build
+
+npx playwright test
+
+If the project does not have a typecheck script, use the appropriate TypeScript command.
+
+Fix:
+
+        · Compilation errors
+        · TypeScript errors
+        · ESLint errors
+        · Hydration errors
+        · Console errors
+        · Missing assets
+        · Failed imports
+        · Broken routes
+        · React warnings
+        · Layout shifts
+        · Failed requests
+Do not disable validation merely to make the commands pass.
+
+================================================== PHASE 16 -- FINAL FULL-WEBSITE LOOP
+==================================================
+
+After every individual page appears complete, perform another complete loop from the beginning.
+
+Start on the reference homepage and localhost homepage.
+
+Navigate both sites like a real visitor.
+
+Compare:
+
+        · Initial page loading
+        · Header
+        · Navigation
+        · Every homepage section
+        · Video Gallery
+        · CTA
+        · Footer
+        · Chat control
+
+                                                                        16
+        · Back-to-top control
+        · Dropdowns
+        · Inner pages
+        · Forms
+        · Sliders
+        · Popups
+        · Mobile menu
+
+If any difference is discovered, reopen the repair loop.
+
+Do not stop just because the first page passed earlier.
+
+A later CSS change may have broken an earlier page, so previously passed pages must be regression-
+tested.
+
+================================================== MANDATORY LOOP TERMINATION RULE
+==================================================
+
+Do not finish while any of these remain:
+
+        · Missing page
+        · Missing section
+        · Duplicated section
+        · Incorrect section order
+        · Incorrect footer
+        · Incorrect CTA
+        · Incorrect Video Gallery
+        · Incorrect background image
+        · Incorrect overlay
+        · Incorrect typography
+        · Incorrect spacing
+        · Incorrect button
+        · Incorrect cursor
+        · Incorrect animation
+        · Missing animation
+        · Broken slider
+        · Broken popup
+        · Broken route
+        · Broken link
+        · Console error
+        · Hydration warning
+        · Build error
+        · Horizontal overflow
+        · Clipped content
+        · White body gap
+        · Duplicate back-to-top control
+        · Incorrect chat-button position
+        · Mobile layout problem
+        · Placeholder content
+
+Continue:
+
+                                                                        17
+COMPARE  FIX  RETEST  REGRESSION CHECK
+until all major and medium differences have been corrected.
+================================================== FINAL RESPONSE REQUIREMENTS
+==================================================
+Only after the complete visual correction loop is finished, provide:
+
+      1. Detected localhost URL.
+      2. Complete reference-to-local route map.
+      3. Pages compared.
+      4. Viewport sizes tested.
+      5. Footer differences corrected.
+      6. CTA differences corrected.
+      7. Video Gallery differences corrected.
+      8. Cursor differences corrected.
+      9. Animation differences corrected.
+     10. Responsive issues corrected.
+     11. Broken links corrected.
+     12. Console and network results.
+     13. Production build result.
+     14. Playwright test result.
+     15. Location of reference, local and diff screenshots.
+     16. Any genuinely unavoidable remaining difference with its exact technical or licensing reason.
+Do not claim "100% identical" without actual verification.
+Do not finish after producing screenshots.
+You must modify the code, verify the modification and repeat the comparison loop until the local Next.js
+website closely matches the live reference website.
+
+                                                                        18
+
