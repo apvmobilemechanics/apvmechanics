@@ -1893,7 +1893,10 @@ textarea{max-width:100%}
     align-items:flex-start !important;
     padding-top:96px !important;
     padding-bottom:40px !important;
+    padding-left:15px !important;
+    padding-right:15px !important;
     gap:0 !important;
+    width:100% !important;
   }
   .hero__content{
     position:relative;
@@ -1902,17 +1905,17 @@ textarea{max-width:100%}
     max-width:100% !important;
   }
 
-  /* Darker overlay — reference is very dark navy */
+  /* Dimmer overlay — reference shows mechanic background faintly */
   .hero__overlay{
-    background:#061554f0 !important;
+    background:#061554d9 !important;
   }
 
   /* Eyebrow */
   .hero__eyebrow{
     font-size:12px !important;
     font-weight:700 !important;
-    letter-spacing:2.5px !important;
-    color:rgba(255,255,255,.55) !important;
+    letter-spacing:2px !important;
+    color:#fff !important;
     margin-bottom:14px !important;
     display:block !important;
   }
@@ -1924,7 +1927,7 @@ textarea{max-width:100%}
 
   /* Heading */
   .hero h1{
-    font-size:clamp(28px,8vw,36px) !important;
+    font-size:32px !important;
     line-height:1.25 !important;
     letter-spacing:-0.5px !important;
     color:#fff !important;
@@ -1938,6 +1941,7 @@ textarea{max-width:100%}
     line-height:1.72 !important;
     color:rgba(255,255,255,.72) !important;
     margin-bottom:30px !important;
+    padding-right:10px !important;
   }
   .hero__copy br{display:none !important}
 
@@ -1946,7 +1950,7 @@ textarea{max-width:100%}
     display:flex !important;
     flex-direction:column !important;
     align-items:flex-start !important;
-    gap:18px !important;
+    gap:20px !important;
     margin-top:0 !important;
   }
 
@@ -1985,35 +1989,12 @@ textarea{max-width:100%}
   .hero__person{display:none !important}
   .customer-badge{display:none !important}
 
-  /* Hide hero shapes — they dominate small screens */
+  /* Hide hero shapes & ghost — they dominate small screens */
   .hero__shape{display:none !important}
+  .hero__ghost{display:none !important}
 
   /* Hide carousel arrows — clutter on mobile */
   .hero__arrows{display:none !important}
 }
 
-
-/* ═══════════════════════════════════════════════════
-   FLOATING CHAT BADGE — Red rounded square bottom-left
-   ═══════════════════════════════════════════════════ */
-.floating-chat{
-  position:fixed;
-  left:18px;
-  bottom:24px;
-  z-index:999;
-  width:42px;
-  height:38px;
-  border-radius:8px;
-  background:var(--red);
-  color:#fff;
-  display:grid;
-  place-items:center;
-  box-shadow:0 4px 18px rgba(240,4,18,.35);
-  transition:transform .2s,box-shadow .2s;
-}
-.floating-chat:hover{
-  transform:translateY(-3px);
-  box-shadow:0 8px 24px rgba(240,4,18,.45);
-}
-.floating-chat svg{width:18px;height:18px}
 
