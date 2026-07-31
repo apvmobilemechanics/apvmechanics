@@ -807,6 +807,7 @@ em{font-style:normal;color:var(--red)}
 .footer-back-to-top,.footer-chat-badge{display:none}
 
 .floating-chat{
+  display:none !important;
   position:fixed;
   left:28px;
   bottom:28px;

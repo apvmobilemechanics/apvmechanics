@@ -185,9 +185,7 @@ export function SiteEffects() {
       style={{ transform: `translate3d(${cursor.x}px,${cursor.y}px,0)` }}
       aria-hidden="true"
     />
-    <Link className="floating-chat" href="/contact" aria-label="Chat with Automart">
-      <MessageCircle />
-    </Link>
+
     <button className={`scroll-top ${showTop?"show":""}`} onClick={()=>window.scrollTo({top:0,behavior:"smooth"})} aria-label="Go back to top"><ArrowUp/><span>Go Back Top</span></button>
   </>;
 }
