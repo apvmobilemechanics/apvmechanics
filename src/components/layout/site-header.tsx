@@ -141,7 +141,10 @@ export function SiteHeader() {
               height={58}
               priority
             />
-            <span className="logo__brand">Automart</span>
+            <span className="logo__text">
+              <strong className="logo__brand">APV</strong>
+              <small className="logo__sub">MOBILE MECHANICS</small>
+            </span>
           </Link>
           <nav aria-label="Main navigation">
             {navItems.map((item) => {

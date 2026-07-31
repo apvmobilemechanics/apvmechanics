@@ -51,19 +51,19 @@ export function SiteFooter() {
         <div className="container footer-grid">
           {/* Column 1: Brand & Newsletter */}
           <div className="footer-col footer-col--brand">
-            <Link className="footer-logo-lockup" href="/" aria-label="Automart home">
+            <Link className="footer-logo-lockup" href="/" aria-label="APV Mobile Mechanics home">
               <div className="footer-logo-icon">
                 <Image
                   src={`${A}/resources/apv-mobile-mechanics-logo.jpeg`}
-                  alt="Automart Logo"
+                  alt="APV Mobile Mechanics Logo"
                   width={38}
                   height={38}
                   style={{ borderRadius: "50%", objectFit: "cover" }}
                 />
               </div>
               <span className="footer-logo-text">
-                <em className="logo-red">Auto</em>
-                <span className="logo-white">mart</span>
+                <em className="logo-red">APV Mobile</em>
+                <span className="logo-white"> Mechanics</span>
               </span>
             </Link>
 

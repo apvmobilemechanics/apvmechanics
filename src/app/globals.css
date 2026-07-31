@@ -34,8 +34,9 @@ em{font-style:normal;color:var(--red)}
 .header__inner{height:100%;width:min(1370px,100%);margin:auto;display:flex;align-items:center}
 .logo{height:100%;width:260px;background:#fff;display:flex;align-items:center;gap:12px;padding-left:20px;position:relative;z-index:2;flex-shrink:0}
 .logo:after{content:"";position:absolute;right:-32px;top:0;border-top:88px solid #fff;border-right:33px solid transparent}
-.logo__text{display:flex;flex-direction:column}
-.logo__brand{font:800 24px/1 var(--font-rubik);color:var(--navy);letter-spacing:-0.5px}
+.logo__text{display:flex;flex-direction:column;justify-content:center}
+.logo__brand{font:900 24px/1 var(--font-rubik);color:var(--red);font-style:italic;letter-spacing:-0.5px}
+.logo__sub{font:800 9px/1.1 var(--font-rubik);color:var(--navy);letter-spacing:0.8px;margin-top:2px;white-space:nowrap}
 .header nav{display:flex;align-items:center;gap:20px;margin-left:25px;height:100%;font:600 14px var(--font-rubik)}
 .header nav a{height:100%;display:flex;align-items:center;gap:3px;position:relative;color:#fff;white-space:nowrap}
 .header nav a.active{color:var(--red)}
