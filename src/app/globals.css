@@ -437,23 +437,13 @@ em{font-style:normal;color:var(--red)}
 }
 @media (max-width:820px){
   .mobile-toggle{display:block}
-  .hero{height:752px}
-  .hero__inner{width:min(100% - 30px,720px);padding:0}
-  .hero__content{left:15px;top:115px;width:calc(100% - 30px)}
+  .hero{height:auto;min-height:100dvh}
+  .hero__inner{width:min(100% - 30px,720px)}
   .hero__visual,.hero__arrows{display:none}
-  .hero__eyebrow{font-size:16px}
-  .hero h1{font-size:56px;line-height:1.25}
-  .hero__copy{font-size:17px;line-height:1.7;margin:30px 0 35px}
 }
 @media (max-width:560px){
-  .hero{height:672px}
-  .hero__content{left:0;top:88px;width:100%}
-  .hero__eyebrow{font-size:14px}
-  .hero h1{font-size:36px;line-height:1.25;letter-spacing:-1px}
+  .hero{height:auto;min-height:100dvh}
   .hero__title-image{display:none}
-  .hero__copy{font-size:15px;line-height:1.7;margin:24px 0 28px}
-  .hero__copy br{display:none}
-  .hero__actions{gap:18px}
 }
 @media (prefers-reduced-motion:reduce){
   .hero__backgrounds img.is-active,.hero__eyebrow,.hero h1,.hero__copy,.hero__actions,.hero__visual,.customer-badge{animation:none!important;opacity:1;transform:none}
@@ -1816,7 +1806,6 @@ textarea{max-width:100%}
 }
 
 @media (max-width:350px){
-  .header__inner>.logo{width:calc(100% - 92px);padding-left:10px}
   .header__tools{gap:4px;padding-right:4px}
   .header-cart-link,
   .mobile-toggle{width:38px;min-width:38px}
@@ -1881,28 +1870,36 @@ textarea{max-width:100%}
    content-only height, pill buttons, phone row
    ═══════════════════════════════════════════════════ */
 @media (max-width:560px){
-  /* Hero base — match reference exactly */
+  /* Hero base — fill screen height nicely on mobile */
   .hero{
-    min-height:100dvh !important;
+    min-height:calc(100dvh - 76px) !important;
     height:auto !important;
     background:#061554 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
   }
   .hero__inner{
     display:flex !important;
     flex-direction:column !important;
+    justify-content:center !important;
     align-items:flex-start !important;
-    padding-top:96px !important;
-    padding-bottom:40px !important;
-    padding-left:15px !important;
-    padding-right:15px !important;
+    padding-top:28px !important;
+    padding-bottom:36px !important;
+    padding-left:18px !important;
+    padding-right:18px !important;
     gap:0 !important;
     width:100% !important;
+    flex:1 !important;
   }
   .hero__content{
-    position:relative;
+    position:relative !important;
+    left:auto !important;
+    top:auto !important;
     z-index:3;
-    width:100%;
+    width:100% !important;
     max-width:100% !important;
+    margin-block:auto !important;
   }
 
   /* Dimmer overlay — reference shows mechanic background faintly */
@@ -1910,13 +1907,13 @@ textarea{max-width:100%}
     background:#061554d9 !important;
   }
 
-  /* Eyebrow */
+  /* Eyebrow — subtle gap */
   .hero__eyebrow{
     font-size:12px !important;
     font-weight:700 !important;
     letter-spacing:2px !important;
     color:#fff !important;
-    margin-bottom:14px !important;
+    margin-bottom:12px !important;
     display:block !important;
   }
   /* Remove the ::after double line we added earlier */
@@ -1925,32 +1922,32 @@ textarea{max-width:100%}
     display:none !important;
   }
 
-  /* Heading */
+  /* Heading — subtle gap */
   .hero h1{
-    font-size:32px !important;
-    line-height:1.25 !important;
+    font-size:30px !important;
+    line-height:1.24 !important;
     letter-spacing:-0.5px !important;
     color:#fff !important;
-    margin-bottom:14px !important;
+    margin-bottom:16px !important;
   }
   .hero__title-image{display:none !important}
 
-  /* Copy */
+  /* Copy — subtle gap */
   .hero__copy{
     font-size:14px !important;
-    line-height:1.72 !important;
-    color:rgba(255,255,255,.72) !important;
-    margin-bottom:30px !important;
+    line-height:1.68 !important;
+    color:rgba(255,255,255,.78) !important;
+    margin-bottom:24px !important;
     padding-right:10px !important;
   }
   .hero__copy br{display:none !important}
 
-  /* Action row — column stack */
+  /* Action row — column stack with balanced gaps */
   .hero__actions{
     display:flex !important;
     flex-direction:column !important;
     align-items:flex-start !important;
-    gap:20px !important;
+    gap:18px !important;
     margin-top:0 !important;
   }
 
