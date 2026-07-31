@@ -191,7 +191,7 @@ function Faq() {
             fill
             sizes="(max-width: 768px) 100vw, 560px"
           />
-          <div><Phone/><span>Call for emergency service<b>+ 88 (9800) 6802</b></span></div>
+          <div><Phone/><span>Call for emergency service<b>0424 411 375</b></span></div>
         </div>
         <div><SectionHeading eyebrow="FAQ" title={<>Common Car Repair <em>Asked Questions!</em></>} /><FaqList /></div>
       </div>
@@ -216,7 +216,7 @@ function Contact() {
   return (
     <section className="section contact" id="contact">
       <div className="container split">
-        <div className="contact__info"><SectionHeading eyebrow="CONTACT US" title={<>Connect With <em>Our Team</em></>} /><p>Book your repair or maintenance visit today. Our friendly specialists are ready to help.</p><div><i><Phone/></i><span><small>Call Anytime</small><b>+ 88 (9800) 6802</b></span></div><div><i><Mail/></i><span><small>Email Address</small><b>scriptfusionscar@gmail.com</b></span></div><div><i><MapPin/></i><span><small>Our Location</small><b>4517 Washington Ave, Kentucky</b></span></div></div>
+        <div className="contact__info"><SectionHeading eyebrow="CONTACT US" title={<>Connect With <em>Our Team</em></>} /><p>Book your repair or maintenance visit today. Our friendly specialists are ready to help.</p><div><i><Phone/></i><span><small>Call Anytime</small><b>0424 411 375</b></span></div><div><i><Mail/></i><span><small>Email Address</small><b>scriptfusionscar@gmail.com</b></span></div><div><i><MapPin/></i><span><small>Our Location</small><b>4517 Washington Ave, Kentucky</b></span></div></div>
         <LocalContactForm/>
       </div>
     </section>

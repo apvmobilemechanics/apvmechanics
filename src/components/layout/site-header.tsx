@@ -179,9 +179,9 @@ export function SiteHeader() {
               {cartCount > 0 && <span>{cartCount}</span>}
             </Link>
             <span className="header__tools-divider" aria-hidden="true" />
-            <a className="header__call" href="tel:+9123466875">
+            <a className="header__call" href="tel:0424411375">
               <i><Phone /></i>
-              <span><small>Call Any Time</small><b>(+91) 234 668 75</b></span>
+              <span><small>Call Any Time</small><b>0424 411 375</b></span>
             </a>
             <MobileMenu />
           </div>
@@ -205,7 +205,7 @@ export function SiteHeader() {
         <Image src={`${A}/resources/apv-mobile-mechanics-logo.jpeg`} alt="APV Mobile Mechanics" width={112} height={112} />
         <p>Professional automotive repair, diagnostics and mobile support delivered with dependable workmanship.</p>
         <h3>Contact Info</h3>
-        <a href="tel:+9123466875"><Phone /><span>Call Any Time<b>(+91) 234 668 75</b></span></a>
+        <a href="tel:0424411375"><Phone /><span>Call Any Time<b>0424 411 375</b></span></a>
         <a href="mailto:scriptfusionscar@gmail.com"><Mail /><span>Email Address<b>scriptfusionscar@gmail.com</b></span></a>
         <Link href="/contact"><MapPin /><span>Our Location<b>4517 Washington Ave, Kentucky</b></span></Link>
         <div className="info-drawer__socials">

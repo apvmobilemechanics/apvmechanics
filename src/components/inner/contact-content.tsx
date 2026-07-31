@@ -2,7 +2,7 @@ import { Clock3, Mail, MapPin, Phone } from "lucide-react";
 import { LocalContactForm } from "@/components/inner/local-form";
 
 export function ContactInfo() {
-  const items=[[Phone,"Phone Number","+88 (9800) 6802"],[Mail,"Email Address","needhelp@company.com"],[Clock3,"Opening Hours","Mon - Sat: 8:00 - 8:00"],[MapPin,"Our Address","4517 Washington Ave, Kentucky"]] as const;
+  const items=[[Phone,"Phone Number","0424 411 375"],[Mail,"Email Address","needhelp@company.com"],[Clock3,"Opening Hours","Mon - Sat: 8:00 - 8:00"],[MapPin,"Our Address","4517 Washington Ave, Kentucky"]] as const;
   return <section className="contact-info-section"><div className="container contact-info-grid">{items.map(([Icon,label,value])=><article key={label}><i><Icon/></i><span><small>{label}</small><b>{value}</b></span></article>)}</div></section>;
 }
 

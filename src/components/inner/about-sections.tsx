@@ -54,7 +54,7 @@ export function AboutCompanySection() {
                 <Image src={`${A}/resources/about-v1__phn-img.jpg`} alt="Automart support specialist" width={60} height={60}/>
                 <i><Phone/></i>
               </div>
-              <span><small>Call Any Time</small><b>(+91) 234 668 75</b></span>
+              <span><small>Call Any Time</small><b>0424 411 375</b></span>
             </div>
           </div>
         </div>

@@ -40,7 +40,7 @@ em{font-style:normal;color:var(--red)}
 .header nav a{height:100%;display:flex;align-items:center;gap:3px;position:relative;color:#fff;white-space:nowrap}
 .header nav a.active{color:var(--red)}
 .header nav a.active:after{content:"";position:absolute;bottom:23px;left:0;right:0;height:2px;background:var(--red)}
-.header__tools{margin-left:auto;display:flex;gap:22px;align-items:center;padding-right:0}
+.header__tools{margin-left:auto;display:flex;gap:22px;align-items:center;padding-right:36px}
 .header__tools>svg{width:20px;height:20px;color:#fff;cursor:pointer}
 .header__tools-divider{width:1px;height:35px;background:rgba(255,255,255,0.25)}
 .header__call{display:flex;align-items:center;gap:12px;white-space:nowrap}

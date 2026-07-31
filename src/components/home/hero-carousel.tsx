@@ -58,7 +58,7 @@ export function HeroCarousel() {
           <p className="hero__copy">Expert car repair services to keep your vehicle running smoothly.<br />Watch for seasonal offers &amp; discounts to save on maintenance.</p>
           <div className="hero__actions">
             <ThemeButton href="/about">Read More</ThemeButton>
-            <a className="hero__phone" href="tel:+8898006802"><i><Phone size={20} /></i><span>Call Anytime<b>+ 88 (9800) 6802</b></span></a>
+            <a className="hero__phone" href="tel:0424411375"><i><Phone size={20} /></i><span>Call Anytime<b>0424 411 375</b></span></a>
           </div>
         </div>
         <div className="hero__visual" key={`visual-${active}`}>

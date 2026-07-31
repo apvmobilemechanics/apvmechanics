@@ -84,7 +84,7 @@ export function FaqPageContent() {
       <PageBanner title="FAQ"/>
       <section className="section faq-route">
         <div className="container faq-route-grid">
-          <div><SectionHeading eyebrow="FREQUENTLY ASKED QUESTIONS" title={<>Everything You Need to Know About <em>Car Care</em></>}/><p>Clear answers help you make confident repair and maintenance decisions.</p><div className="faq-route-contact"><Phone/><span>Still need help?<b>+ 88 (9800) 6802</b></span></div></div>
+          <div><SectionHeading eyebrow="FREQUENTLY ASKED QUESTIONS" title={<>Everything You Need to Know About <em>Car Care</em></>}/><p>Clear answers help you make confident repair and maintenance decisions.</p><div className="faq-route-contact"><Phone/><span>Still need help?<b>0424 411 375</b></span></div></div>
           <FaqList/>
         </div>
       </section>
@@ -133,7 +133,7 @@ export function ServiceDetailsContent({ slug }: { slug: string }) {
           <aside>
             <h3>Our Services</h3>
             {services.map((item) => <Link className={item.slug === service.slug ? "active" : ""} href={`/${item.slug}`} key={item.slug}>{item.title}<ArrowRight/></Link>)}
-            <div className="service-help"><Phone/><h3>Need Emergency Help?</h3><p>Speak directly with our service team.</p><a href="tel:+8898006802">+ 88 (9800) 6802</a></div>
+            <div className="service-help"><Phone/><h3>Need Emergency Help?</h3><p>Speak directly with our service team.</p><a href="tel:0424411375">0424 411 375</a></div>
           </aside>
         </div>
       </section>
@@ -188,5 +188,5 @@ export function NotFoundContent() {
 }
 
 export function ContactStrip() {
-  return <section className="contact-strip"><div className="container"><div><MapPin/><span><small>Visit Our Workshop</small><b>4517 Washington Ave, Kentucky</b></span></div><div><Phone/><span><small>Call Any Time</small><b>+ 88 (9800) 6802</b></span></div></div></section>;
+  return <section className="contact-strip"><div className="container"><div><MapPin/><span><small>Visit Our Workshop</small><b>4517 Washington Ave, Kentucky</b></span></div><div><Phone/><span><small>Call Any Time</small><b>0424 411 375</b></span></div></div></section>;
 }
