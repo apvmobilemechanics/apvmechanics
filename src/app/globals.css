@@ -1876,100 +1876,122 @@ textarea{max-width:100%}
 }
 
 /* ═══════════════════════════════════════════════════
-   MOBILE HERO  — Matches user's screenshot:
-   Dark navy, marquee eyebrow repeated, pill button row,
-   red phone circle + "Call Anytime", floating red chat
+   MOBILE HERO  — Exact clone of Automart reference:
+   Dark navy bg, mechanic bg dim, no person image,
+   content-only height, pill buttons, phone row
    ═══════════════════════════════════════════════════ */
-@media (max-width:480px){
-  /* Hero base */
+@media (max-width:560px){
+  /* Hero base — match reference exactly */
   .hero{
-    min-height:100svh;
-    background:#061554;
+    min-height:100dvh !important;
+    height:auto !important;
+    background:#061554 !important;
   }
   .hero__inner{
-    padding-top:100px;
-    padding-bottom:32px;
-    align-items:flex-start;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    padding-top:96px !important;
+    padding-bottom:40px !important;
+    gap:0 !important;
   }
-  .hero__content{position:relative;z-index:3;width:100%}
+  .hero__content{
+    position:relative;
+    z-index:3;
+    width:100%;
+    max-width:100% !important;
+  }
 
-  /* Eyebrow — show as stacked marquee lines */
-  .hero__eyebrow{
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:2.5px;
-    color:rgba(255,255,255,.55);
-    margin-bottom:6px;
-    display:block;
+  /* Darker overlay — reference is very dark navy */
+  .hero__overlay{
+    background:#061554f0 !important;
   }
+
+  /* Eyebrow */
+  .hero__eyebrow{
+    font-size:12px !important;
+    font-weight:700 !important;
+    letter-spacing:2.5px !important;
+    color:rgba(255,255,255,.55) !important;
+    margin-bottom:14px !important;
+    display:block !important;
+  }
+  /* Remove the ::after double line we added earlier */
   .hero__eyebrow::after{
-    content:'CAR - REPAIR - CENTER';
-    display:block;
-    margin-top:4px;
+    content:none !important;
+    display:none !important;
   }
 
   /* Heading */
   .hero h1{
-    font-size:30px;
-    line-height:1.28;
-    letter-spacing:-0.5px;
-    color:#fff;
-    margin-bottom:14px;
+    font-size:clamp(28px,8vw,36px) !important;
+    line-height:1.25 !important;
+    letter-spacing:-0.5px !important;
+    color:#fff !important;
+    margin-bottom:14px !important;
   }
-  .hero__title-image{display:none}
+  .hero__title-image{display:none !important}
 
   /* Copy */
   .hero__copy{
-    font-size:14px;
-    line-height:1.7;
-    color:rgba(255,255,255,.72);
-    margin-bottom:28px;
+    font-size:14px !important;
+    line-height:1.72 !important;
+    color:rgba(255,255,255,.72) !important;
+    margin-bottom:30px !important;
   }
-  .hero__copy br{display:none}
+  .hero__copy br{display:none !important}
 
   /* Action row — column stack */
   .hero__actions{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:16px;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:18px !important;
+    margin-top:0 !important;
   }
 
-  /* Phone row */
+  /* Phone row — red circle + text */
   .hero__phone{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    margin-left:0;
+    display:flex !important;
+    align-items:center !important;
+    gap:14px !important;
+    margin-left:0 !important;
   }
   .hero__phone i{
-    width:50px;
-    height:50px;
-    border-radius:50%;
-    background:var(--red);
-    color:#fff;
-    display:grid;
-    place-items:center;
-    flex-shrink:0;
+    width:52px !important;
+    height:52px !important;
+    min-width:52px !important;
+    border-radius:50% !important;
+    background:var(--red) !important;
+    color:#fff !important;
+    display:grid !important;
+    place-items:center !important;
   }
   .hero__phone span{
-    display:flex;
-    flex-direction:column;
-    gap:2px;
-    font-size:13px;
-    color:rgba(255,255,255,.8);
+    display:flex !important;
+    flex-direction:column !important;
+    gap:3px !important;
+    font-size:13px !important;
+    color:rgba(255,255,255,.75) !important;
   }
   .hero__phone b{
-    font-size:16px;
-    font-weight:700;
-    color:#fff;
+    font-size:15px !important;
+    font-weight:700 !important;
+    color:#fff !important;
   }
 
-  /* Hide right panel image on smallest mobile */
-  .hero__visual{display:none}
-  .hero__person{display:none}
-  .customer-badge{display:none}
+  /* HIDE the right-side person & badge completely */
+  .hero__visual{display:none !important}
+  .hero__person{display:none !important}
+  .customer-badge{display:none !important}
+
+  /* Hide hero shapes — they dominate small screens */
+  .hero__shape{display:none !important}
+
+  /* Hide carousel arrows — clutter on mobile */
+  .hero__arrows{display:none !important}
 }
+
 
 /* ═══════════════════════════════════════════════════
    FLOATING CHAT BADGE — Red rounded square bottom-left
