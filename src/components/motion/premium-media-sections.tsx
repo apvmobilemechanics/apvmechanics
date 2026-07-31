@@ -7,33 +7,33 @@ import { ThemeButton } from "@/components/common/button";
 import { VideoModalButton } from "@/components/home/interactive";
 
 const A = "/assets/images";
-const ease = [0.22, 1, 0.36, 1] as const;
+const ease = [0.16, 1, 0.3, 1] as const;
 
 /* ─── shared stagger parent ─── */
 const stagger = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.13, delayChildren: 0.08 } },
+  show: { transition: { staggerChildren: 0.15, delayChildren: 0.05 } },
 };
 
-/* ─── fade-up child (matches WhatsApp video reference timing) ─── */
+/* ─── fade-up child ─── */
 const fadeUp = {
-  hidden: { opacity: 0, y: 48, filter: "blur(3px)" },
+  hidden: { opacity: 0, y: 50, filter: "blur(6px)" },
   show: {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.72, ease },
+    transition: { duration: 0.85, ease },
   },
 };
 
-/* ─── fade-right child (for play button side) ─── */
+/* ─── fade-right child (for right side elements) ─── */
 const fadeRight = {
-  hidden: { opacity: 0, x: 40, filter: "blur(2px)" },
+  hidden: { opacity: 0, x: 50, filter: "blur(6px)" },
   show: {
     opacity: 1,
     x: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.72, ease },
+    transition: { duration: 0.85, ease },
   },
 };
 
@@ -44,8 +44,8 @@ export function PremiumVideoGallery() {
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["-4%", "4%"]);
-  const bgScale = useTransform(scrollYProgress, [0, 1], [1.04, 1.09]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.03, 1.1]);
 
   return (
     <motion.section
@@ -54,8 +54,9 @@ export function PremiumVideoGallery() {
       aria-labelledby="video-gallery-title"
       initial={reduceMotion ? false : { opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.55, ease }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.6, ease }}
+      data-reveal="up"
     >
       {/* Parallax background */}
       <motion.div
@@ -73,15 +74,16 @@ export function PremiumVideoGallery() {
       />
 
       <div className="container video-one-clone__content">
-        {/* LEFT: Staggered text reveal (fade-up, stagger) */}
+        {/* LEFT: Staggered text reveal */}
         <motion.div
           className="video-one-clone__titles"
           variants={stagger}
           initial={reduceMotion ? false : "hidden"}
           whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.15 }}
+          data-reveal="left"
         >
-          {/* "Car Repair" ghost eyebrow — slides up first */}
+          {/* "Car Repair" ghost eyebrow */}
           <motion.span variants={fadeUp} aria-hidden="true">
             Car Repair
           </motion.span>
@@ -92,8 +94,8 @@ export function PremiumVideoGallery() {
               <strong>Video</strong>
               <motion.span
                 className="video-one-clone__thumbnail"
-                whileHover={reduceMotion ? undefined : { scale: 1.06, rotate: 2 }}
-                transition={{ duration: 0.3, ease }}
+                whileHover={reduceMotion ? undefined : { scale: 1.08, rotate: 3 }}
+                transition={{ duration: 0.35, ease }}
               >
                 <Image
                   src={`${A}/generated/apv-about-workshop.webp`}
@@ -114,20 +116,21 @@ export function PremiumVideoGallery() {
           </motion.small>
         </motion.div>
 
-        {/* RIGHT: Play button — fades in from right after text stagger */}
+        {/* RIGHT: Play button — fades in from right */}
         <motion.div
           className="video-one-clone__play"
           variants={fadeRight}
           initial={reduceMotion ? false : "hidden"}
           whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.72, ease, delay: reduceMotion ? 0 : 0.32 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.85, ease, delay: reduceMotion ? 0 : 0.2 }}
+          data-reveal="right"
         >
           <motion.div
             className="video-one-clone__play-pulse"
-            animate={reduceMotion ? undefined : { scale: [1, 1.04, 1] }}
+            animate={reduceMotion ? undefined : { scale: [1, 1.06, 1] }}
             transition={{
-              duration: 2.4,
+              duration: 2.2,
               repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
             }}
@@ -148,8 +151,8 @@ export function PremiumFooterCta() {
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["-3%", "3%"]);
-  const bgScale = useTransform(scrollYProgress, [0, 1], [1.04, 1.08]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.03, 1.09]);
 
   return (
     <motion.section
@@ -158,8 +161,9 @@ export function PremiumFooterCta() {
       aria-label="Get our service"
       initial={reduceMotion ? false : { opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.55, ease }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.6, ease }}
+      data-reveal="up"
     >
       <motion.div
         className="footer-cta__background"
@@ -175,7 +179,8 @@ export function PremiumFooterCta() {
           variants={stagger}
           initial={reduceMotion ? false : "hidden"}
           whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.15 }}
+          data-reveal="left"
         >
           <motion.span variants={fadeUp}>GET OUR SERVICE</motion.span>
           <motion.h2 variants={fadeUp}>
@@ -191,9 +196,10 @@ export function PremiumFooterCta() {
           variants={fadeRight}
           initial={reduceMotion ? false : "hidden"}
           whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.72, ease, delay: reduceMotion ? 0 : 0.28 }}
-          whileHover={reduceMotion ? undefined : { scale: 1.03 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.85, ease, delay: reduceMotion ? 0 : 0.2 }}
+          whileHover={reduceMotion ? undefined : { scale: 1.04 }}
+          data-reveal="right"
         >
           <ThemeButton href="/contact">Get Details</ThemeButton>
         </motion.div>
