@@ -23,13 +23,24 @@ export function MobileMenu() {
   const [submenu, setSubmenu] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
   const links = [
-    {label:"Home",href:"/"},
-    {label:"About",href:"/about"},
-    {label:"Pages",items:[["Team","/team"],["Team Details","/team-details"],["Projects","/projects"],["Project Details","/project-details"],["Testimonial","/testimonials"],["FAQ","/faq"],["404 Error","/404"]]},
-    {label:"Services",href:"/services",items:[["Services V-1","/services"],["Services V-2","/services-v-2"],["Services V-3","/services-v-3"],["Rim & Wheel Repair","/rim-wheel-repair"],["Lights & Accessories","/lights-accessories"],["Brake Repair","/brake-repair"],["Engine Diagnosis","/engine-diagnosis"],["Battery Solution","/battery-solution"],["Emergency Service","/emergency-service"]]},
-    {label:"Shop",href:"/shop",items:[["Products","/shop"],["Product Details","/product-details"],["Cart","/cart"],["Checkout","/checkout"],["Wishlist","/wishlist"],["Sign Up","/sign-up"],["Login","/login"]]},
-    {label:"Blog",href:"/blog",items:[["Blog","/blog"],["Blog Standard","/blog-standard"],["Blog Details","/blog-details"]]},
-    {label:"Contact",href:"/contact"},
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    {
+      label: "Services",
+      href: "/services",
+      items: [
+        ["Mobile Car Repair", "/mobile-car-repair"],
+        ["Engine Diagnostics", "/engine-diagnosis"],
+        ["Brake Repair", "/brake-repair"],
+        ["Battery Replacement", "/battery-solution"],
+        ["Oil Change", "/oil-change"],
+        ["Emergency Roadside Assistance", "/emergency-service"],
+        ["Vehicle Inspection", "/vehicle-inspection"],
+        ["Electrical Repairs", "/lights-accessories"],
+        ["All Services", "/services"],
+      ],
+    },
+    { label: "Contact Us", href: "/contact" },
   ];
   const close = () => { setOpen(false); setSubmenu(null); };
   useEffect(() => setMounted(true), []);

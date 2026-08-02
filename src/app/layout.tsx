@@ -23,6 +23,58 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", images: ["/og.png"] },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["AutoRepair", "LocalBusiness"],
+      "@id": "https://apvmechanics.com.au/#business",
+      "name": "APV Mobile Mechanics",
+      "url": "https://apvmechanics.com.au",
+      "email": "apvmobilemechanics@gmail.com",
+      "telephone": "0424 411 375",
+      "logo": "https://apvmechanics.com.au/assets/images/resources/apv-mobile-mechanics-logo.jpeg",
+      "image": "https://apvmechanics.com.au/assets/images/resources/apv-mobile-mechanics-logo.jpeg",
+      "hasMap": "https://maps.app.goo.gl/dvreoSEMYhGPaky5A?g_st=aw",
+      "sameAs": ["https://maps.app.goo.gl/dvreoSEMYhGPaky5A?g_st=aw"],
+      "priceRange": "$$",
+      "openingHours": "Sa-Th 08:00-20:00",
+      "description": "Professional mobile car repair, engine diagnostics, brake repair, battery replacement, and emergency roadside assistance.",
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://apvmechanics.com.au/#organization",
+      "name": "APV Mobile Mechanics",
+      "url": "https://apvmechanics.com.au",
+      "email": "apvmobilemechanics@gmail.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "0424 411 375",
+        "email": "apvmobilemechanics@gmail.com",
+        "contactType": "customer service",
+        "availableLanguage": "English",
+      },
+    },
+  ],
+};
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" className={`${onest.variable} ${rubik.variable}`}><body><CommerceProvider><SiteHeader />{children}<SiteFooter /><SiteEffects /></CommerceProvider></body></html>;
+  return (
+    <html lang="en" className={`${onest.variable} ${rubik.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body>
+        <CommerceProvider>
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+          <SiteEffects />
+        </CommerceProvider>
+      </body>
+    </html>
+  );
 }

@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
-import { automartSlugs } from "@/lib/site-data";
+import { services } from "@/lib/site-data";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/about", "/services", "/shop", "/blog", "/contact", ...automartSlugs.filter((slug) => slug !== "404").map((slug) => `/${slug}`)];
+  const routes = ["", "/about", "/services", "/contact", ...services.map((s) => `/${s.slug}`)];
   return routes.map((route, index) => ({
     url: `https://apvmechanics.com.au${route}`,
     lastModified: new Date(),
@@ -9,3 +10,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: index === 0 ? 1 : 0.8,
   }));
 }
+

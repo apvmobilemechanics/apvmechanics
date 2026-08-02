@@ -40,7 +40,7 @@ export function TeamDetailsContent() {
             <div className="skill-list">
               {["Engine Diagnostics", "Brake Systems", "Preventive Maintenance"].map((skill, index) => <div key={skill}><span><b>{skill}</b><strong>{96 - index * 4}%</strong></span><i><em style={{ width: `${96 - index * 4}%` }}/></i></div>)}
             </div>
-            <div className="team-contact"><a href="tel:+9123466875"><Phone/> (+91) 234 668 75</a><a href="mailto:scriptfusionscar@gmail.com"><Mail/> scriptfusionscar@gmail.com</a></div>
+            <div className="team-contact"><a href="tel:0424411375"><Phone/> 0424 411 375</a><a href="mailto:apvmobilemechanics@gmail.com"><Mail/> apvmobilemechanics@gmail.com</a></div>
           </div>
         </div>
       </section>
@@ -188,5 +188,5 @@ export function NotFoundContent() {
 }
 
 export function ContactStrip() {
-  return <section className="contact-strip"><div className="container"><div><MapPin/><span><small>Visit Our Workshop</small><b>4517 Washington Ave, Kentucky</b></span></div><div><Phone/><span><small>Call Any Time</small><b>0424 411 375</b></span></div></div></section>;
+  return <section className="contact-strip"><div className="container"><div><MapPin/><span><small>Our Location</small><b><a href="https://maps.app.goo.gl/dvreoSEMYhGPaky5A?g_st=aw" target="_blank" rel="noopener noreferrer" style={{ color: "inherit" }}>APV Mobile Mechanics</a></b></span></div><div><Phone/><span><small>Call Any Time</small><b>0424 411 375</b></span></div></div></section>;
 }

@@ -104,12 +104,12 @@ export function SiteFooter() {
               <span className="footer-heading-line" />
             </h3>
             <ul className="footer-links-list">
-              <li><Link href="/services">Car Detailing</Link></li>
-              <li><Link href="/services">Paint Protection</Link></li>
-              <li><Link href="/services">Engine Bay Clean</Link></li>
-              <li><Link href="/services">Fleet Services</Link></li>
-              <li><Link href="/services">Wax &amp; Polish</Link></li>
-              <li><Link href="/services">Collision Repair</Link></li>
+              <li><Link href="/mobile-car-repair">Mobile Car Repair</Link></li>
+              <li><Link href="/engine-diagnosis">Engine Diagnostics</Link></li>
+              <li><Link href="/brake-repair">Brake Repair</Link></li>
+              <li><Link href="/battery-solution">Battery Replacement</Link></li>
+              <li><Link href="/oil-change">Oil Change</Link></li>
+              <li><Link href="/emergency-service">Emergency Roadside Assistance</Link></li>
             </ul>
           </div>
 
@@ -123,26 +123,25 @@ export function SiteFooter() {
               <li><Link href="/">Home</Link></li>
               <li><Link href="/about">About Us</Link></li>
               <li><Link href="/services">Services</Link></li>
-              <li><Link href="/about#team">Team</Link></li>
-              <li><Link href="/blog">Latest Blog</Link></li>
               <li><Link href="/contact">Contact Us</Link></li>
             </ul>
           </div>
 
-          {/* Column 4: Our Offices */}
+          {/* Column 4: Location & Contact */}
           <div className="footer-col">
             <h3 className="footer-heading">
-              Our Offices
+              Location &amp; Contact
               <span className="footer-heading-line" />
             </h3>
             <div className="footer-offices-block">
               <div className="office-item">
-                <span className="office-label">Headquarters- USA</span>
-                <p className="office-address">Seattle (major city in the state Washington).</p>
-              </div>
-              <div className="office-item">
-                <span className="office-label">Operations - China</span>
-                <p className="office-address">Shanghai major global financial hub &amp; China&apos;s largest cities</p>
+                <span className="office-label">APV Mobile Mechanics</span>
+                <p className="office-address">
+                  Email: <a href="mailto:apvmobilemechanics@gmail.com" style={{ color: "inherit" }}>apvmobilemechanics@gmail.com</a>
+                </p>
+                <p className="office-address">
+                  <a href="https://maps.app.goo.gl/dvreoSEMYhGPaky5A?g_st=aw" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-primary, #e31b23)" }}>View Google Maps Location</a>
+                </p>
               </div>
             </div>
           </div>
@@ -153,7 +152,7 @@ export function SiteFooter() {
           <div className="container footer-bottom-inner">
             <div className="footer-bottom-left">
               <p className="copyright-text">
-                © 2026 Automart, All Rights Reserved.
+                © 2026 APV Mobile Mechanics, All Rights Reserved.
               </p>
             </div>
 

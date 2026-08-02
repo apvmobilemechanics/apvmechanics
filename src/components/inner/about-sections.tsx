@@ -77,8 +77,26 @@ export function TeamSection() {
 }
 
 export function LocationsSection() {
-  const places=["Washington","Los Angeles","North Dakota"];
-  return <section className="section locations inner-locations"><div className="container"><SectionHeading eyebrow="OUR LOCATIONS" title={<>Connect With <em>Our Team</em></>} center/><div className="location-grid location-grid--three">{places.map((city,i)=><article key={city}><span>0{i+1}</span><div><MapPin/><h3>{city}</h3><p>4517 Washington Ave. Manchester, Kentucky 39495</p></div><Link href="/contact"><ArrowRight/></Link></article>)}</div></div></section>;
+  return (
+    <section className="section locations inner-locations">
+      <div className="container">
+        <SectionHeading eyebrow="OUR LOCATION" title={<>Connect With <em>APV Mobile Mechanics</em></>} center />
+        <div className="location-grid" style={{ display: "flex", justifyContent: "center" }}>
+          <article style={{ maxWidth: "500px", width: "100%" }}>
+            <span>01</span>
+            <div>
+              <MapPin />
+              <h3>APV Mobile Mechanics</h3>
+              <p>Mobile Service Delivered Direct To Your Location</p>
+            </div>
+            <a href="https://maps.app.goo.gl/dvreoSEMYhGPaky5A?g_st=aw" target="_blank" rel="noopener noreferrer" aria-label="Open Google Maps Location">
+              <ArrowRight />
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export function TestimonialsSection() {

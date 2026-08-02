@@ -19,7 +19,6 @@ import { FaqList } from "@/components/home/interactive";
 import { ThemeButton } from "@/components/common/button";
 import { SectionHeading } from "@/components/common/section-heading";
 import { AboutCompanySection, InnerVideo } from "@/components/inner/about-sections";
-import { HomeShop, HomeTeam } from "@/components/home/showcase-carousels";
 import { GalleryLightbox } from "@/components/home/gallery-lightbox";
 import { HeroCarousel } from "@/components/home/hero-carousel";
 import { LocalContactForm } from "@/components/inner/local-form";
@@ -203,9 +202,19 @@ function Locations() {
   return (
     <section className="section locations">
       <div className="container">
-        <SectionHeading eyebrow="OUR LOCATIONS" title={<>Connect With <em>Our Team</em></>} center />
-        <div className="location-grid">
-          {["Washington","Los Angeles"].map((city,i)=><article key={city}><span>0{i+1}</span><div><MapPin/><h3>{city}</h3><p>4517 Washington Ave. Manchester, Kentucky 39495</p></div><Link href="/contact"><ArrowRight/></Link></article>)}
+        <SectionHeading eyebrow="OUR LOCATION" title={<>Connect With <em>APV Mobile Mechanics</em></>} center />
+        <div className="location-grid" style={{ display: "flex", justifyContent: "center" }}>
+          <article style={{ maxWidth: "500px", width: "100%" }}>
+            <span>01</span>
+            <div>
+              <MapPin />
+              <h3>APV Mobile Mechanics</h3>
+              <p>Mobile Service Delivered Direct To Your Location</p>
+            </div>
+            <a href="https://maps.app.goo.gl/dvreoSEMYhGPaky5A?g_st=aw" target="_blank" rel="noopener noreferrer" aria-label="Open Google Maps Location">
+              <ArrowRight />
+            </a>
+          </article>
         </div>
       </div>
     </section>
@@ -216,26 +225,19 @@ function Contact() {
   return (
     <section className="section contact" id="contact">
       <div className="container split">
-        <div className="contact__info"><SectionHeading eyebrow="CONTACT US" title={<>Connect With <em>Our Team</em></>} /><p>Book your repair or maintenance visit today. Our friendly specialists are ready to help.</p><div><i><Phone/></i><span><small>Call Anytime</small><b>0424 411 375</b></span></div><div><i><Mail/></i><span><small>Email Address</small><b>scriptfusionscar@gmail.com</b></span></div><div><i><MapPin/></i><span><small>Our Location</small><b>4517 Washington Ave, Kentucky</b></span></div></div>
+        <div className="contact__info">
+          <SectionHeading eyebrow="CONTACT US" title={<>Connect With <em>Our Team</em></>} />
+          <p>Book your repair or maintenance visit today. Our friendly specialists are ready to help.</p>
+          <div><i><Phone/></i><span><small>Call Anytime</small><b><a href="tel:0424411375" style={{ color: "inherit" }}>0424 411 375</a></b></span></div>
+          <div><i><Mail/></i><span><small>Email Address</small><b><a href="mailto:apvmobilemechanics@gmail.com" style={{ color: "inherit" }}>apvmobilemechanics@gmail.com</a></b></span></div>
+          <div><i><MapPin/></i><span><small>Our Location</small><b><a href="https://maps.app.goo.gl/dvreoSEMYhGPaky5A?g_st=aw" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>APV Mobile Mechanics</a></b></span></div>
+        </div>
         <LocalContactForm/>
       </div>
     </section>
   );
 }
 
-function Blog() {
-  const posts = [
-    ["How Regular Maintenance Saves You Money","May 10, 2026",1],
-    ["Five Signs Your Brakes Need Attention","May 18, 2026",2],
-    ["Simple Ways to Extend Engine Life","May 26, 2026",3],
-  ];
-  return (
-    <section className="section blog" id="blog">
-      <div className="container"><SectionHeading eyebrow="LATEST NEWS" title={<>Professional Car Repair <em>Articles &amp; Updates</em></>} center /><div className="blog-grid">{posts.map(([title,date,n])=><article key={title as string}><div><Image src={`${A}/blog/blog-1-${n}.jpg`} alt={title as string} fill sizes="390px"/><span>{date}</span></div><p>CAR REPAIR&nbsp;&nbsp; / &nbsp;&nbsp;BY ADMIN</p><h3>{title}</h3><Link href="/blog-details">Read More <ArrowRight/></Link></article>)}</div></div>
-    </section>
-  );
-}
-
 export default function Home() {
-  return <main><HeroCarousel/><Services/><AboutCompanySection/><HomeShop/><WhyChoose/><Marquee/><Process/><HomeTeam/><InnerVideo/><Testimonials/><Faq/><Locations/><GalleryLightbox/><Contact/><Blog/></main>;
+  return <main><HeroCarousel/><Services/><AboutCompanySection/><WhyChoose/><Marquee/><Process/><InnerVideo/><Faq/><Locations/><GalleryLightbox/><Contact/></main>;
 }
