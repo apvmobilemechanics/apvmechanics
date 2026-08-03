@@ -57,7 +57,7 @@ const services = [
     title: "24/7 Mobile Service",
     description: "Fast mechanical support delivered to your location.",
     image: "services-1-1.jpg",
-    icon: Headphones,
+    icon: Headphone,
   },
 ];
 
