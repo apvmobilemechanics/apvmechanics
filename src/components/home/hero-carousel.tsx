@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Phone } from "lucide-react";
+import { ChevronLeft, ChevronRight, MapPin, Phone } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ThemeButton } from "@/components/common/button";
 
@@ -62,6 +62,15 @@ export function HeroCarousel() {
           </div>
         </div>
         <div className="hero__visual" key={`visual-${active}`}>
+          <div className="location-serving-badge">
+            <div className="location-serving-badge__icon">
+              <MapPin size={20} />
+            </div>
+            <div className="location-serving-badge__text">
+              <small>PROUDLY SERVING</small>
+              <b>MELBOURNE, VICTORIA</b>
+            </div>
+          </div>
           <div className="customer-badge">
             <strong>24k</strong>
             <div className="avatars">{[1,2,3].map(n=><Image key={n} src={`${A}/resources/main-slider-satisfied-customer-1-${n}.jpg`} alt="" width={50} height={50}/>)}</div>
