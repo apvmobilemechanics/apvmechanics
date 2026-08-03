@@ -6,7 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ThemeButton } from "@/components/common/button";
 
 const A = "/assets/images";
-const slides = ["slider-1-1.jpg", "slider-1-2.jpg", "slider-1-3.jpg"];
+const slides = ["slider-1-2.jpg", "slider-1-3.jpg"];
 
 export function HeroCarousel() {
   const [active, setActive] = useState(0);

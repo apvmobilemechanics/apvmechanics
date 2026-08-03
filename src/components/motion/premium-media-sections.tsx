@@ -88,29 +88,17 @@ export function PremiumVideoGallery() {
             Car Repair
           </motion.span>
 
-          {/* Heading — "Video [thumbnail] Gallery" */}
+          {/* Heading — "Automotive Gallery" */}
           <h2 id="video-gallery-title">
             <motion.span className="video-one-clone__title-line" variants={fadeUp}>
-              <strong>Video</strong>
-              <motion.span
-                className="video-one-clone__thumbnail"
-                whileHover={reduceMotion ? undefined : { scale: 1.08, rotate: 3 }}
-                transition={{ duration: 0.35, ease }}
-              >
-                <Image
-                  src={`${A}/generated/apv-about-workshop.webp`}
-                  alt="Mechanic working on a vehicle"
-                  fill
-                  sizes="132px"
-                />
-              </motion.span>
+              <strong>Automotive</strong>
             </motion.span>
             <motion.em variants={fadeUp}>Gallery</motion.em>
           </h2>
 
           {/* Subtitle */}
           <motion.small variants={fadeUp}>
-            Expert Videos on
+            Expert Work on
             <br />
             Vehicle Repairs
           </motion.small>
@@ -137,7 +125,6 @@ export function PremiumVideoGallery() {
           >
             <VideoModalButton />
           </motion.div>
-          <b>Watch Video</b>
         </motion.div>
       </div>
     </motion.section>

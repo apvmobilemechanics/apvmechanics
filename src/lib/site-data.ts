@@ -26,13 +26,13 @@ export const services = [
   {
     slug: "oil-change",
     title: "Oil Change",
-    image: "/assets/images/services/services-1-3.jpg",
+    image: "/assets/images/services/services-oil-change.jpg",
     iconLabel: "Oil",
   },
   {
     slug: "emergency-service",
     title: "Emergency Roadside Assistance",
-    image: "/assets/images/resources/cta-v1-1.jpg",
+    image: "/assets/images/services/services-emergency.jpg",
     iconLabel: "Emergency",
   },
   {
@@ -44,13 +44,13 @@ export const services = [
   {
     slug: "lights-accessories",
     title: "Electrical Repairs",
-    image: "/assets/images/services/services-1-2.jpg",
+    image: "/assets/images/services/services-electrical.jpg",
     iconLabel: "Electrical",
   },
   {
     slug: "rim-wheel-repair",
     title: "Rim & Wheel Repair",
-    image: "/assets/images/services/services-1-1.jpg",
+    image: "/assets/images/services/services-wheel.jpg",
     iconLabel: "Wheel",
   },
 ] as const;

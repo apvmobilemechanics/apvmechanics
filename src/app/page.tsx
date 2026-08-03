@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowRight,
   ChevronsRight,
   CircleGauge,
+  Clock,
+  Cpu,
   Droplets,
   Fan,
   Gauge,
@@ -12,6 +13,8 @@ import {
   MapPin,
   Phone,
   SearchCheck,
+  Shield,
+  ShieldCheck,
   Star,
   Wrench,
 } from "lucide-react";
@@ -91,11 +94,9 @@ function Services() {
 function WhyChoose() {
   return (
     <section className="section choose choose-reference">
-      <div className="choose-reference__shape choose-reference__shape--one" aria-hidden="true" />
-      <div className="choose-reference__shape choose-reference__shape--two" aria-hidden="true" />
       <div className="container choose-reference__grid">
         <div className="choose__content" data-reveal="left">
-          <SectionHeading light eyebrow="WHY CHOOSE US" title={<>The Smarter Choice for Car Care</>} animatedText="The Smarter Choice for Car Care" />
+          <SectionHeading eyebrow="WHY CHOOSE US" title={<>Why Choose APV<br />Mobile Mechanics</>} animatedText="Why Choose APV Mobile Mechanics" />
           <p>We&apos;ve built our reputation on honesty, expertise, &amp; consistent quality service. Every repair is handled with care.</p>
           <div className="choose-reference__middle">
             <div className="choose-reference__solution">
@@ -106,19 +107,15 @@ function WhyChoose() {
           </div>
           <div className="choose-reference__bottom">
             <ThemeButton href="/about">Read More</ThemeButton>
-            <div className="choose-reference__author">
-              <Image src={`${A}/resources/choose-v1-1.jpg`} alt="Robert Wilson" width={60} height={60} />
-              <span><b>Robert Wilson</b><small>Electrical Technician</small></span>
-            </div>
           </div>
         </div>
         <div className="choose__visual" data-reveal="right">
           <Image
-            src={`${A}/resources/choose-v1-2.png`}
-            alt="Professional car mechanic"
+            src={`${A}/resources/choose-male-mechanic.jpg`}
+            alt="APV Mobile Mechanics Male Specialist"
             width={482}
             height={604}
-            style={{ width: "auto" }}
+            style={{ borderRadius: "20px", objectFit: "cover", width: "100%", height: "100%" }}
           />
           <div className="choose-reference__support">
             <i><Headphones /></i>
@@ -136,24 +133,24 @@ function Marquee() {
 
 function Process() {
   const items = [
-    { num: "01", title: "Quick & Trusted Repairs", icon: SearchCheck },
-    { num: "02", title: "Performance Perfected", icon: Gauge },
-    { num: "03", title: "Premium Care Experience", icon: Wrench },
-    { num: "04", title: "Luxury Auto Care", icon: CircleGauge },
+    { num: "01", title: "Quick & Trusted Repairs", icon: SearchCheck, desc: "We diagnose fast and accurately, getting you back on the road with confidence." },
+    { num: "02", title: "Performance Perfected", icon: Gauge, desc: "Every system is tuned and tested to manufacturer spec for peak performance." },
+    { num: "03", title: "Premium Care Experience", icon: Wrench, desc: "Professional workmanship with clear communication at every stage of the repair." },
+    { num: "04", title: "Luxury Auto Care", icon: CircleGauge, desc: "Meticulous attention to detail ensuring your vehicle receives the best treatment." },
   ];
   return (
     <section className="section process process-reference" id="pages">
       <div className="container">
-        <SectionHeading eyebrow="OUR WORK PROCESS" title={<>Step-by-Step Car Repair Process</>} animatedText="Step-by-Step Car Repair Process" center />
+        <SectionHeading light eyebrow="OUR WORK PROCESS" title={<>Step-by-Step Car Repair Process</>} animatedText="Step-by-Step Car Repair Process" center />
         <div className="process-grid">
-          {items.map(({ num, title, icon: Icon }, index) => (
-            <article className={`process-step ${index % 2 ? "process-step--reverse" : ""}`} key={num} data-reveal data-reveal-delay={index * 130}>
+          {items.map(({ num, title, icon: Icon, desc }, index) => (
+            <article className={`process-step ${index % 2 ? "process-step--reverse" : ""}`} key={num} data-num={num} data-reveal data-reveal-delay={index * 130}>
               <strong>Step - {num}</strong>
+              <i><Icon /></i>
               <div className="process-step__copy">
                 <h3>{title}</h3>
-                <p>We deliver quick, dependable repairs<br />to keep you moving safely.</p>
+                <p>{desc}</p>
               </div>
-              <i><Icon /></i>
             </article>
           ))}
         </div>
@@ -200,21 +197,39 @@ function Faq() {
 
 function Locations() {
   return (
-    <section className="section locations">
+    <section className="section locations" id="location">
       <div className="container">
-        <SectionHeading eyebrow="OUR LOCATION" title={<>Connect With <em>APV Mobile Mechanics</em></>} center />
-        <div className="location-grid" style={{ display: "flex", justifyContent: "center" }}>
-          <article style={{ maxWidth: "500px", width: "100%" }}>
-            <span>01</span>
-            <div>
-              <MapPin />
-              <h3>APV Mobile Mechanics</h3>
-              <p>Mobile Service Delivered Direct To Your Location</p>
+        <SectionHeading light eyebrow="OUR LOCATION" title={<>Find <em>APV Mobile Mechanics</em></>} center />
+        <div className="location-info-strip">
+          <div className="location-info-card">
+            <div className="location-info-card__icon"><MapPin /></div>
+            <div className="location-info-card__body">
+              <small>Service Area</small>
+              <b><a href="https://maps.app.goo.gl/dvreoSEMYhGPaky5A?g_st=aw" target="_blank" rel="noopener noreferrer">APV Mobile Mechanics</a></b>
             </div>
-            <a href="https://maps.app.goo.gl/dvreoSEMYhGPaky5A?g_st=aw" target="_blank" rel="noopener noreferrer" aria-label="Open Google Maps Location">
-              <ArrowRight />
-            </a>
-          </article>
+          </div>
+          <div className="location-info-card">
+            <div className="location-info-card__icon"><Phone /></div>
+            <div className="location-info-card__body">
+              <small>Call Anytime</small>
+              <b><a href="tel:0424411375">0424 411 375</a></b>
+            </div>
+          </div>
+          <div className="location-info-card">
+            <div className="location-info-card__icon"><Mail /></div>
+            <div className="location-info-card__body">
+              <small>Email Us</small>
+              <b><a href="mailto:apvmobilemechanics@gmail.com">apvmobilemechanics@gmail.com</a></b>
+            </div>
+          </div>
+        </div>
+        <div className="location-map-embed">
+          <iframe
+            title="APV Mobile Mechanics location"
+            src="https://maps.google.com/maps?q=APV%20Mobile%20Mechanics%20Australia&t=&z=14&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            allowFullScreen
+          />
         </div>
       </div>
     </section>
@@ -222,15 +237,39 @@ function Locations() {
 }
 
 function Contact() {
+  const tools = [
+    { icon: Cpu, label: "Digital Diagnostics", desc: "Advanced ECU & OBD2 scanner tools" },
+    { icon: Wrench, label: "Precision Torque", desc: "Calibrated to manufacturer specs" },
+    { icon: Gauge, label: "Pressure Testing", desc: "Hydraulic brake & cooling system tools" },
+    { icon: ShieldCheck, label: "Mobile Battery Station", desc: "Pro battery load testing & charging" },
+  ];
+
   return (
     <section className="section contact" id="contact">
       <div className="container split">
         <div className="contact__info">
           <SectionHeading eyebrow="CONTACT US" title={<>Connect With <em>Our Team</em></>} />
-          <p>Book your repair or maintenance visit today. Our friendly specialists are ready to help.</p>
+          <p>Book your repair or maintenance visit today. Our friendly specialists are equipped with professional diagnostic &amp; repair tools.</p>
           <div><i><Phone/></i><span><small>Call Anytime</small><b><a href="tel:0424411375" style={{ color: "inherit" }}>0424 411 375</a></b></span></div>
           <div><i><Mail/></i><span><small>Email Address</small><b><a href="mailto:apvmobilemechanics@gmail.com" style={{ color: "inherit" }}>apvmobilemechanics@gmail.com</a></b></span></div>
           <div><i><MapPin/></i><span><small>Our Location</small><b><a href="https://maps.app.goo.gl/dvreoSEMYhGPaky5A?g_st=aw" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>APV Mobile Mechanics</a></b></span></div>
+
+          <div className="contact-tools-grid">
+            <h4 className="contact-tools-heading">Mobile Tools &amp; Diagnostic Equipment</h4>
+            <div className="contact-tools-items">
+              {tools.map(({ icon: Icon, label, desc }) => (
+                <div className="contact-tool-card" key={label}>
+                  <div className="contact-tool-card__icon">
+                    <Icon />
+                  </div>
+                  <div>
+                    <b>{label}</b>
+                    <small>{desc}</small>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
         <LocalContactForm/>
       </div>
@@ -239,5 +278,5 @@ function Contact() {
 }
 
 export default function Home() {
-  return <main><HeroCarousel/><Services/><AboutCompanySection/><WhyChoose/><Marquee/><Process/><InnerVideo/><Faq/><Locations/><GalleryLightbox/><Contact/></main>;
+  return <main><HeroCarousel/><Services/><AboutCompanySection/><WhyChoose/><Marquee/><Process/><InnerVideo/><Faq/><GalleryLightbox/><Contact/></main>;
 }
