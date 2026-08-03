@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, BatteryCharging, Check, Disc3, MapPin, Phone, Star, Wrench } from "lucide-react";
+import { ArrowRight, BatteryCharging, Car, Check, Disc3, Gauge, MapPin, Phone, ShieldCheck, Star, Wrench } from "lucide-react";
 import Link from "next/link";
 import { SectionHeading } from "@/components/common/section-heading";
 import { ThemeButton } from "@/components/common/button";
@@ -35,17 +35,18 @@ export function AboutCompanySection() {
               sizes="(max-width: 768px) 48vw, 250px"
             />
           </div>
-          <div className="about-clone-experience"><strong><span data-counter="50">50</span>+</strong><b>Years of experience</b></div>
+          <div className="about-clone-experience"><strong><span data-counter="10">10</span>+</strong><b>Years Experience</b></div>
         </div>
         <div className="about-clone-content" data-reveal>
-          <SectionHeading eyebrow="ABOUT OUR COMPANY" title={<>Car Deserves the Best &amp;<br/>Professional Car Repair</>}/>
-          <p>With years of experience in auto repair, we know what it takes to get your car back in top shape. Our team blends technical expertise with attention to detail, ensuring lasting results and customer satisfaction.</p>
+          <SectionHeading eyebrow="ABOUT APV MOBILE MECHANICS" title={<>Melbourne's Trusted<br/>Mobile Car Repair</>}/>
+          <p>APV Mobile Mechanics is Melbourne's trusted mobile car repair specialist. We come to you — at home, at work, or roadside — with full workshop capability in our fully-equipped service vehicle.</p>
+          <p>Founded on the belief that quality automotive care shouldn't require a trip to a workshop, we've built a reputation for fast response, honest advice and lasting repairs.</p>
           <div className="about-clone-features">
-            <div><i><Disc3/></i><span><b>Brake Experts Care</b><small>At Brake Experts Care, your<br/>safety comes first skilled.</small></span></div>
-            <div><i><BatteryCharging/></i><span><b>Full Engine Evaluation</b><small>Our Full Engine Evaluation<br/>delivers a complete check.</small></span></div>
+            <div><i><Wrench/></i><span><b>500+ Vehicles Serviced</b><small>Trusted by hundreds of<br/>Melbourne drivers.</small></span></div>
+            <div><i><Check/></i><span><b>Fully Certified Mechanics</b><small>Expert care and<br/>lasting repairs.</small></span></div>
           </div>
           <div className="about-clone-checks">
-            {["Top Quality Care for Every Drive","Expert care for every vehicle","Superior Care, Safer Journeys","Your car, our priority"].map(item=><span key={item}><Check/>{item}</span>)}
+            {["10+ Years Experience","500+ Vehicles Serviced","Fully Certified Mechanics","Honest advice & fast response"].map(item=><span key={item}><Check/>{item}</span>)}
           </div>
           <div className="about__bottom">
             <ThemeButton href="/contact">Contact Us</ThemeButton>
@@ -64,12 +65,51 @@ export function AboutCompanySection() {
 }
 
 export function ProcessSection() {
-  const items=[["01","Quick & Trusted Repairs"],["02","Performance Perfected"],["03","Premium Care Experience"],["04","Luxury Auto Care"]];
-  return <section className="section process"><div className="container"><SectionHeading eyebrow="WORK PROCESS" title={<>Step-by-Step Car <em>Repair Process</em></>} center/><div className="process-grid">{items.map(([n,t])=><article key={n}><strong>{n}</strong><i><Wrench/></i><h3>{t}</h3><p>Careful inspection, clear advice and precision workmanship at every stage.</p></article>)}</div></div></section>;
+  return (
+    <section className="process-reference">
+      <div className="container">
+        <SectionHeading eyebrow="WORK PROCESS" title={<>Step-by-Step Car <em>Repair Process</em></>} center />
+        <div className="process-grid">
+          <div className="process-step">
+            <strong>STEP - 01</strong>
+            <div className="process-step__copy">
+              <h3>Quick &amp; Trusted Repairs</h3>
+              <p>We diagnose fast and accurately, getting you back on the road with confidence.</p>
+            </div>
+            <i><Check /></i>
+          </div>
+          <div className="process-step process-step--reverse">
+            <i><Gauge /></i>
+            <strong>STEP - 02</strong>
+            <div className="process-step__copy">
+              <h3>Performance Perfected</h3>
+              <p>Every system is tuned and tested to manufacturer spec for peak performance.</p>
+            </div>
+          </div>
+          <div className="process-step">
+            <strong>STEP - 03</strong>
+            <div className="process-step__copy">
+              <h3>Premium Care Experience</h3>
+              <p>Professional workmanship with clear communication at every stage of the repair.</p>
+            </div>
+            <i><Wrench /></i>
+          </div>
+          <div className="process-step process-step--reverse">
+            <i><Check /></i>
+            <strong>STEP - 04</strong>
+            <div className="process-step__copy">
+              <h3>Luxury Auto Care</h3>
+              <p>Meticulous attention to detail ensuring your vehicle receives the best treatment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export function InnerVideo() {
-  return <PremiumVideoGallery />;
+  return null;
 }
 
 export function TeamSection() {
@@ -78,21 +118,31 @@ export function TeamSection() {
 
 export function LocationsSection() {
   return (
-    <section className="section locations inner-locations">
+    <section className="section locations-light">
       <div className="container">
         <SectionHeading eyebrow="OUR LOCATION" title={<>Connect With <em>APV Mobile Mechanics</em></>} center />
-        <div className="location-grid" style={{ display: "flex", justifyContent: "center" }}>
-          <article style={{ maxWidth: "500px", width: "100%" }}>
-            <span>01</span>
-            <div>
-              <MapPin />
-              <h3>APV Mobile Mechanics</h3>
-              <p>Mobile Service Delivered Direct To Your Location</p>
+        <div className="location-light-wrapper">
+          <div className="location-light-card">
+            <div className="location-light-card__badge">01</div>
+            <div className="location-light-card__info">
+              <div className="location-light-card__icon">
+                <MapPin />
+              </div>
+              <div>
+                <h3>APV Mobile Mechanics</h3>
+                <p>Mobile Service Delivered Direct To Your Location</p>
+              </div>
             </div>
-            <a href="https://maps.app.goo.gl/dvreoSEMYhGPaky5A?g_st=aw" target="_blank" rel="noopener noreferrer" aria-label="Open Google Maps Location">
+            <a
+              href="https://maps.app.goo.gl/dvreoSEMYhGPaky5A?g_st=aw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="location-light-card__btn"
+              aria-label="Open Google Maps Location"
+            >
               <ArrowRight />
             </a>
-          </article>
+          </div>
         </div>
       </div>
     </section>

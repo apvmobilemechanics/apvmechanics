@@ -137,7 +137,7 @@ export function ServiceDetailsContent({ slug }: { slug: string }) {
           </aside>
         </div>
       </section>
-      <section className="section quote-section"><div className="container"><SectionHeading light eyebrow="BOOK A SERVICE" title={<>Let&apos;s Get Your Car <em>Back on the Road</em></>}/><LocalContactForm compact/></div></section>
+      <section className="section quote-section"><div className="container"><SectionHeading eyebrow="BOOK A SERVICE" title={<>Let&apos;s Get Your Car <em>Back on the Road</em></>}/><LocalContactForm compact/></div></section>
     </main>
   );
 }
