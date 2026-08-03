@@ -68,7 +68,7 @@ export function HeroCarousel() {
             </div>
             <div className="location-serving-badge__text">
               <small>PROUDLY SERVING</small>
-              <b>MELBOURNE, VICTORIA</b>
+              <b>HOBART, TASMANIA</b>
             </div>
           </div>
           <div className="customer-badge">

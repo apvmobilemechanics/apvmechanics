@@ -38,11 +38,11 @@ export function AboutCompanySection() {
           <div className="about-clone-experience"><strong><span data-counter="10">10</span>+</strong><b>Years Experience</b></div>
         </div>
         <div className="about-clone-content" data-reveal>
-          <SectionHeading eyebrow="ABOUT APV MOBILE MECHANICS" title={<>Melbourne's Trusted<br/>Mobile Car Repair</>}/>
-          <p>APV Mobile Mechanics is Melbourne's trusted mobile car repair specialist. We come to you — at home, at work, or roadside — with full workshop capability in our fully-equipped service vehicle.</p>
+          <SectionHeading eyebrow="ABOUT APV MOBILE MECHANICS" title={<>Hobart's Trusted<br/>Mobile Car Repair</>}/>
+          <p>APV Mobile Mechanics is Hobart's trusted mobile car repair specialist. We come to you — at home, at work, or roadside — with full workshop capability in our fully-equipped service vehicle.</p>
           <p>Founded on the belief that quality automotive care shouldn't require a trip to a workshop, we've built a reputation for fast response, honest advice and lasting repairs.</p>
           <div className="about-clone-features">
-            <div><i><Wrench/></i><span><b>500+ Vehicles Serviced</b><small>Trusted by hundreds of<br/>Melbourne drivers.</small></span></div>
+            <div><i><Wrench/></i><span><b>500+ Vehicles Serviced</b><small>Trusted by hundreds of<br/>Hobart drivers.</small></span></div>
             <div><i><Check/></i><span><b>Fully Certified Mechanics</b><small>Expert care and<br/>lasting repairs.</small></span></div>
           </div>
           <div className="about-clone-checks">
