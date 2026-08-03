@@ -227,7 +227,7 @@ function Contact() {
       <div className="container split">
         <div className="contact__info">
           <SectionHeading eyebrow="CONTACT US" title={<>Connect With <em>Our Team</em></>} />
-          <p>Book your repair or maintenance visit today. Our friendly specialists are ready to help.</p>
+          <p>Book your repair visit today. Our friendly specialists are ready to help.</p>
           <div><i><Phone/></i><span><small>Call Anytime</small><b><a href="tel:0424411375" style={{ color: "inherit" }}>0424 411 375</a></b></span></div>
           <div><i><Mail/></i><span><small>Email Address</small><b><a href="mailto:apvmobilemechanics@gmail.com" style={{ color: "inherit" }}>apvmobilemechanics@gmail.com</a></b></span></div>
           <div><i><MapPin/></i><span><small>Our Location</small><b><a href="https://maps.app.goo.gl/dvreoSEMYhGPaky5A?g_st=aw" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>APV Mobile Mechanics</a></b></span></div>
