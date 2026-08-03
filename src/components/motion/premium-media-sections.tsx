@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ThemeButton } from "@/components/common/button";
 import { VideoModalButton } from "@/components/home/interactive";
 
@@ -39,7 +39,11 @@ const fadeRight = {
 
 export function PremiumVideoGallery() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const reduceMotion = useReducedMotion();
+  const shouldReduceMotion = mounted ? Boolean(reduceMotion) : false;
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -52,7 +56,7 @@ export function PremiumVideoGallery() {
       ref={sectionRef}
       className="video-one-clone video-one-clone--motion"
       aria-labelledby="video-gallery-title"
-      initial={reduceMotion ? false : { opacity: 0 }}
+      initial={shouldReduceMotion ? false : { opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.6, ease }}
@@ -62,7 +66,7 @@ export function PremiumVideoGallery() {
       <motion.div
         className="video-one-clone__background"
         aria-hidden="true"
-        style={reduceMotion ? { scale: 1.04 } : { y: bgY, scale: bgScale }}
+        style={shouldReduceMotion ? { scale: 1.04 } : { y: bgY, scale: bgScale }}
       />
       <div className="video-one-clone__overlay" aria-hidden="true" />
       <Image
@@ -78,7 +82,7 @@ export function PremiumVideoGallery() {
         <motion.div
           className="video-one-clone__titles"
           variants={stagger}
-          initial={reduceMotion ? false : "hidden"}
+          initial={shouldReduceMotion ? false : "hidden"}
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
           data-reveal="left"
@@ -94,7 +98,7 @@ export function PremiumVideoGallery() {
               <strong>Video</strong>
               <motion.span
                 className="video-one-clone__thumbnail"
-                whileHover={reduceMotion ? undefined : { scale: 1.08, rotate: 3 }}
+                whileHover={shouldReduceMotion ? undefined : { scale: 1.08, rotate: 3 }}
                 transition={{ duration: 0.35, ease }}
               >
                 <Image
@@ -120,15 +124,15 @@ export function PremiumVideoGallery() {
         <motion.div
           className="video-one-clone__play"
           variants={fadeRight}
-          initial={reduceMotion ? false : "hidden"}
+          initial={shouldReduceMotion ? false : "hidden"}
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.85, ease, delay: reduceMotion ? 0 : 0.2 }}
+          transition={{ duration: 0.85, ease, delay: shouldReduceMotion ? 0 : 0.2 }}
           data-reveal="right"
         >
           <motion.div
             className="video-one-clone__play-pulse"
-            animate={reduceMotion ? undefined : { scale: [1, 1.06, 1] }}
+            animate={shouldReduceMotion ? undefined : { scale: [1, 1.06, 1] }}
             transition={{
               duration: 2.2,
               repeat: Number.POSITIVE_INFINITY,
@@ -146,7 +150,11 @@ export function PremiumVideoGallery() {
 
 export function PremiumFooterCta() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const reduceMotion = useReducedMotion();
+  const shouldReduceMotion = mounted ? Boolean(reduceMotion) : false;
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -159,7 +167,7 @@ export function PremiumFooterCta() {
       ref={sectionRef}
       className="footer-cta footer-cta--motion"
       aria-label="Get our service"
-      initial={reduceMotion ? false : { opacity: 0 }}
+      initial={shouldReduceMotion ? false : { opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.6, ease }}
@@ -168,7 +176,7 @@ export function PremiumFooterCta() {
       <motion.div
         className="footer-cta__background"
         aria-hidden="true"
-        style={reduceMotion ? { scale: 1.04 } : { y: bgY, scale: bgScale }}
+        style={shouldReduceMotion ? { scale: 1.04 } : { y: bgY, scale: bgScale }}
       />
       <div className="footer-cta__overlay" aria-hidden="true" />
 
@@ -177,7 +185,7 @@ export function PremiumFooterCta() {
         <motion.div
           className="footer-cta__copy"
           variants={stagger}
-          initial={reduceMotion ? false : "hidden"}
+          initial={shouldReduceMotion ? false : "hidden"}
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
           data-reveal="left"
@@ -194,11 +202,11 @@ export function PremiumFooterCta() {
         <motion.div
           className="footer-cta__action"
           variants={fadeRight}
-          initial={reduceMotion ? false : "hidden"}
+          initial={shouldReduceMotion ? false : "hidden"}
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.85, ease, delay: reduceMotion ? 0 : 0.2 }}
-          whileHover={reduceMotion ? undefined : { scale: 1.04 }}
+          transition={{ duration: 0.85, ease, delay: shouldReduceMotion ? 0 : 0.2 }}
+          whileHover={shouldReduceMotion ? undefined : { scale: 1.04 }}
           data-reveal="right"
         >
           <ThemeButton href="/contact">Get Details</ThemeButton>

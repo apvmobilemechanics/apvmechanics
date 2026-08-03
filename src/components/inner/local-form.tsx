@@ -1,34 +1,100 @@
 "use client";
 
-import { CheckCircle2 } from "lucide-react";
+import { AlertCircle, CheckCircle2 } from "lucide-react";
 import { FormEvent, useState } from "react";
 
 export function LocalContactForm({ compact = false }: { compact?: boolean }) {
   const [sent, setSent] = useState(false);
-  const submit = (event: FormEvent<HTMLFormElement>) => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const entry = {
-      name: form.get("name"),
-      email: form.get("email"),
-      phone: form.get("phone"),
-      service: form.get("service"),
-      message: form.get("message"),
-      createdAt: new Date().toISOString(),
+    setLoading(true);
+    setError(null);
+
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
+    const payload = {
+      name: form.get("name") as string,
+      email: form.get("email") as string,
+      phone: form.get("phone") as string,
+      service: form.get("service") as string,
+      message: form.get("message") as string,
     };
-    const existing = JSON.parse(window.localStorage.getItem("automart-enquiries") ?? "[]") as unknown[];
-    window.localStorage.setItem("automart-enquiries", JSON.stringify([...existing, entry]));
-    setSent(true);
-    event.currentTarget.reset();
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send email enquiry.");
+      }
+
+      // Local backup save
+      const existing = JSON.parse(window.localStorage.getItem("automart-enquiries") ?? "[]") as unknown[];
+      window.localStorage.setItem(
+        "automart-enquiries",
+        JSON.stringify([...existing, { ...payload, createdAt: new Date().toISOString() }])
+      );
+
+      setSent(true);
+      formElement.reset();
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : "Something went wrong while sending message.";
+      setError(errorMessage);
+    } finally {
+      setLoading(false);
+    }
   };
-  if (sent) return <div className="form-success"><CheckCircle2/><h3>Thank you</h3><p>Your enquiry has been stored on this device for this frontend demonstration.</p><button className="primary-action" type="button" onClick={() => setSent(false)}>Send Another</button></div>;
+
+  if (sent) {
+    return (
+      <div className="form-success">
+        <CheckCircle2 />
+        <h3>Thank You!</h3>
+        <p>Your enquiry has been sent to <strong>apvmobilemechanics@gmail.com</strong>. We will get back to you as soon as possible.</p>
+        <button className="primary-action" type="button" onClick={() => setSent(false)}>Send Another Message</button>
+      </div>
+    );
+  }
+
   return (
     <form className={`automart-form ${compact ? "automart-form--compact" : ""}`} onSubmit={submit}>
       <h2>Get A Free Quote</h2>
-      <div className="form-two"><label>Your Name<input required name="name" placeholder="Your Name"/></label><label>Email Address<input required name="email" type="email" placeholder="Email Address"/></label></div>
-      <div className="form-two"><label>Phone Number<input required name="phone" type="tel" placeholder="Phone Number"/></label><label>Service<select required name="service" defaultValue=""><option value="" disabled>Select Service</option><option>Rim & Wheel Repair</option><option>Brake Repair</option><option>Engine Diagnosis</option><option>Battery Solution</option></select></label></div>
-      <label>Your Message<textarea required name="message" rows={compact ? 3 : 5} placeholder="Write Your Message"/></label>
-      <button className="primary-action" type="submit">Send Message</button>
+      {error && (
+        <div style={{ color: "#d90429", padding: "10px 14px", borderRadius: "6px", backgroundColor: "#ffe6e6", marginBottom: "15px", display: "flex", alignItems: "center", gap: "8px", fontSize: "14px" }}>
+          <AlertCircle size={18} />
+          <span>{error}</span>
+        </div>
+      )}
+      <div className="form-two">
+        <label>Your Name<input required name="name" placeholder="Your Name" disabled={loading}/></label>
+        <label>Email Address<input required name="email" type="email" placeholder="Email Address" disabled={loading}/></label>
+      </div>
+      <div className="form-two">
+        <label>Phone Number<input required name="phone" type="tel" placeholder="Phone Number" disabled={loading}/></label>
+        <label>Service
+          <select required name="service" defaultValue="" disabled={loading}>
+            <option value="" disabled>Select Service</option>
+            <option>Mobile Car Repair</option>
+            <option>Engine Diagnosis</option>
+            <option>Brake Repair</option>
+            <option>Battery Replacement</option>
+            <option>Oil Change</option>
+            <option>Emergency Roadside Assistance</option>
+          </select>
+        </label>
+      </div>
+      <label>Your Message<textarea required name="message" rows={compact ? 3 : 5} placeholder="Write Your Message" disabled={loading}/></label>
+      <button className="primary-action" type="submit" disabled={loading} style={{ opacity: loading ? 0.7 : 1, cursor: loading ? "wait" : "pointer" }}>
+        {loading ? "Sending Message..." : "Send Message"}
+      </button>
     </form>
   );
 }
