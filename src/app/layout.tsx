@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Onest, Rubik } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteEffects } from "@/components/home/interactive";
@@ -60,7 +62,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${onest.variable} ${rubik.variable}`}>
+    <html lang="en" className={`${onest.variable} ${rubik.variable}`} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -73,6 +75,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {children}
           <SiteFooter />
           <SiteEffects />
+          <Analytics />
+          <SpeedInsights />
         </CommerceProvider>
       </body>
     </html>
