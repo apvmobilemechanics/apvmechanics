@@ -50,8 +50,8 @@ export function SiteFooter() {
               <Image
                 src={`${A}/resources/apv-mobile-mechanics-logo.jpeg`}
                 alt="APV Mobile Mechanics Logo"
-                width={150}
-                height={150}
+                width={175}
+                height={175}
                 style={{ borderRadius: "50%", objectFit: "cover", display: "block" }}
                 priority
               />

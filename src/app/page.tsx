@@ -38,7 +38,7 @@ const services = [
   {
     title: "Oil Change & Lubrication",
     description: "Premium oil and lubrication for smoother performance.",
-    image: "services-1-3.jpg",
+    image: "services-oil-change-fresh.jpg",
     icon: Droplets,
   },
   {
