@@ -156,7 +156,7 @@ export function SiteHeader() {
         <a href="https://maps.app.goo.gl/dvreoSEMYhGPaky5A?g_st=aw" target="_blank" rel="noopener noreferrer"><MapPin /><span>Our Location<b>APV Mobile Mechanics</b></span></a>
         <div className="info-drawer__socials">
           <a href="https://www.facebook.com/" aria-label="Facebook"><b>f</b></a>
-          <a href="https://www.instagram.com/" aria-label="Instagram"><InstagramIcon /></a>
+          <a href="https://www.instagram.com/apvmechanics/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><InstagramIcon /></a>
         </div>
       </aside>
     </>

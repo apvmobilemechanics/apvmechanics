@@ -75,7 +75,7 @@ export function SiteFooter() {
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-icon social-icon--fb">
                 <FacebookIcon />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-icon social-icon--ig">
+              <a href="https://www.instagram.com/apvmechanics/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-icon social-icon--ig">
                 <InstagramIcon />
               </a>
               <a href="https://wa.me/61424411375" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="social-icon social-icon--wa">
