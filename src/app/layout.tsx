@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://apvmechanics.com.au"),
   title: "APV Mobile Mechanics | Expert Car Repair & Care Center",
   description: "Professional car repair, maintenance, diagnostics and automotive care from trusted technicians.",
-  icons: { icon: "/assets/images/resources/apv-mobile-mechanics-logo.jpeg" },
+  icons: { icon: "/assets/images/resources/apv-bear-logo.png" },
   openGraph: {
     title: "APV Mobile Mechanics | Expert Car Repair & Care Center",
     description: "Professional repairs and dependable automotive care.",

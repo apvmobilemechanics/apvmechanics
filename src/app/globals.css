@@ -554,7 +554,7 @@ em{font-style:normal;color:var(--red)}
   --automart-normal:420ms;
 }
 
-.brand-logo-image,.footer-brand img,.info-drawer>img{border-radius:50%;object-fit:cover}
+.brand-logo-image,.footer-brand img,.info-drawer>img{border-radius:50%;object-fit:cover;background:#ffffff}
 .hero{height:752px}
 .hero__shape--one{width:1000px;height:600px;max-width:none}
 .hero__shape--two{width:730px;height:500px;max-width:none}
