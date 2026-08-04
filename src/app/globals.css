@@ -2880,9 +2880,56 @@ iframe { border: 0; }
 }
 
 /* ── 4. FIXED-WIDTH GRID CORRECTIONS ── */
-/* about-clone-grid: 630px 630px → responsive */
-.about-clone-grid {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+/* about-clone-grid: 630px 630px → responsive (desktop only) */
+@media (min-width: 821px) {
+  .about-clone-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+@media (max-width: 820px) {
+  .about-clone-grid {
+    grid-template-columns: 1fr !important;
+    gap: 50px !important;
+    padding-inline: 0 !important;
+  }
+  .about-clone-images {
+    width: min(100%, 560px) !important;
+    height: clamp(380px, 90vw, 520px) !important;
+    margin-inline: auto !important;
+    position: relative !important;
+  }
+  .about-clone-content {
+    min-height: 0 !important;
+    width: 100% !important;
+  }
+  .about-clone-features {
+    grid-template-columns: 1fr !important;
+  }
+  .about-clone-checks {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px !important;
+  }
+  .about-clone-content .about__bottom {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .about-clone-content .about__bottom > .pill-button {
+    width: 100% !important;
+  }
+  .about-clone-vertical {
+    display: none !important;
+  }
+}
+@media (max-width: 480px) {
+  .about-clone-checks {
+    grid-template-columns: 1fr !important;
+  }
+  .about-clone-images {
+    height: clamp(340px, 110vw, 460px) !important;
+  }
+  .about-clone-features small br {
+    display: none !important;
+  }
 }
 
 /* ── 5. SECTION OVERFLOW CONTAINMENT ── */
