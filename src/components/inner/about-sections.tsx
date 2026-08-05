@@ -50,13 +50,12 @@ export function AboutCompanySection() {
           </div>
           <div className="about__bottom">
             <ThemeButton href="/contact">Contact Us</ThemeButton>
-            <div className="about-clone-contact">
-              <div className="about-clone-contact__avatar">
-                <Image src={`${A}/resources/about-v1__phn-img.jpg`} alt="Automart support specialist" width={60} height={60}/>
-                <i><Phone/></i>
+            <a className="about-clone-contact" href="tel:0424411375">
+              <div className="about-clone-contact__icon">
+                <Phone />
               </div>
               <span><small>Call Any Time</small><b>0424 411 375</b></span>
-            </div>
+            </a>
           </div>
         </div>
       </div>

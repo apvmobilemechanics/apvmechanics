@@ -324,17 +324,18 @@ em{font-style:normal;color:var(--red)}
 .about-clone-features span{display:flex;flex-direction:column}.about-clone-features b{font:700 19px var(--font-rubik)}.about-clone-features small{font-size:16px;line-height:1.7;color:#777;margin-top:7px}
 .about-clone-checks{border-top:1px solid var(--line);margin-top:14px;padding-top:15px;display:grid;grid-template-columns:1fr 1fr;gap:17px 28px}
 .about-clone-checks span{display:flex;gap:13px;font:700 18px/1.4 var(--font-rubik)}.about-clone-checks svg{width:15px;stroke-width:4;color:var(--red);flex:0 0 auto}
-.about-clone-content .about__bottom{display:grid;grid-template-columns:246px 1fr;align-items:center;gap:30px;margin-top:36px}
-.about-clone-content .about__bottom>.pill-button{width:246px;height:61px;border-radius:34px;justify-content:center;padding-left:27px;font-size:16px}
-.about-clone-content .about__bottom>.pill-button svg{width:61px;height:61px;padding:21px;margin-left:auto}
-.about-clone-contact{display:flex;align-items:center;gap:18px}
-.about-clone-contact__avatar{position:relative;width:72px;height:60px;flex:0 0 72px}
-.about-clone-contact__avatar>img{width:60px;height:60px;object-fit:cover;border-radius:50%;margin:0}
-.about-clone-contact__avatar i{position:absolute;right:0;top:11px;width:39px;height:39px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center}
-.about-clone-contact__avatar i svg{width:19px;height:19px;fill:#fff}
+.about-clone-content .about__bottom{display:flex;align-items:center;gap:32px;margin-top:36px;flex-wrap:wrap}
+.about-clone-content .about__bottom>.pill-button{height:54px;border-radius:27px;font-size:15px;padding-left:24px}
+.about-clone-content .about__bottom>.pill-button i,.about-clone-content .about__bottom>.pill-button svg{width:54px;height:54px;padding:17px;margin-left:auto}
+.about-clone-contact{display:inline-flex;align-items:center;gap:16px;text-decoration:none;transition:transform .3s ease}
+.about-clone-contact:hover{transform:translateY(-2px)}
+.about-clone-contact__icon{width:52px;height:52px;border-radius:50%;background:rgba(237,28,36,0.1);border:1px solid rgba(237,28,36,0.25);color:var(--red);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s ease}
+.about-clone-contact:hover .about-clone-contact__icon{background:var(--red);color:#fff;transform:scale(1.06);box-shadow:0 8px 20px rgba(237,28,36,0.3)}
+.about-clone-contact__icon svg{width:22px;height:22px;stroke-width:2.2}
 .about-clone-contact>span{display:flex;flex-direction:column}
-.about-clone-contact small{font:600 14px var(--font-rubik);color:#777}
-.about-clone-contact b{font:700 19px var(--font-rubik);color:var(--navy);margin-top:5px;white-space:nowrap}
+.about-clone-contact small{font:600 13px var(--font-rubik);color:#777;text-transform:uppercase;letter-spacing:.5px}
+.about-clone-contact b{font:700 19px var(--font-rubik);color:var(--navy);margin-top:2px;white-space:nowrap;transition:color .3s ease}
+.about-clone-contact:hover b{color:var(--red)}
 
 .shop-one-clone{height:884px;padding:113px 0 120px;background:#fff}
 .shop-one-clone .container{width:min(1320px,calc(100% - 30px))}
