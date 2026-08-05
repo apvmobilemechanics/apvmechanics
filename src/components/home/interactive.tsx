@@ -126,8 +126,8 @@ export function SiteEffects() {
     register("[data-reveal='left']", "left");
     register("[data-reveal='right']", "right");
     register("[data-reveal='zoom']", "zoom");
-    register(".about-clone-grid>div:first-child,.about__images,.faq .split>div:first-child,.choose__content,.contact__info,.team-detail-image,.project-detail__hero,.service-detail__image,.product-detail-image,.video-one-clone__titles,.footer-cta__copy", "left");
-    register(".about-clone-grid>div:last-child,.about__content,.faq .split>div:last-child,.choose__visual,.contact__form,.contact-page-grid>form,.team-detail-grid>div:last-child,.service-detail__copy,.product-detail-copy,.video-one-clone__play,.footer-cta__action", "right");
+    register(".about-clone-grid>div:first-child,.about__images,.faq .split>div:first-child,.choose__content,.contact__info,.team-detail-image,.project-detail__hero,.service-detail__image,.product-detail-image,.video-one-clone__titles", "left");
+    register(".about-clone-grid>div:last-child,.about__content,.faq .split>div:last-child,.choose__visual,.contact__form,.contact-page-grid>form,.team-detail-grid>div:last-child,.service-detail__copy,.product-detail-copy,.video-one-clone__play", "right");
     register("main section .service-row", "up");
     register("main section .process-grid article,main section .testimonial-grid article,main section .location-grid article,main section .blog-grid article,main section .contact-info-grid article,main section .shop-product-card,main section .clone-product,main section .clone-team-card,main section .service-card-grid article,main section .gallery-grid>button", "up");
     register("main section .section-heading,[data-reveal]:not([data-reveal='left']):not([data-reveal='right']):not([data-reveal='zoom'])", "up");

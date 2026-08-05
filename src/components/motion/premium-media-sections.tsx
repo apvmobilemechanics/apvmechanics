@@ -168,14 +168,14 @@ export function PremiumFooterCta() {
       <div className="footer-cta__overlay" aria-hidden="true" />
 
       <div className="container footer-cta__inner">
-        {/* Left copy — staggered fade-up */}
+        {/* Copy — staggered fade-up */}
         <motion.div
           className="footer-cta__copy"
           variants={stagger}
           initial={shouldReduceMotion ? false : "hidden"}
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
-          data-reveal="left"
+          data-reveal="up"
         >
           <motion.span variants={fadeUp}>GET OUR SERVICE</motion.span>
           <motion.h2 variants={fadeUp}>
@@ -185,16 +185,16 @@ export function PremiumFooterCta() {
           </motion.h2>
         </motion.div>
 
-        {/* Right button — fade-right with slight delay */}
+        {/* Action button — fade-up with slight delay */}
         <motion.div
           className="footer-cta__action"
-          variants={fadeRight}
+          variants={fadeUp}
           initial={shouldReduceMotion ? false : "hidden"}
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.85, ease, delay: shouldReduceMotion ? 0 : 0.2 }}
           whileHover={shouldReduceMotion ? undefined : { scale: 1.04 }}
-          data-reveal="right"
+          data-reveal="up"
         >
           <ThemeButton href="/contact">Get Details</ThemeButton>
         </motion.div>
