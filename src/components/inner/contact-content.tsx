@@ -11,21 +11,35 @@ export function ContactInfo() {
   return (
     <section className="contact-info-section">
       <div className="container contact-info-grid">
-        {items.map(({ Icon, label, value, href }) => (
-          <article className="contact-info-card" key={label}>
-            <div className="contact-info-card__icon">
-              <Icon />
-            </div>
-            <div className="contact-info-card__body">
-              <small>{label}</small>
-              {href ? (
-                <b><a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined} style={{ color: "inherit" }}>{value}</a></b>
-              ) : (
+        {items.map(({ Icon, label, value, href }) => {
+          const CardContent = (
+            <>
+              <div className="contact-info-card__icon">
+                <Icon />
+              </div>
+              <div className="contact-info-card__body">
+                <small>{label}</small>
                 <b>{value}</b>
-              )}
-            </div>
-          </article>
-        ))}
+              </div>
+            </>
+          );
+          return href ? (
+            <a
+              className="contact-info-card contact-info-card--link"
+              key={label}
+              href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              {CardContent}
+            </a>
+          ) : (
+            <article className="contact-info-card" key={label}>
+              {CardContent}
+            </article>
+          );
+        })}
       </div>
     </section>
   );

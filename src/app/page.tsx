@@ -201,27 +201,27 @@ function Locations() {
       <div className="container">
         <SectionHeading light eyebrow="OUR LOCATION" title={<>Find <em>APV Mobile Mechanics</em></>} center />
         <div className="location-info-strip">
-          <div className="location-info-card">
+          <a href="https://www.google.com/maps/place/APV+mobile+Mechanics/@-42.7871385,147.2448997,17z/data=!3m1!4b1!4m6!3m5!1s0xaa6e0d2733b06751:0xe9d97dff7c553e69!8m2!3d-42.7871425!4d147.24748!16s%2Fg%2F11z96__8np!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="location-info-card location-info-card--link" style={{ textDecoration: "none", color: "inherit" }}>
             <div className="location-info-card__icon"><MapPin /></div>
             <div className="location-info-card__body">
               <small>Service Area</small>
-              <b><a href="https://www.google.com/maps/place/APV+mobile+Mechanics/@-42.7871385,147.2448997,17z/data=!3m1!4b1!4m6!3m5!1s0xaa6e0d2733b06751:0xe9d97dff7c553e69!8m2!3d-42.7871425!4d147.24748!16s%2Fg%2F11z96__8np!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">APV Mobile Mechanics</a></b>
+              <b>APV Mobile Mechanics</b>
             </div>
-          </div>
-          <div className="location-info-card">
+          </a>
+          <a href="tel:0424411375" className="location-info-card location-info-card--link" style={{ textDecoration: "none", color: "inherit" }}>
             <div className="location-info-card__icon"><Phone /></div>
             <div className="location-info-card__body">
               <small>Call Anytime</small>
-              <b><a href="tel:0424411375">0424 411 375</a></b>
+              <b>0424 411 375</b>
             </div>
-          </div>
-          <div className="location-info-card">
+          </a>
+          <a href="mailto:apvmobilemechanics@gmail.com" className="location-info-card location-info-card--link" style={{ textDecoration: "none", color: "inherit" }}>
             <div className="location-info-card__icon"><Mail /></div>
             <div className="location-info-card__body">
               <small>Email Us</small>
-              <b><a href="mailto:apvmobilemechanics@gmail.com">apvmobilemechanics@gmail.com</a></b>
+              <b>apvmobilemechanics@gmail.com</b>
             </div>
-          </div>
+          </a>
         </div>
         <div className="location-map-embed">
           <iframe
