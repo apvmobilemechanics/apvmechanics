@@ -213,8 +213,6 @@ export function SiteEffects() {
       </svg>
       <span className="whatsapp-float__tooltip">Chat on WhatsApp</span>
     </a>
-
-    <button className={`scroll-top ${showTop?"show":""}`} onClick={()=>window.scrollTo({top:0,behavior:"smooth"})} aria-label="Go back to top"><ArrowUp/><span>Go Back Top</span></button>
   </>;
 }
 

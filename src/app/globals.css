@@ -2,10 +2,8 @@
 
 :root{--navy:#0A0A0A;--navy2:#141414;--red:#ED1C24;--ink:#111111;--muted:#6c7080;--off:#f5f6f8;--line:#e7e8ed}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:hidden;scrollbar-width:none;-ms-overflow-style:none}
-html::-webkit-scrollbar{display:none}
-body{margin:0;color:var(--ink);font-family:var(--font-onest),Arial,sans-serif;background:#fff;overflow-x:hidden;scrollbar-width:none;-ms-overflow-style:none}
-body::-webkit-scrollbar{display:none}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{margin:0;color:var(--ink);font-family:var(--font-onest),Arial,sans-serif;background:#fff;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
@@ -1167,10 +1165,9 @@ em{font-style:normal;color:var(--red)}
 
 /* ThemeForest source pass: offer, choose, marquee and connected process */
 .services-reference{
-  height:960px;
+  height:auto;
   padding:113px 0 120px;
   background:#fff;
-  overflow:hidden;
 }
 .services-reference>.container{padding-inline:15px}
 .services-reference>.container,
@@ -1183,9 +1180,7 @@ em{font-style:normal;color:var(--red)}
   font:700 48px/1.1 var(--font-onest);
   letter-spacing:-1.2px;
 }
-.services-reference .eyebrow{justify-content:center;font-size:14px;letter-spacing:0}
-.services-reference .eyebrow svg,.services-reference .eyebrow span:first-child{display:none}
-.services-reference .eyebrow span:last-child{width:64px;margin-left:-64px;transform:translateY(17px)}
+.services-reference .eyebrow{justify-content:center;font-size:14px;letter-spacing:1px}
 .services-reference .service-list{border:0;display:grid;gap:20px}
 .services-reference .service-row{
   height:100px;
@@ -1358,9 +1353,7 @@ em{font-style:normal;color:var(--red)}
 .process-reference .section-heading--center{margin-bottom:50px}
 .process-reference .section-heading{max-width:none}
 .process-reference .section-heading h2{font:700 48px/1.1 var(--font-onest);letter-spacing:-1.2px}
-.process-reference .eyebrow{justify-content:center;font-size:14px;letter-spacing:0}
-.process-reference .eyebrow svg,.process-reference .eyebrow span:first-child{display:none}
-.process-reference .eyebrow span:last-child{width:64px;margin-left:-64px;transform:translateY(17px)}
+.process-reference .eyebrow{justify-content:center;font-size:14px;letter-spacing:1px}
 .process-reference .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
 .process-reference .process-step{
   height:260px;
@@ -2951,7 +2944,7 @@ iframe { border: 0; }
 }
 
 /* ── 5. SECTION OVERFLOW CONTAINMENT ── */
-/* Prevent transforms/animations from causing horizontal scroll */
+/* Prevent overflow without creating scroll traps on mobile */
 .services-reference,
 .about-one-clone,
 .shop-one-clone,
@@ -2968,7 +2961,18 @@ iframe { border: 0; }
 .faq,
 .contact,
 .marquee {
-  overflow-x: hidden;
+  max-width: 100%;
+}
+.services-reference .service-list {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.services-reference .service-row {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* ── 6. SERVICE ROW IMAGE HOVER: Prevent viewport overflow ── */
