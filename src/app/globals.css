@@ -2963,10 +2963,16 @@ iframe { border: 0; }
 .marquee {
   max-width: 100%;
 }
+.services-reference {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 .services-reference .service-list {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
 }
 .services-reference .service-row {
   width: 100%;

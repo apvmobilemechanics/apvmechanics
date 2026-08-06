@@ -77,7 +77,7 @@ function Services() {
   return (
     <section className="section services services-reference" id="services">
       <div className="container">
-        <SectionHeading eyebrow="WHAT WE OFFER" title={<>Comprehensive Car Solutions</>} animatedText="Comprehensive Car Solutions" center />
+        <SectionHeading eyebrow="WHAT WE OFFER" title={<>Comprehensive Car Solutions</>} center />
         <div className="service-list">
           {services.map(({ title, description, image, icon: Icon }, i) => (
             <article className="service-row" key={title} data-reveal-delay={i * 110}>
