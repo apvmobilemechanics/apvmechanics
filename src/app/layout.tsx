@@ -13,12 +13,12 @@ const rubik = Rubik({ subsets: ["latin"], variable: "--font-rubik" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://apvmechanics.com.au"),
-  title: "APV Mobile Mechanics | Expert Car Repair & Care Center",
-  description: "Professional car repair, maintenance, diagnostics and automotive care from trusted technicians.",
+  title: "Mobile Mechanic Hobart | APV Mobile Mechanics",
+  description: "Need a mechanic in Hobart? APV Mobile Mechanics comes to your home, office or roadside with expert repairs, servicing and diagnostics. Call 0424 411 375.",
   icons: { icon: "/assets/images/resources/apv-bear-logo.png" },
   openGraph: {
-    title: "APV Mobile Mechanics | Expert Car Repair & Care Center",
-    description: "Professional repairs and dependable automotive care.",
+    title: "Mobile Mechanic Hobart | APV Mobile Mechanics",
+    description: "Need a mechanic in Hobart? APV Mobile Mechanics comes to your home, office or roadside with expert repairs, servicing and diagnostics. Call 0424 411 375.",
     type: "website",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "APV Mobile Mechanics expert car care center" }],
   },
@@ -42,6 +42,8 @@ const jsonLd = {
       "priceRange": "$$",
       "openingHours": "Sa-Th 08:00-20:00",
       "description": "Professional mobile car repair, engine diagnostics, brake repair, battery replacement, and emergency roadside assistance.",
+      "areaServed": ["Hobart", "Sandy Bay", "Battery Point", "West Hobart", "South Hobart", "New Town", "Lenah Valley", "Glenorchy", "Moonah", "Derwent Park", "Claremont", "Rosny Park", "Bellerive", "Howrah", "Lindisfarne", "Kingston", "Blackmans Bay", "Mount Nelson"],
+      "serviceType": ["Mobile Car Repair", "Engine Diagnostics", "Brake Repair", "Battery Replacement", "Oil Change", "Emergency Roadside Assistance", "Vehicle Inspection", "Electrical Repairs"]
     },
     {
       "@type": "Organization",

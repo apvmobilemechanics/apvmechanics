@@ -47,19 +47,44 @@ export function ContactInfo() {
 
 export function ContactMapForm() {
   return (
-    <section className="contact-page-section">
-      <div className="container contact-page-grid">
-        <div className="contact-map-wrapper">
-          <iframe
-            title="APV Mobile Mechanics location"
-            src="https://maps.google.com/maps?q=-42.7871425,147.24748(APV%20Mobile%20Mechanics)&t=&z=16&ie=UTF8&iwloc=&output=embed"
-            loading="lazy"
-            allowFullScreen
-          />
+    <>
+      <section className="section contact-content-section">
+        <div className="container">
+          <p className="contact-intro">Whether you need a routine service, an urgent repair or just some honest advice about your car, APV Mobile Mechanics is ready to help. Reach us using the details below and we will arrange a visit that fits your schedule.</p>
+          <div className="contact-details-grid">
+            <div>
+              <h2>How To Book</h2>
+              <ol>
+                <li>Call us or fill in the contact form with your details</li>
+                <li>Tell us what is wrong with your car and where you are located</li>
+                <li>Let us know your preferred day and time</li>
+                <li>We confirm the booking and arrive ready to help</li>
+              </ol>
+              <h3>What To Tell Us When Booking</h3>
+              <p>To help us prepare properly for your visit, let us know the make, model and year of your vehicle, a description of the issue you are experiencing and your preferred location, whether that is your home, workplace or another convenient spot.</p>
+            </div>
+            <div>
+              <h2>Our Service Area</h2>
+              <p>We service Hobart CBD and the surrounding suburbs, including Sandy Bay, Battery Point, West Hobart, South Hobart, New Town, Lenah Valley, Glenorchy, Moonah, Claremont, Rosny Park, Bellerive, Howrah, Lindisfarne, Kingston, Blackmans Bay and Mount Nelson.</p>
+              <p className="contact-cta-text">Do not wait for a small issue to become a bigger one. Call APV Mobile Mechanics on <a href="tel:0424411375">0424 411 375</a> or send us your details today.</p>
+            </div>
+          </div>
         </div>
-        <LocalContactForm />
-      </div>
-    </section>
+      </section>
+      <section className="contact-page-section">
+        <div className="container contact-page-grid">
+          <div className="contact-map-wrapper">
+            <iframe
+              title="APV Mobile Mechanics location"
+              src="https://maps.google.com/maps?q=-42.7871425,147.24748(APV%20Mobile%20Mechanics)&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              loading="lazy"
+              allowFullScreen
+            />
+          </div>
+          <LocalContactForm />
+        </div>
+      </section>
+    </>
   );
 }
 

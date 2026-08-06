@@ -117,18 +117,52 @@ export function ServicesVariantContent({ version }: { version: 2 | 3 }) {
 
 export function ServiceDetailsContent({ slug }: { slug: string }) {
   const service = services.find((item) => item.slug === slug) ?? services[0];
+  const s = service as any; // access extended fields
+  
   return (
     <main>
-      <PageBanner title={service.title}/>
+      <PageBanner title={s.h1 ?? service.title}/>
       <section className="section detail-section service-detail">
         <div className="container service-detail-grid">
           <article>
             <div className="service-detail-image"><Image src={service.image} alt={service.title} fill priority sizes="820px"/></div>
             <span className="detail-eyebrow">PROFESSIONAL AUTOMOTIVE SERVICE</span>
-            <h2>{service.title} You Can Depend On</h2>
-            <p>Our technicians combine accurate diagnostics, workshop-grade equipment and proven repair methods to restore safety and performance.</p>
-            <div className="detail-checks">{["Vehicle-specific inspection","Clear repair recommendations","Quality replacement parts","Final safety verification"].map((item) => <span key={item}><Check/>{item}</span>)}</div>
-            <div className="service-benefits"><div><Gauge/><span><b>Accurate Diagnosis</b><small>We verify the cause before recommending work.</small></span></div><div><Wrench/><span><b>Expert Workmanship</b><small>Repairs follow a careful, repeatable process.</small></span></div></div>
+            <h2>{s.h1 ?? service.title + ' You Can Depend On'}</h2>
+            <p>{s.intro ?? 'Our technicians combine accurate diagnostics, workshop-grade equipment and proven repair methods to restore safety and performance.'}</p>
+            
+            {s.features && s.features.length > 0 && (
+              <div className="detail-checks">
+                {(s.features as string[]).map((item: string) => <span key={item}><Check/>{item}</span>)}
+              </div>
+            )}
+            
+            {s.localNote && <p className="service-local-note"><strong>Local Note:</strong> {s.localNote}</p>}
+            
+            {s.process && s.process.length > 0 && (
+              <div className="service-benefits">
+                <div><Gauge/><span><b>Our Process</b><small>Step by step how we work.</small></span></div>
+                <div><Wrench/><span><b>Expert Workmanship</b><small>Repairs follow a careful, repeatable process.</small></span></div>
+              </div>
+            )}
+            
+            {s.faqs && s.faqs.length > 0 && (
+              <div className="service-faqs">
+                <h3>Frequently Asked Questions</h3>
+                {(s.faqs as Array<{q: string; a: string}>).map((faq) => (
+                  <details key={faq.q} className="service-faq-item">
+                    <summary>{faq.q}</summary>
+                    <p>{faq.a}</p>
+                  </details>
+                ))}
+              </div>
+            )}
+            
+            {s.cta && (
+              <div className="service-cta-box">
+                <p>{s.cta}</p>
+                <a href="tel:0424411375" className="primary-action">Call 0424 411 375 <ArrowRight/></a>
+              </div>
+            )}
           </article>
           <aside>
             <h3>Our Services</h3>

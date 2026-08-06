@@ -53,9 +53,9 @@ export function HeroCarousel() {
       <Image className="hero__shape hero__shape--two" src={`${A}/shapes/main-slider-shape-2.png`} alt="" width={730} height={500}/>
       <div className="container hero__inner">
         <div className="hero__content" key={`content-${active}`}>
-          <p className="hero__eyebrow">CAR - REPAIR - CENTER</p>
-          <h1>Drive Confident With<br />Expert Car <span className="hero__title-image"><Image src={`${A}/resources/main-slider-title-img.jpg`} alt="Mechanic servicing a vehicle" fill sizes="140px" /></span><br />Care Center</h1>
-          <p className="hero__copy">Expert car repair services to keep your vehicle running smoothly.<br />Watch for seasonal offers &amp; discounts to save on maintenance.</p>
+          <p className="hero__eyebrow">MOBILE MECHANIC HOBART</p>
+          <h1>Hobart's Trusted Mobile<br /><span className="hero__title-image"><Image src={`${A}/resources/main-slider-title-img.jpg`} alt="Mechanic servicing a vehicle" fill sizes="140px" /></span><br />Mechanic, We Come To You</h1>
+          <p className="hero__copy">APV Mobile Mechanics brings the workshop to you. At home in Sandy Bay, at work in Glenorchy or stuck roadside near Kingston — we come to you anywhere in Hobart.</p>
           <div className="hero__actions">
             <ThemeButton href="/about">Read More</ThemeButton>
             <a className="hero__phone" href="tel:0424411375"><i><Phone size={20} /></i><span>Call Anytime<b>0424 411 375</b></span></a>

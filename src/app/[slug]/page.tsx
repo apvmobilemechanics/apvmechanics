@@ -14,7 +14,13 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
-  const title = service ? service.title : slug.split("-").map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(" ");
+  if (service) {
+    return {
+      title: service.metaTitle,
+      description: service.metaDescription,
+    };
+  }
+  const title = slug.split("-").map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(" ");
   return { title: `${title} | APV Mobile Mechanics` };
 }
 

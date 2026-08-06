@@ -39,14 +39,14 @@ export function AboutCompanySection() {
         </div>
         <div className="about-clone-content" data-reveal>
           <SectionHeading eyebrow="ABOUT APV MOBILE MECHANICS" title={<>Hobart's Trusted<br/>Mobile Car Repair</>}/>
-          <p>APV Mobile Mechanics is Hobart's trusted mobile car repair specialist. We come to you — at home, at work, or roadside — with full workshop capability in our fully-equipped service vehicle.</p>
-          <p>Founded on the belief that quality automotive care shouldn't require a trip to a workshop, we've built a reputation for fast response, honest advice and lasting repairs.</p>
+          <p>APV Mobile Mechanics started with a simple idea. Car owners should not have to take time off work, arrange transport or wait days for a workshop booking just to get a basic repair done. We built our business around bringing full workshop capability directly to driveways, offices and roadsides across Hobart.</p>
+          <p>Over the past ten years we have grown from a single mobile unit into a name that Hobart drivers recognise and recommend, having serviced more than five hundred vehicles for families, tradespeople and small businesses who value straightforward advice and lasting repairs.</p>
           <div className="about-clone-features">
             <div><i><Wrench/></i><span><b>500+ Vehicles Serviced</b><small>Trusted by hundreds of<br/>Hobart drivers.</small></span></div>
             <div><i><Check/></i><span><b>Fully Certified Mechanics</b><small>Expert care and<br/>lasting repairs.</small></span></div>
           </div>
           <div className="about-clone-checks">
-            {["10+ Years Experience","500+ Vehicles Serviced","Fully Certified Mechanics","Honest advice & fast response"].map(item=><span key={item}><Check/>{item}</span>)}
+            {["Honesty first — we tell you what your car actually needs", "Fair pricing with no hidden call out charges", "Quality parts and workmanship backed by a clear warranty", "Respect for your time — we arrive when we say we will"].map(item=><span key={item}><Check/>{item}</span>)}
           </div>
           <div className="about__bottom">
             <ThemeButton href="/contact">Contact Us</ThemeButton>
@@ -73,7 +73,7 @@ export function ProcessSection() {
             <strong>STEP - 01</strong>
             <div className="process-step__copy">
               <h3>Quick &amp; Trusted Repairs</h3>
-              <p>We diagnose fast and accurately, getting you back on the road with confidence.</p>
+              <p>Fast and accurate diagnosis from the start — getting you back on the road with confidence.</p>
             </div>
             <i><Check /></i>
           </div>
@@ -82,14 +82,14 @@ export function ProcessSection() {
             <strong>STEP - 02</strong>
             <div className="process-step__copy">
               <h3>Performance Perfected</h3>
-              <p>Every system is tuned and tested to manufacturer spec for peak performance.</p>
+              <p>Every system tuned and tested to manufacturer specification for peak performance.</p>
             </div>
           </div>
           <div className="process-step">
             <strong>STEP - 03</strong>
             <div className="process-step__copy">
               <h3>Premium Care Experience</h3>
-              <p>Professional workmanship with clear communication at every stage of the repair.</p>
+              <p>Clear communication at every stage of the job and professional workmanship throughout.</p>
             </div>
             <i><Wrench /></i>
           </div>
@@ -97,8 +97,8 @@ export function ProcessSection() {
             <i><Check /></i>
             <strong>STEP - 04</strong>
             <div className="process-step__copy">
-              <h3>Luxury Auto Care</h3>
-              <p>Meticulous attention to detail ensuring your vehicle receives the best treatment.</p>
+              <h3>Attention To Detail</h3>
+              <p>A thorough finish on every vehicle we touch, because the details matter.</p>
             </div>
           </div>
         </div>

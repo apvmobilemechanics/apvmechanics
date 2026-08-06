@@ -7,10 +7,11 @@ import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
 
 const faqs = [
-  ["What types of vehicles do you service?", "We service most major makes and models, including petrol, diesel and hybrid vehicles."],
-  ["How often should I get my car serviced?", "Most vehicles benefit from a service every six to twelve months, depending on usage and manufacturer guidance."],
-  ["Do you provide a warranty on repairs?", "Yes. Our workmanship and fitted parts are covered by a clear service warranty."],
-  ["Can I book an appointment online?", "Yes. Use the appointment form below and our team will confirm your preferred time."],
+  ["What types of vehicles do you service?", "We service most makes and models, including petrol, diesel and hybrid vehicles, for everyday drivers and small businesses across Hobart."],
+  ["How often should I get my car serviced?", "Most vehicles benefit from a service every six to twelve months, depending on how much you drive and what the manufacturer recommends."],
+  ["Do you provide a warranty on repairs?", "Yes. Every repair and every part we fit is covered by a clear service warranty, so you can drive away with confidence."],
+  ["Can I book an appointment online?", "Yes. Send us your details through our contact form or call us directly and our team will confirm a time that works for you."],
+  ["Do you really come to my location?", "Yes. Our service vehicle carries the tools and common parts needed to complete most jobs at your home, workplace or roadside, anywhere within our Hobart service area."],
 ];
 
 export function FaqList() {

@@ -1,4 +1,14 @@
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Mobile Mechanic Hobart | APV Mobile Mechanics",
+  description: "Need a mechanic in Hobart? APV Mobile Mechanics comes to your home, office or roadside with expert repairs, servicing and diagnostics. Call 0424 411 375.",
+  openGraph: {
+    title: "Mobile Mechanic Hobart | APV Mobile Mechanics",
+    description: "Need a mechanic in Hobart? APV Mobile Mechanics comes to your home, office or roadside with expert repairs, servicing and diagnostics. Call 0424 411 375.",
+  },
+};
 import Link from "next/link";
 import {
   ChevronsRight,
@@ -97,13 +107,13 @@ function WhyChoose() {
       <div className="container choose-reference__grid">
         <div className="choose__content" data-reveal="left">
           <SectionHeading eyebrow="WHY CHOOSE US" title={<>Why Choose APV<br />Mobile Mechanics</>} animatedText="Why Choose APV Mobile Mechanics" />
-          <p>We&apos;ve built our reputation on honesty, expertise, &amp; consistent quality service. Every repair is handled with care.</p>
+          <p>Choosing a mechanic is about trust as much as it is about tools. Local mechanics who understand Hobart roads, hills and weather.</p>
           <div className="choose-reference__middle">
             <div className="choose-reference__solution">
               <i><SearchCheck /></i>
               <b>Innovative Car<br />Solutions</b>
             </div>
-            <p>At Brake Experts Care, your safety comes first. Our skilled team is ready to help.</p>
+            <p>Clear, upfront pricing with no surprise call out fees and a warranty on every repair for genuine peace of mind.</p>
           </div>
           <div className="choose-reference__bottom">
             <ThemeButton href="/about">Read More</ThemeButton>
@@ -136,7 +146,7 @@ function Process() {
     { num: "01", title: "Quick & Trusted Repairs", icon: SearchCheck, desc: "We diagnose fast and accurately, getting you back on the road with confidence." },
     { num: "02", title: "Performance Perfected", icon: Gauge, desc: "Every system is tuned and tested to manufacturer spec for peak performance." },
     { num: "03", title: "Premium Care Experience", icon: Wrench, desc: "Professional workmanship with clear communication at every stage of the repair." },
-    { num: "04", title: "Luxury Auto Care", icon: CircleGauge, desc: "Meticulous attention to detail ensuring your vehicle receives the best treatment." },
+    { num: "04", title: "Attention To Detail", icon: CircleGauge, desc: "A thorough finish on every vehicle we touch, because detail matters." },
   ];
   return (
     <section className="section process process-reference" id="pages">
