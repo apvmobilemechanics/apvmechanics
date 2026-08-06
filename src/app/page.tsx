@@ -35,6 +35,8 @@ import { AboutCompanySection, InnerVideo } from "@/components/inner/about-sectio
 import { GalleryLightbox } from "@/components/home/gallery-lightbox";
 import { HeroCarousel } from "@/components/home/hero-carousel";
 import { LocalContactForm } from "@/components/inner/local-form";
+import { QuickServiceSelector } from "@/components/home/quick-service-selector";
+import { RentACarSection } from "@/components/home/rent-a-car-section";
 
 const A = "/assets/images";
 
@@ -288,5 +290,5 @@ function Contact() {
 }
 
 export default function Home() {
-  return <main><HeroCarousel/><Services/><AboutCompanySection/><WhyChoose/><Marquee/><Process/><InnerVideo/><Faq/><GalleryLightbox/><Contact/></main>;
+  return <main><HeroCarousel/><QuickServiceSelector/><Services/><AboutCompanySection/><WhyChoose/><Marquee/><Process/><InnerVideo/><Faq/><RentACarSection/><GalleryLightbox/><Contact/></main>;
 }
