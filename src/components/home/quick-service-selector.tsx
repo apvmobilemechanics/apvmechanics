@@ -17,96 +17,81 @@ export function QuickServiceSelector() {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
 
-    const cards = sectionRef.current?.querySelectorAll(".qss-card");
+    const cards = sectionRef.current?.querySelectorAll(".qss-compact-card");
     cards?.forEach((card) => observer.observe(card));
 
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section ref={sectionRef} className="qss-section">
+    <section ref={sectionRef} className="qss-compact-section">
       <div className="container">
         {/* Eyebrow */}
-        <div className="qss-eyebrow">
-          <span className="qss-eyebrow__line" />
-          <span className="qss-eyebrow__text">HOW CAN WE HELP YOU TODAY?</span>
-          <span className="qss-eyebrow__line" />
+        <div className="qss-compact-eyebrow">
+          <span>HOW CAN WE HELP YOU TODAY?</span>
         </div>
 
-        {/* Grid */}
-        <div className="qss-grid">
-
-          {/* Card 1 — Rent A Car: Photo BG */}
+        {/* 3 in 1 Row Grid (Mobile + Desktop) */}
+        <div className="qss-compact-grid">
+          {/* Item 1 — Rent A Car */}
           <a
             href="https://wa.me/61424411375?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20rental%20vehicle%20availability."
             target="_blank"
             rel="noopener noreferrer"
-            className="qss-card qss-card--photo"
-            style={{ transitionDelay: "0ms" }}
+            className="qss-compact-card qss-compact-card--rent"
           >
-            <div className="qss-card__overlay" />
-            <div className="qss-card__content">
-              <div className="qss-card__icon-wrap">
-                <Car strokeWidth={1.5} />
-              </div>
-              <div className="qss-card__body">
-                <h3 className="qss-card__title">Rent A Car</h3>
-                <p className="qss-card__desc">Need a rental vehicle? Send an enquiry and our team will assist with available vehicles.</p>
-              </div>
-              <div className="qss-card__cta">
-                <span>Enquire Now</span>
-                <ArrowRight size={18} />
-              </div>
+            <div className="qss-compact-card__icon">
+              <Car size={22} />
+            </div>
+            <div className="qss-compact-card__text">
+              <h3>Rent A Car</h3>
+              <p>Vehicle Rentals</p>
+            </div>
+            <div className="qss-compact-card__btn">
+              <span>Enquire</span>
+              <ArrowRight size={14} />
             </div>
           </a>
 
-          {/* Card 2 — Roadside Assistance: RED FEATURED (urgency) */}
+          {/* Item 2 — Roadside Assistance (Urgent) */}
           <a
             href="tel:0424411375"
-            className="qss-card qss-card--featured"
-            style={{ transitionDelay: "100ms" }}
+            className="qss-compact-card qss-compact-card--roadside"
           >
-            <div className="qss-card__content">
-              <div className="qss-card__badge">URGENT</div>
-              <div className="qss-card__icon-wrap qss-card__icon-wrap--white">
-                <Zap strokeWidth={1.5} />
-              </div>
-              <div className="qss-card__body">
-                <h3 className="qss-card__title">Roadside Assistance</h3>
-                <p className="qss-card__desc">Need urgent roadside help? Contact our mobile team for immediate assistance.</p>
-              </div>
-              <div className="qss-card__cta qss-card__cta--outline">
-                <Phone size={16} />
-                <span>Call Now</span>
-                <ArrowRight size={18} />
-              </div>
+            <div className="qss-compact-card__badge">URGENT</div>
+            <div className="qss-compact-card__icon">
+              <Zap size={22} />
+            </div>
+            <div className="qss-compact-card__text">
+              <h3>Roadside Help</h3>
+              <p>Immediate 24/7</p>
+            </div>
+            <div className="qss-compact-card__btn">
+              <Phone size={13} />
+              <span>Call Now</span>
             </div>
           </a>
 
-          {/* Card 3 — General Repairs: Dark Textured */}
+          {/* Item 3 — General Repairs */}
           <Link
             href="/contact"
-            className="qss-card qss-card--dark"
-            style={{ transitionDelay: "200ms" }}
+            className="qss-compact-card qss-compact-card--service"
           >
-            <div className="qss-card__content">
-              <div className="qss-card__icon-wrap">
-                <Wrench strokeWidth={1.5} />
-              </div>
-              <div className="qss-card__body">
-                <h3 className="qss-card__title">General Repairs &amp; Servicing</h3>
-                <p className="qss-card__desc">Book inspections, servicing, diagnostics and repairs at your location.</p>
-              </div>
-              <div className="qss-card__cta qss-card__cta--red">
-                <span>Book Service</span>
-                <ArrowRight size={18} />
-              </div>
+            <div className="qss-compact-card__icon">
+              <Wrench size={22} />
+            </div>
+            <div className="qss-compact-card__text">
+              <h3>Repairs &amp; Service</h3>
+              <p>Book Mobile Check</p>
+            </div>
+            <div className="qss-compact-card__btn">
+              <span>Book</span>
+              <ArrowRight size={14} />
             </div>
           </Link>
-
         </div>
       </div>
     </section>
