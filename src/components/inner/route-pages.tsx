@@ -222,5 +222,5 @@ export function NotFoundContent() {
 }
 
 export function ContactStrip() {
-  return <section className="contact-strip"><div className="container"><div><MapPin/><span><small>Our Location</small><b><a href="https://maps.app.goo.gl/dvreoSEMYhGPaky5A?g_st=aw" target="_blank" rel="noopener noreferrer" style={{ color: "inherit" }}>APV Mobile Mechanics</a></b></span></div><div><Phone/><span><small>Call Any Time</small><b>0424 411 375</b></span></div></div></section>;
+  return <section className="contact-strip"><div className="container"><div><MapPin/><span><small>Our Location</small><b><a href="https://maps.app.goo.gl/dvreoSEMYhGPaky5A?g_st=aw" target="_blank" rel="noopener noreferrer" style={{ color: "inherit" }}>1-3 Leighland Rd, Claremont TAS 7011</a></b></span></div><div><Phone/><span><small>Call Any Time</small><b>0424 411 375</b></span></div></div></section>;
 }

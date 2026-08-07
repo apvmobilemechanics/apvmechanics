@@ -54,7 +54,7 @@ export function HeroCarousel() {
       <div className="container hero__inner">
         <div className="hero__content" key={`content-${active}`}>
           <p className="hero__eyebrow">MOBILE MECHANIC HOBART</p>
-          <h1>Hobart's Trusted Mobile<br /><span className="hero__title-image"><Image src={`${A}/resources/main-slider-title-img.jpg`} alt="Mechanic servicing a vehicle" fill sizes="140px" /></span><br />Mechanic, We Come To You</h1>
+          <h1>Hobart's Trusted Mobile<br />Mechanic, We Come To You</h1>
           <p className="hero__copy">APV Mobile Mechanics brings the workshop to you. At home in Sandy Bay, at work in Glenorchy or stuck roadside near Kingston — we come to you anywhere in Hobart.</p>
           <div className="hero__actions">
             <ThemeButton href="/about">Read More</ThemeButton>

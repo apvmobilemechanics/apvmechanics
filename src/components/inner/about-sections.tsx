@@ -128,7 +128,7 @@ export function LocationsSection() {
                 <MapPin />
               </div>
               <div>
-                <h3>APV Mobile Mechanics</h3>
+                <h3>1-3 Leighland Rd, Claremont TAS 7011</h3>
                 <p>Mobile Service Delivered Direct To Your Location</p>
               </div>
             </div>
