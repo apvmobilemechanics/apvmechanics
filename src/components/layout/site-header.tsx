@@ -105,8 +105,9 @@ export function SiteHeader() {
               className="brand-logo-image"
               src={`${A}/resources/apv-mobile-mechanics-logo.jpeg`}
               alt="APV Mobile Mechanics"
-              width={70}
-              height={70}
+              width={88}
+              height={88}
+              unoptimized
               priority
             />
             <span className="logo__text">
@@ -148,7 +149,7 @@ export function SiteHeader() {
       <button className={`panel-overlay ${drawerOpen ? "open" : ""}`} type="button" onClick={closeLayers} aria-label="Close information panel" />
       <aside className={`info-drawer ${drawerOpen ? "open" : ""}`} aria-hidden={!drawerOpen}>
         <button type="button" className="info-drawer__close" onClick={closeLayers} aria-label="Close information panel"><X /></button>
-        <Image src={`${A}/resources/apv-mobile-mechanics-logo.jpeg`} alt="APV Mobile Mechanics" width={130} height={130} />
+        <Image src={`${A}/resources/apv-mobile-mechanics-logo.jpeg`} alt="APV Mobile Mechanics" width={130} height={130} style={{ borderRadius: "10px", objectFit: "contain", background: "#ffffff", padding: "4px" }} unoptimized />
         <p>Professional automotive repair, diagnostics and mobile support delivered with dependable workmanship.</p>
         <h3>Contact Info</h3>
         <a href="tel:0424411375"><Phone /><span>Call Any Time<b>0424 411 375</b></span></a>

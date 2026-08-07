@@ -31,7 +31,7 @@ em{font-style:normal;color:var(--red)}
 
 .header{height:88px;background:var(--navy);color:#fff;position:relative;z-index:20}
 .header__inner{height:100%;width:min(1370px,100%);margin:auto;display:flex;align-items:center}
-.logo{height:100%;width:275px;background:#fff;display:flex;align-items:center;gap:14px;padding-left:18px;position:relative;z-index:2;flex-shrink:0}
+.logo{height:100%;width:300px;background:#fff;display:flex;align-items:center;gap:12px;padding-left:14px;position:relative;z-index:2;flex-shrink:0}
 .logo:after{content:"";position:absolute;right:-32px;top:0;border-top:88px solid #fff;border-right:33px solid transparent}
 .logo__text{display:flex;flex-direction:column;justify-content:center}
 .logo__brand{font:900 28px/1 var(--font-rubik);color:var(--red);font-style:italic;letter-spacing:-0.5px}
@@ -405,7 +405,7 @@ em{font-style:normal;color:var(--red)}
 .footer-main{padding-top:70px;background:#0D0D0D;position:relative}
 .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.3fr;gap:45px;padding-bottom:50px;position:relative;z-index:2}
 .footer-logo-lockup{display:flex;align-items:center;gap:12px;margin-bottom:20px;text-decoration:none}
-.footer-logo-icon{width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;padding:3px}
+.footer-logo-icon{width:46px;height:46px;border-radius:8px;background:#fff;display:grid;place-items:center;padding:3px}
 .footer-logo-text{font:800 25px/1 var(--font-rubik)}
 .logo-red{color:var(--red);font-style:normal}
 .logo-white{color:#fff}
@@ -555,7 +555,7 @@ em{font-style:normal;color:var(--red)}
   --automart-normal:420ms;
 }
 
-.brand-logo-image,.footer-brand img,.info-drawer>img{border-radius:50%;object-fit:cover;background:#ffffff}
+.brand-logo-image,.footer-brand img,.info-drawer>img{border-radius:8px;object-fit:contain;background:#ffffff;padding:2px;width:88px;height:88px;max-height:92%}
 .hero{height:752px}
 .hero__shape--one{width:1000px;height:600px;max-width:none}
 .hero__shape--two{width:730px;height:500px;max-width:none}
@@ -777,7 +777,7 @@ em{font-style:normal;color:var(--red)}
 
 @media (max-width:560px){
   .hero{height:672px}
-  .logo__brand{font-size:22px}.brand-logo-image{width:54px;height:54px}
+  .logo__brand{font-size:22px}.brand-logo-image{width:76px;height:76px}
   .header__tools{gap:14px}.mobile-toggle{margin-right:10px}
   .search-overlay__form>div{height:60px}.search-overlay__form input{font-size:17px}
   .clone-product{flex-basis:calc(100vw - 60px)}
@@ -1634,7 +1634,7 @@ textarea{max-width:100%}
     border-top-width:84px;
     border-right-width:24px;
   }
-  .brand-logo-image{width:64px;height:64px}
+  .brand-logo-image{width:78px;height:78px}
   .logo__brand{font-size:26px}
   .logo__sub{font-size:10px}
   .header__tools{gap:10px;padding-right:8px}
@@ -1787,7 +1787,7 @@ textarea{max-width:100%}
     width:40px;
     min-width:40px;
   }
-  .brand-logo-image{width:60px;height:60px}
+  .brand-logo-image{width:76px;height:76px}
   .logo__brand{font-size:24px}
   .logo__sub{font-size:9.5px}
   .search-overlay{padding-inline:14px}
@@ -2276,7 +2276,7 @@ textarea{max-width:100%}
   .header__tools{gap:4px;padding-right:4px}
   .header-cart-link,
   .mobile-toggle{width:38px;min-width:38px}
-  .brand-logo-image{width:52px;height:52px}
+  .brand-logo-image{width:68px;height:68px}
   .logo__brand{font-size:20px}
   .hero h1{font-size:31px}
   .pill-button>span{padding-inline:22px}

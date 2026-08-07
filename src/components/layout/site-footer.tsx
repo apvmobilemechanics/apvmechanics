@@ -52,7 +52,8 @@ export function SiteFooter() {
                 alt="APV Mobile Mechanics Logo"
                 width={175}
                 height={175}
-                style={{ borderRadius: "50%", objectFit: "cover", display: "block" }}
+                style={{ borderRadius: "12px", objectFit: "contain", background: "#ffffff", padding: "6px", display: "block" }}
+                unoptimized
                 priority
               />
             </Link>
