@@ -40,7 +40,7 @@ const jsonLd = {
       "hasMap": "https://www.google.com/maps/place/APV+mobile+Mechanics/@-42.7871385,147.2448997,17z/data=!3m1!4b1!4m6!3m5!1s0xaa6e0d2733b06751:0xe9d97dff7c553e69!8m2!3d-42.7871425!4d147.24748!16s%2Fg%2F11z96__8np!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgwMy4wIKXMDSoASAFQAw%3D%3D",
       "sameAs": ["https://www.google.com/maps/place/APV+mobile+Mechanics/@-42.7871385,147.2448997,17z/data=!3m1!4b1!4m6!3m5!1s0xaa6e0d2733b06751:0xe9d97dff7c553e69!8m2!3d-42.7871425!4d147.24748!16s%2Fg%2F11z96__8np!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgwMy4wIKXMDSoASAFQAw%3D%3D"],
       "priceRange": "$$",
-      "openingHours": "Sa-Th 08:00-20:00",
+      "openingHours": "Mo-Fr 08:00-17:00",
       "description": "Professional mobile car repair, engine diagnostics, brake repair, battery replacement, and emergency roadside assistance.",
       "areaServed": ["Hobart", "Sandy Bay", "Battery Point", "West Hobart", "South Hobart", "New Town", "Lenah Valley", "Glenorchy", "Moonah", "Derwent Park", "Claremont", "Rosny Park", "Bellerive", "Howrah", "Lindisfarne", "Kingston", "Blackmans Bay", "Mount Nelson"],
       "serviceType": ["Mobile Car Repair", "Engine Diagnostics", "Brake Repair", "Battery Replacement", "Oil Change", "Emergency Roadside Assistance", "Vehicle Inspection", "Electrical Repairs"]

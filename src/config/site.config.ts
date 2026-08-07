@@ -16,7 +16,7 @@ export const GOOGLE_MAPS_EMBED =
 
 export const ASSET_PREFIX = "/assets/images";
 
-export const OPENING_HOURS = "8:00 AM to 8:00 PM (Saturday to Thursday)";
+export const OPENING_HOURS = "8:00 AM to 5:00 PM (Monday to Friday)";
 
 /** Navigation items shared between desktop nav, mobile menu, and footer */
 export type NavItem = {

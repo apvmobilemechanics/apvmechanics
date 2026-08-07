@@ -84,7 +84,7 @@ export function SiteHeader() {
             <Clock3 />
             <span>
               <b>Opening Hours :</b>
-              <small>8:00 AM to 8:00 PM (Saturday to Thursday)</small>
+              <small>8:00 AM to 5:00 PM (Monday to Friday)</small>
             </span>
           </div>
           <div className="topbar__actions">
@@ -149,12 +149,12 @@ export function SiteHeader() {
       <button className={`panel-overlay ${drawerOpen ? "open" : ""}`} type="button" onClick={closeLayers} aria-label="Close information panel" />
       <aside className={`info-drawer ${drawerOpen ? "open" : ""}`} aria-hidden={!drawerOpen}>
         <button type="button" className="info-drawer__close" onClick={closeLayers} aria-label="Close information panel"><X /></button>
-        <Image src={`${A}/resources/apv-mobile-mechanics-logo.jpeg`} alt="APV Mobile Mechanics" width={130} height={130} style={{ borderRadius: "10px", objectFit: "contain", background: "#ffffff", padding: "4px" }} unoptimized />
+        <Image src={`${A}/resources/apv-mobile-mechanics-logo.jpeg`} alt="APV Mobile Mechanics" width={130} height={130} style={{ objectFit: "contain" }} unoptimized />
         <p>Professional automotive repair, diagnostics and mobile support delivered with dependable workmanship.</p>
         <h3>Contact Info</h3>
         <a href="tel:0424411375"><Phone /><span>Call Any Time<b>0424 411 375</b></span></a>
         <a href="mailto:apvmobilemechanics@gmail.com"><Mail /><span>Email Address<b>apvmobilemechanics@gmail.com</b></span></a>
-        <a href="https://www.google.com/maps/place/APV+mobile+Mechanics/@-42.7871385,147.2448997,17z/data=!3m1!4b1!4m6!3m5!1s0xaa6e0d2733b06751:0xe9d97dff7c553e69!8m2!3d-42.7871425!4d147.24748!16s%2Fg%2F11z96__8np!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"><MapPin /><span>Our Location<b>1-3 Leighland Rd, Claremont TAS 7011</b></span></a>
+        <a href="https://www.google.com/maps/place/APV+mobile+Mechanics/@-42.7871385,147.2448997,17z/data=!3m1!4b1!4m6!3m5!1s0xaa6e0d2733b06751:0xe9d97dff7c553e69!8m2!3d-42.7871425!4d147.24748!16s%2Fg%2F11z96__8np!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"><MapPin /><span>Get Directions<b>1-3 Leighland Rd, Claremont TAS 7011</b></span></a>
         <div className="info-drawer__socials">
           <a href="https://www.facebook.com/" aria-label="Facebook"><b>f</b></a>
           <a href="https://www.instagram.com/apvmechanics/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><InstagramIcon /></a>

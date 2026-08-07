@@ -48,11 +48,11 @@ export function SiteFooter() {
           <div className="footer-col footer-col--brand">
             <Link className="footer-logo-lockup" href="/" aria-label="APV Mobile Mechanics home">
               <Image
-                src={`${A}/resources/apv-mobile-mechanics-logo.jpeg`}
+                src={`${A}/resources/apv-bear-logo-black.png`}
                 alt="APV Mobile Mechanics Logo"
                 width={175}
                 height={175}
-                style={{ borderRadius: "12px", objectFit: "contain", background: "#ffffff", padding: "6px", display: "block" }}
+                style={{ objectFit: "contain", borderRadius: "12px", display: "block" }}
                 unoptimized
                 priority
               />
