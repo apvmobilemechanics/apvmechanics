@@ -10,18 +10,21 @@ export function LocationsSection() {
         <SectionHeading light eyebrow="OUR LOCATION" title={<>Find <em>APV Mobile Mechanics</em></>} center />
         <div className="location-info-strip">
           <LocationCard
+            variant="dark"
             icon={MapPin}
             label="Service Area / Location"
             value="1-3 Leighland Rd, Claremont TAS 7011"
             href={GOOGLE_MAPS_URL}
           />
           <LocationCard
+            variant="dark"
             icon={Phone}
             label="Call Anytime"
             value={PHONE}
             href={`tel:${PHONE.replace(/\s+/g, "")}`}
           />
           <LocationCard
+            variant="dark"
             icon={Mail}
             label="Email Us"
             value={EMAIL}

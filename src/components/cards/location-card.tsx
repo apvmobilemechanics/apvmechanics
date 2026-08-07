@@ -6,6 +6,7 @@ export interface LocationCardProps {
   value: string;
   href?: string | null;
   className?: string;
+  variant?: "light" | "dark";
 }
 
 export function LocationCard({
@@ -13,14 +14,21 @@ export function LocationCard({
   label,
   value,
   href,
-  className = "location-info-card location-info-card--link",
+  className,
+  variant = "light",
 }: LocationCardProps) {
+  const baseClass = className || (variant === "dark" ? "location-info-card" : "contact-info-card");
+  const cardClassName = href ? `${baseClass} ${baseClass}--link` : baseClass;
+  
+  const iconClass = variant === "dark" ? "location-info-card__icon" : "contact-info-card__icon";
+  const bodyClass = variant === "dark" ? "location-info-card__body" : "contact-info-card__body";
+
   const content = (
     <>
-      <div className="location-info-card__icon">
+      <div className={iconClass}>
         <Icon />
       </div>
-      <div className="location-info-card__body">
+      <div className={bodyClass}>
         <small>{label}</small>
         <b>{value}</b>
       </div>
@@ -32,7 +40,7 @@ export function LocationCard({
     return (
       <a
         href={href}
-        className={className}
+        className={cardClassName}
         target={isExternal ? "_blank" : undefined}
         rel={isExternal ? "noopener noreferrer" : undefined}
         style={{ textDecoration: "none", color: "inherit" }}
@@ -42,7 +50,7 @@ export function LocationCard({
     );
   }
 
-  return <article className="location-info-card">{content}</article>;
+  return <article className={cardClassName}>{content}</article>;
 }
 
 export const LocationInfoCard = LocationCard;
