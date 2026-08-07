@@ -1,8 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import { ChevronsRight } from "lucide-react";
 import { SectionHeading } from "@/components/common/section-heading";
-import { services } from "@/lib/site-data";
+import { ServiceRowCard } from "@/components/cards/service-row-card";
+import { services } from "@/features/services/data/services.data";
 
 const serviceDescriptions: Record<string, string> = {
   "mobile-car-repair": "General mechanical repairs and scheduled servicing carried out at your home, workplace or a convenient roadside location.",
@@ -22,17 +20,14 @@ export function ServicesListSection() {
         <SectionHeading eyebrow="WHAT WE DO" title={<>Our Mobile Car Repair <em>Services In Hobart</em></>} center />
         <div className="service-list">
           {services.map(({ title, slug, image }, i) => (
-            <article className="service-row" key={slug}>
-              <span className="service-row__number">{String(i + 1).padStart(2, "0")} /</span>
-              <div className="service-row__image">
-                <Image src={image} alt={title} fill sizes="260px" />
-              </div>
-              <h3>{title}</h3>
-              <p>{serviceDescriptions[slug] ?? "Reliable automotive solutions delivered by skilled technicians."}</p>
-              <Link href={`/${slug}`} aria-label={`View details for ${title}`}>
-                <span>View Details</span><ChevronsRight />
-              </Link>
-            </article>
+            <ServiceRowCard
+              key={slug}
+              title={title}
+              description={serviceDescriptions[slug] ?? "Reliable automotive solutions delivered by skilled technicians."}
+              image={image}
+              index={i}
+              slug={slug}
+            />
           ))}
         </div>
       </div>

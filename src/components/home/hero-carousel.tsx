@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, MapPin, Phone } from "lucide-react";
+import { ChevronLeft, ChevronRight, Phone } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ThemeButton } from "@/components/common/button";
+import { ASSET_PREFIX, PHONE } from "@/constants";
 
-const A = "/assets/images";
 const slides = ["slider-1-2.jpg", "slider-1-3.jpg"];
 
 export function HeroCarousel() {
@@ -37,7 +37,7 @@ export function HeroCarousel() {
         {slides.map((image, index) => (
           <Image
             className={index === active ? "is-active" : ""}
-            src={`${A}/backgrounds/${image}`}
+            src={`${ASSET_PREFIX}/backgrounds/${image}`}
             alt=""
             fill
             priority={index === 0}
@@ -49,8 +49,8 @@ export function HeroCarousel() {
       </div>
       <div className="hero__overlay" />
       <div className="hero__ghost" />
-      <Image className="hero__shape hero__shape--one" src={`${A}/shapes/main-slider-shape-1.png`} alt="" width={1000} height={600}/>
-      <Image className="hero__shape hero__shape--two" src={`${A}/shapes/main-slider-shape-2.png`} alt="" width={730} height={500}/>
+      <Image className="hero__shape hero__shape--one" src={`${ASSET_PREFIX}/shapes/main-slider-shape-1.png`} alt="" width={1000} height={600}/>
+      <Image className="hero__shape hero__shape--two" src={`${ASSET_PREFIX}/shapes/main-slider-shape-2.png`} alt="" width={730} height={500}/>
       <div className="container hero__inner">
         <div className="hero__content" key={`content-${active}`}>
           <p className="hero__eyebrow">MOBILE MECHANIC HOBART</p>
@@ -58,16 +58,16 @@ export function HeroCarousel() {
           <p className="hero__copy">APV Mobile Mechanics brings the workshop to you. At home in Sandy Bay, at work in Glenorchy or stuck roadside near Kingston — we come to you anywhere in Hobart.</p>
           <div className="hero__actions">
             <ThemeButton href="/about">Read More</ThemeButton>
-            <a className="hero__phone" href="tel:0424411375"><i><Phone size={20} /></i><span>Call Anytime<b>0424 411 375</b></span></a>
+            <a className="hero__phone" href={`tel:${PHONE.replace(/\s+/g, "")}`}><i><Phone size={20} /></i><span>Call Anytime<b>{PHONE}</b></span></a>
           </div>
         </div>
         <div className="hero__visual" key={`visual-${active}`}>
           <div className="customer-badge">
             <strong>24k</strong>
-            <div className="avatars">{[1,2,3].map(n=><Image key={n} src={`${A}/resources/main-slider-satisfied-customer-1-${n}.jpg`} alt="" width={50} height={50}/>)}</div>
+            <div className="avatars">{[1,2,3].map(n=><Image key={n} src={`${ASSET_PREFIX}/resources/main-slider-satisfied-customer-1-${n}.jpg`} alt="" width={50} height={50}/>)}</div>
             <span>Satisfied Customers</span>
           </div>
-          <Image className="hero__person" src={`${A}/resources/main-slider-1-1.png`} alt="Automotive service specialist" width={600} height={600} priority />
+          <Image className="hero__person" src={`${ASSET_PREFIX}/resources/main-slider-1-1.png`} alt="Automotive service specialist" width={600} height={600} priority />
         </div>
       </div>
       <div className="hero__arrows">

@@ -3,36 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail } from "lucide-react";
+import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/icons";
 import { PremiumFooterCta } from "@/components/motion/premium-media-sections";
-
-const A = "/assets/images";
-
-/* Minimal social SVGs with authentic brand styling */
-function FacebookIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-    </svg>
-  );
-}
-
-function InstagramIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18" aria-hidden="true">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-    </svg>
-  );
-}
-
-function WhatsAppIcon() {
-  return (
-    <svg viewBox="0 0 32 32" fill="currentColor" width="20" height="20" aria-hidden="true">
-      <path d="M16 2a13 13 0 0 0-11 20L3 29l7.2-1.9A13 13 0 1 0 16 2zm0 23.8a10.8 10.8 0 0 1-5.5-1.5l-.4-.2-4.3 1.1 1.1-4.2-.3-.4A10.8 10.8 0 1 1 16 25.8zm5.9-8.1c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.2-.6 0a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5a.4.4 0 0 0 0-.4c0-.2-.7-1.7-.9-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4A3.7 3.7 0 0 0 9 12.3a6.4 6.4 0 0 0 1.3 3.4 14.6 14.6 0 0 0 5.6 4.9c2.3 1 2.8.8 3.3.7a2.8 2.8 0 0 0 1.9-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3z" />
-    </svg>
-  );
-}
+import { ASSET_PREFIX, EMAIL, GOOGLE_MAPS_URL, WHATSAPP_URL } from "@/constants";
 
 export function SiteFooter() {
   return (
@@ -48,7 +21,7 @@ export function SiteFooter() {
           <div className="footer-col footer-col--brand">
             <Link className="footer-logo-lockup" href="/" aria-label="APV Mobile Mechanics home">
               <Image
-                src={`${A}/resources/apv-bear-logo-black.png`}
+                src={`${ASSET_PREFIX}/resources/apv-bear-logo-black.png`}
                 alt="APV Mobile Mechanics Logo"
                 width={175}
                 height={175}
@@ -79,7 +52,7 @@ export function SiteFooter() {
               <a href="https://www.instagram.com/apvmechanics/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-icon social-icon--ig">
                 <InstagramIcon />
               </a>
-              <a href="https://wa.me/61424411375" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="social-icon social-icon--wa">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="social-icon social-icon--wa">
                 <WhatsAppIcon />
               </a>
             </div>
@@ -125,10 +98,10 @@ export function SiteFooter() {
               <div className="office-item">
                 <span className="office-label">APV Mobile Mechanics</span>
                 <p className="office-address">
-                  Email: <a href="mailto:apvmobilemechanics@gmail.com" style={{ color: "inherit" }}>apvmobilemechanics@gmail.com</a>
+                  Email: <a href={`mailto:${EMAIL}`} style={{ color: "inherit" }}>{EMAIL}</a>
                 </p>
                 <p className="office-address">
-                  <a href="https://www.google.com/maps/place/APV+mobile+Mechanics/@-42.7871385,147.2448997,17z/data=!3m1!4b1!4m6!3m5!1s0xaa6e0d2733b06751:0xe9d97dff7c553e69!8m2!3d-42.7871425!4d147.24748!16s%2Fg%2F11z96__8np!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-primary, #e31b23)" }}>View Google Maps Location</a>
+                  <a href={GOOGLE_MAPS_URL} target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-primary, #e31b23)" }}>View Google Maps Location</a>
                 </p>
               </div>
             </div>

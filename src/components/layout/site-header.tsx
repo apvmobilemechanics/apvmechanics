@@ -2,108 +2,30 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ChevronDown,
-  ChevronsRight,
-  Clock3,
-  Mail,
-  MapPin,
-  Menu,
-  Phone,
-  X,
-} from "lucide-react";
-import { useEffect, useState } from "react";
+import { ChevronDown, Phone } from "lucide-react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { MobileMenu } from "@/components/home/interactive";
-
-function InstagramIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18" aria-hidden="true">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-    </svg>
-  );
-}
-
-const A = "/assets/images";
-const navItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  {
-    label: "Services",
-    href: "/services",
-    items: [
-      ["Mobile Car Repair", "/mobile-car-repair"],
-      ["Engine Diagnostics", "/engine-diagnosis"],
-      ["Brake Repair", "/brake-repair"],
-      ["Battery Replacement", "/battery-solution"],
-      ["Oil Change", "/oil-change"],
-      ["Emergency Roadside Assistance", "/emergency-service"],
-      ["Vehicle Inspection", "/vehicle-inspection"],
-      ["Electrical Repairs", "/lights-accessories"],
-      ["All Services", "/services"],
-    ],
-  },
-  { label: "Contact Us", href: "/contact" },
-];
+import { NAV_ITEMS, PHONE } from "@/constants";
+import { useScrollHeader } from "@/hooks/use-scroll-header";
+import { Topbar } from "@/components/navigation/topbar";
+import { MobileMenu } from "@/components/navigation/mobile-menu";
+import { InfoDrawer } from "@/components/navigation/info-drawer";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [stuck, setStuck] = useState(false);
-
-  useEffect(() => {
-    document.body.style.overflow = drawerOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [drawerOpen]);
-
-  useEffect(() => {
-    const onScroll = () => setStuck(window.scrollY > 100);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const closeLayers = () => {
-    setDrawerOpen(false);
-  };
+  const stuck = useScrollHeader(100);
 
   return (
     <>
-      <div className="topbar">
-        <div className="topbar__inner">
-          <div className="topbar__item">
-            <Mail />
-            <span>
-              <b>Email Address:</b>
-              <small>apvmobilemechanics@gmail.com</small>
-            </span>
-          </div>
-          <div className="topbar__item">
-            <Clock3 />
-            <span>
-              <b>Opening Hours :</b>
-              <small>8:00 AM to 5:00 PM (Monday to Friday)</small>
-            </span>
-          </div>
-          <div className="topbar__actions">
-            <Link className="pill-button" href="/contact">
-              <span>Book Now</span>
-              <i><ChevronsRight /></i>
-            </Link>
-            <button type="button" aria-label="Open information panel" className="topbar__menu-btn" onClick={() => setDrawerOpen(true)}>
-              <Menu />
-            </button>
-          </div>
-        </div>
-      </div>
+      <Topbar onOpenDrawer={() => setDrawerOpen(true)} />
+
       <header className={`header ${stuck ? "header--stuck" : ""}`}>
         <div className="header__inner">
           <Link className="logo" href="/" aria-label="APV Mobile Mechanics home">
             <Image
               className="brand-logo-image"
-              src={`${A}/resources/apv-mobile-mechanics-logo.jpeg`}
+              src="/assets/images/resources/apv-mobile-mechanics-logo.jpeg"
               alt="APV Mobile Mechanics"
               width={88}
               height={88}
@@ -116,7 +38,7 @@ export function SiteHeader() {
             </span>
           </Link>
           <nav aria-label="Main navigation">
-            {navItems.map((item) => {
+            {NAV_ITEMS.map((item) => {
               const items = "items" in item ? item.items : undefined;
               const active = item.href ? pathname === item.href : false;
               return (
@@ -128,7 +50,9 @@ export function SiteHeader() {
                   {items && (
                     <ul className="nav-dropdown">
                       {items.map(([label, itemHref]) => (
-                        <li key={label}><Link href={itemHref}>{label}</Link></li>
+                        <li key={label}>
+                          <Link href={itemHref}>{label}</Link>
+                        </li>
                       ))}
                     </ul>
                   )}
@@ -137,30 +61,16 @@ export function SiteHeader() {
             })}
           </nav>
           <div className="header__tools">
-            <a className="header__call" href="tel:0424411375">
+            <a className="header__call" href={`tel:${PHONE.replace(/\s+/g, "")}`}>
               <i><Phone /></i>
-              <span><small>Call Any Time</small><b>0424 411 375</b></span>
+              <span><small>Call Any Time</small><b>{PHONE}</b></span>
             </a>
             <MobileMenu />
           </div>
         </div>
       </header>
 
-      <button className={`panel-overlay ${drawerOpen ? "open" : ""}`} type="button" onClick={closeLayers} aria-label="Close information panel" />
-      <aside className={`info-drawer ${drawerOpen ? "open" : ""}`} aria-hidden={!drawerOpen}>
-        <button type="button" className="info-drawer__close" onClick={closeLayers} aria-label="Close information panel"><X /></button>
-        <Image src={`${A}/resources/apv-mobile-mechanics-logo.jpeg`} alt="APV Mobile Mechanics" width={130} height={130} style={{ objectFit: "contain" }} unoptimized />
-        <p>Professional automotive repair, diagnostics and mobile support delivered with dependable workmanship.</p>
-        <h3>Contact Info</h3>
-        <a href="tel:0424411375"><Phone /><span>Call Any Time<b>0424 411 375</b></span></a>
-        <a href="mailto:apvmobilemechanics@gmail.com"><Mail /><span>Email Address<b>apvmobilemechanics@gmail.com</b></span></a>
-        <a href="https://www.google.com/maps/place/APV+mobile+Mechanics/@-42.7871385,147.2448997,17z/data=!3m1!4b1!4m6!3m5!1s0xaa6e0d2733b06751:0xe9d97dff7c553e69!8m2!3d-42.7871425!4d147.24748!16s%2Fg%2F11z96__8np!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"><MapPin /><span>Get Directions<b>1-3 Leighland Rd, Claremont TAS 7011</b></span></a>
-        <div className="info-drawer__socials">
-          <a href="https://www.facebook.com/" aria-label="Facebook"><b>f</b></a>
-          <a href="https://www.instagram.com/apvmechanics/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><InstagramIcon /></a>
-        </div>
-      </aside>
+      <InfoDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </>
   );
 }
-

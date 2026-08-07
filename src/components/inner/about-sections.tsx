@@ -1,17 +1,15 @@
 import Image from "next/image";
-import { ArrowRight, BatteryCharging, Car, Check, Disc3, Gauge, MapPin, Phone, ShieldCheck, Star, Wrench } from "lucide-react";
-import Link from "next/link";
-import { SectionHeading } from "@/components/common/section-heading";
+import { ArrowRight, Check, MapPin, Phone, Wrench } from "lucide-react";
 import { ThemeButton } from "@/components/common/button";
+import { SectionHeading } from "@/components/common/section-heading";
 import { HomeTeam } from "@/components/home/showcase-carousels";
-import { PremiumVideoGallery } from "@/components/motion/premium-media-sections";
+import { MarqueeTicker } from "@/components/sections/marquee-ticker";
+import { ProcessSection } from "@/components/sections/process-section";
+import { TestimonialCard } from "@/components/cards/testimonial-card";
+import { ASSET_PREFIX, PHONE } from "@/constants";
 
-const A = "/assets/images";
-
-export function InnerMarquee() {
-  const items = ["Auto Glow", "Full Car Analysis", "Engine Service", "Trusted Repairs", "Auto Glow", "Full Car Analysis"];
-  return <div className="marquee"><div>{items.map((item,index)=><span key={`${item}-${index}`}>{item}<Image src={`${A}/icon/icon-1.png`} alt="" width={36} height={40}/></span>)}</div></div>;
-}
+export { MarqueeTicker as InnerMarquee };
+export { ProcessSection };
 
 export function AboutCompanySection() {
   return (
@@ -21,7 +19,7 @@ export function AboutCompanySection() {
           <span className="about-clone-vertical">ABOUT<br/>COMPANY</span>
           <div className="about-clone-main">
             <Image
-              src={`${A}/generated/apv-about-workshop.webp`}
+              src={`${ASSET_PREFIX}/generated/apv-about-workshop.webp`}
               alt="APV mobile mechanic repairing a vehicle"
               fill
               sizes="(max-width: 768px) 80vw, 488px"
@@ -29,13 +27,16 @@ export function AboutCompanySection() {
           </div>
           <div className="about-clone-small">
             <Image
-              src={`${A}/generated/apv-about-mechanic.webp`}
+              src={`${ASSET_PREFIX}/generated/apv-about-mechanic.webp`}
               alt="Professional APV mobile mechanic"
               fill
               sizes="(max-width: 768px) 48vw, 250px"
             />
           </div>
-          <div className="about-clone-experience"><strong><span data-counter="10">10</span>+</strong><b>Years Experience</b></div>
+          <div className="about-clone-experience">
+            <strong><span data-counter="10">10</span>+</strong>
+            <b>Years Experience</b>
+          </div>
         </div>
         <div className="about-clone-content" data-reveal>
           <SectionHeading eyebrow="ABOUT APV MOBILE MECHANICS" title={<>Hobart's Trusted<br/>Mobile Car Repair</>}/>
@@ -50,56 +51,12 @@ export function AboutCompanySection() {
           </div>
           <div className="about__bottom">
             <ThemeButton href="/contact">Contact Us</ThemeButton>
-            <a className="about-clone-contact" href="tel:0424411375">
+            <a className="about-clone-contact" href={`tel:${PHONE.replace(/\s+/g, "")}`}>
               <div className="about-clone-contact__icon">
                 <Phone />
               </div>
-              <span><small>Call Any Time</small><b>0424 411 375</b></span>
+              <span><small>Call Any Time</small><b>{PHONE}</b></span>
             </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function ProcessSection() {
-  return (
-    <section className="process-reference">
-      <div className="container">
-        <SectionHeading eyebrow="WORK PROCESS" title={<>Step-by-Step Car <em>Repair Process</em></>} center />
-        <div className="process-grid">
-          <div className="process-step">
-            <strong>STEP - 01</strong>
-            <div className="process-step__copy">
-              <h3>Quick &amp; Trusted Repairs</h3>
-              <p>Fast and accurate diagnosis from the start — getting you back on the road with confidence.</p>
-            </div>
-            <i><Check /></i>
-          </div>
-          <div className="process-step process-step--reverse">
-            <i><Gauge /></i>
-            <strong>STEP - 02</strong>
-            <div className="process-step__copy">
-              <h3>Performance Perfected</h3>
-              <p>Every system tuned and tested to manufacturer specification for peak performance.</p>
-            </div>
-          </div>
-          <div className="process-step">
-            <strong>STEP - 03</strong>
-            <div className="process-step__copy">
-              <h3>Premium Care Experience</h3>
-              <p>Clear communication at every stage of the job and professional workmanship throughout.</p>
-            </div>
-            <i><Wrench /></i>
-          </div>
-          <div className="process-step process-step--reverse">
-            <i><Check /></i>
-            <strong>STEP - 04</strong>
-            <div className="process-step__copy">
-              <h3>Attention To Detail</h3>
-              <p>A thorough finish on every vehicle we touch, because the details matter.</p>
-            </div>
           </div>
         </div>
       </div>
@@ -149,6 +106,26 @@ export function LocationsSection() {
 }
 
 export function TestimonialsSection() {
-  const cards=[["Laura Brown","New York, USA",1],["William Foster","Chicago, USA",2]];
-  return <section className="section testimonials inner-testimonials"><div className="container"><SectionHeading eyebrow="OUR TESTIMONIALS" title={<>About Our Customers <em>Feedback Says</em></>} center/><div className="testimonial-grid">{cards.map(([name,place,n])=><article key={name as string}><div className="stars">{[1,2,3,4,5].map(x=><Star key={x} fill="currentColor"/>)}</div><p>“Excellent automotive care, clear communication and fast professional service. The whole team made the repair process simple.”</p><div><Image src={`${A}/testimonial/testimonial-1-${n}.jpg`} alt={name as string} width={70} height={70}/><span><b>{name}</b><small>{place}</small></span></div></article>)}</div></div></section>;
+  const cards = [
+    { name: "Laura Brown", place: "New York, USA", imageIndex: 1 },
+    { name: "William Foster", place: "Chicago, USA", imageIndex: 2 },
+  ];
+  return (
+    <section className="section testimonials inner-testimonials">
+      <div className="container">
+        <SectionHeading eyebrow="OUR TESTIMONIALS" title={<>About Our Customers <em>Feedback Says</em></>} center/>
+        <div className="testimonial-grid">
+          {cards.map(({ name, place, imageIndex }) => (
+            <TestimonialCard
+              key={name}
+              name={name}
+              place={place}
+              imageIndex={imageIndex}
+              text="“Excellent automotive care, clear communication and fast professional service. The whole team made the repair process simple.”"
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
