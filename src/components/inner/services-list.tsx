@@ -15,9 +15,9 @@ const serviceDescriptions: Record<string, string> = {
 
 export function ServicesListSection() {
   return (
-    <section className="section services inner-services">
+    <section className="section services inner-services services-reference">
       <div className="container">
-        <SectionHeading eyebrow="WHAT WE DO" title={<>Our Mobile Car Repair <em>Services In Hobart</em></>} center />
+        <SectionHeading eyebrow="WHAT WE DO" title={<>All Mobile Car Repair <em>Services</em></>} center />
         <div className="service-list">
           {services.map(({ title, slug, image }, i) => (
             <ServiceRowCard
