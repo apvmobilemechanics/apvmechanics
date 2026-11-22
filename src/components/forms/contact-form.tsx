@@ -80,8 +80,8 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
       <label>Service
         <select required name="service" defaultValue="" disabled={loading}>
           <option value="" disabled>Select Service</option>
-          <option>Mobile Call-Out ($70)</option>
-          <option>Initial Inspection ($70)</option>
+          <option>Mobile Call-Out</option>
+          <option>Initial Inspection</option>
           <option>Mobile Car Repair</option>
           <option>Engine Diagnosis</option>
           <option>Brake Repair</option>

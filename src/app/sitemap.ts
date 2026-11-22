@@ -1,9 +1,11 @@
 import type { MetadataRoute } from "next";
-import { services, posts } from "@/lib/site-data";
+import { services } from "@/lib/site-data";
+import { isSanityConfigured, sanityFetch, sanityTags } from "@/lib/sanity/client";
+import { categorySlugsQuery, sitemapPostsQuery } from "@/lib/sanity/queries";
 
 const BASE_URL = "https://apvmechanics.com.au";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static core pages
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -58,13 +60,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  // Dynamic blog post pages (served via /blog/[slug] route)
-  const blogRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
+  // Blog URLs come from Sanity: only published, past-dated, indexable posts.
+  const blogRoutes = await getBlogRoutes();
 
-  return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
+  // /blog is a 404 until Sanity is configured, so it must not be advertised before then.
+  const core = isSanityConfigured ? staticRoutes : staticRoutes.filter((r) => r.url !== `${BASE_URL}/blog`);
+
+  return [...core, ...serviceRoutes, ...blogRoutes];
+}
+
+async function getBlogRoutes(): Promise<MetadataRoute.Sitemap> {
+  if (!isSanityConfigured) return [];
+  try {
+    const [posts, categories] = await Promise.all([
+      sanityFetch<{ slug: string; lastModified: string }[]>({ query: sitemapPostsQuery, tags: [sanityTags.post] }),
+      sanityFetch<string[]>({ query: categorySlugsQuery, tags: [sanityTags.post] }),
+    ]);
+    return [
+      ...posts.map((post) => ({
+        url: `${BASE_URL}/blog/${post.slug}`,
+        lastModified: new Date(post.lastModified),
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+      })),
+      ...categories.map((slug) => ({
+        url: `${BASE_URL}/blog/category/${slug}`,
+        changeFrequency: "weekly" as const,
+        priority: 0.5,
+      })),
+    ];
+  } catch (error) {
+    // During `next build` a CMS outage degrades to the static sitemap. At runtime we
+    // rethrow so Next keeps serving the last good sitemap instead of caching a partial one.
+    if (process.env.NEXT_PHASE === "phase-production-build") {
+      console.error("[sitemap] Sanity unavailable at build time:", error);
+      return [];
+    }
+    throw error;
+  }
 }
